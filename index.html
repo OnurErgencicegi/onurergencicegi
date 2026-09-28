@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Portfolio</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<title>Onur Ergençiçeği</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚔️</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -41,7 +41,11 @@
     <h2 id="lbl-education"></h2>
     <div class="project-card">
       <b>Mersin University</b><span class="status-badge">2022 – 2026</span>
-      <p>B.Sc. Information Systems and Technologies — Graduate &nbsp;·&nbsp; <span id="lbl-gpa"></span>: 3.2 / 4.0</p>
+      <p>B.Sc. Information Systems and Technologies — Graduate &nbsp;·&nbsp; <span id="lbl-gpa"></span>: 75.63 / 100 &nbsp;(3.28 / 4.0)</p>
+      <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin-top:0.4rem;">
+        <button class="btn" id="btn-transcript-view" type="button" data-pdf="assets/documents/mersin_universitesi_transkript.pdf"></button>
+        <a class="btn dl" id="btn-transcript-dl" href="assets/documents/mersin_universitesi_transkript.pdf" download></a>
+      </div>
     </div>
     <div class="project-card"><b>Falez High School</b><span class="status-badge">2018 – 2022</span></div>
   </div>
@@ -65,12 +69,6 @@
 
     <div class="tab-panel" id="subpanel-thoughts">
       <h1 id="lbl-thoughts"></h1>
-      <p id="thoughts-caption" style="color:var(--muted)"></p>
-      <div class="journal-controls">
-        <select id="mood-filter"></select>
-        <input type="text" id="journal-search" placeholder="">
-        <span class="journal-count" id="journal-count"></span>
-      </div>
       <div id="journal-list"></div>
     </div>
 
@@ -89,7 +87,12 @@
     <hr>
     <h2 id="lbl-logbook"></h2>
     <p id="lbl-logbook-caption" style="color:var(--muted)"></p>
+    <div id="logbook-presentation"></div>
     <div id="logbook-list"></div>
+    <hr>
+    <h2 id="lbl-tourism"></h2>
+    <p id="lbl-tourism-caption" style="color:var(--muted)"></p>
+    <div id="tourism-list"></div>
   </div>
 
   <!-- PROJECTS -->

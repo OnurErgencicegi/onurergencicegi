@@ -216,23 +216,42 @@ details.exp .exp-body { padding-bottom: 0.9rem; white-space: pre-line; }
 .btn.dl { border-color: var(--blood); }
 
 /* ---- journal ---- */
+#journal-list { max-width: 46rem; }
 .journal-card {
     background: linear-gradient(180deg, #17130f, #100d0a);
     border-left: 3px solid var(--blood);
     border-radius: 2px;
-    padding: 1.1rem 1.4rem;
-    margin-bottom: 1rem;
+    padding: 1.3rem 1.7rem 1.2rem;
+    margin-bottom: 1.4rem;
     box-shadow: 0 4px 18px rgba(0,0,0,0.6);
-    white-space: pre-line;
 }
 .journal-meta {
     font-family: 'Cinzel', serif;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--muted2);
-    margin-bottom: 0.5rem;
+    color: var(--muted);
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--iron);
 }
+.journal-meta .j-dot { margin: 0 0.45rem; color: var(--muted2); }
+.journal-body { font-size: 1.18rem; line-height: 1.8; color: var(--bone); }
+.journal-body p { margin: 0 0 1.05em; }
+.journal-body p:last-child { margin-bottom: 0; }
+.journal-body .j-sep { border: 0; border-top: 1px solid var(--iron); margin: 1.4rem 0; }
+.journal-card.collapsed .journal-body { max-height: 11.5em; overflow: hidden; position: relative; }
+.journal-card.collapsed .journal-body::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4.5em;
+    background: linear-gradient(180deg, rgba(16,13,10,0), #100d0a);
+}
+.j-toggle {
+    margin-top: 0.8rem; background: none; border: 1px solid var(--iron); color: var(--bone);
+    font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 0.35rem 0.9rem; border-radius: 2px; cursor: pointer;
+}
+.j-toggle:hover { background: var(--blood); border-color: var(--blood); }
+@media (max-width: 600px) { .journal-card { padding: 1.1rem 1.1rem 1rem; } .journal-body { font-size: 1.1rem; } }
 .journal-controls { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1rem; align-items: center; }
 .journal-controls select, .journal-controls input {
     background: var(--ash);
@@ -330,3 +349,51 @@ details.exp .exp-body { padding-bottom: 0.9rem; white-space: pre-line; }
     background: var(--ash); border: 1px solid var(--iron); color: var(--bone);
     border-radius: 2px; padding: 0.3rem 0.7rem; cursor: pointer; font-family: 'Cinzel', serif;
 }
+
+/* Project tabs */
+.ptabs { display: flex; gap: 1.2rem; flex-wrap: wrap; border-bottom: 1px solid var(--iron); margin: 0.8rem 0 0.9rem; }
+.ptab {
+  background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px;
+  padding: 0.4rem 0.1rem; cursor: pointer; font: inherit; font-size: 0.92rem;
+  color: var(--muted); transition: color .15s, border-color .15s;
+}
+.ptab:hover { color: var(--bone); }
+.ptab.active { color: var(--bone); border-bottom-color: var(--blood); }
+.ptab-panel { display: none; white-space: pre-line; line-height: 1.6; }
+.ptab-panel.active { display: block; }
+
+/* Logbook day list */
+.log-days { list-style: none; margin: 0 0 1rem; padding: 0 0 0 0.9rem; border-left: 2px solid var(--iron); }
+.log-days li { margin: 0 0 0.8rem; line-height: 1.55; }
+.log-date { font-size: 0.8rem; color: var(--muted); margin-right: 0.4rem; }
+
+/* Project slide cover (right column) */
+.project-card.has-cover { display: grid; grid-template-columns: minmax(0, 1fr) 240px; column-gap: 1.6rem; align-items: start; }
+.project-card.has-cover .pc-main { min-width: 0; }
+.project-cover {
+  grid-column: 2; grid-row: 1; width: 100%; padding: 0; cursor: pointer;
+  background: var(--ash); border: 1px solid var(--iron); border-radius: 3px; overflow: hidden; line-height: 0;
+  transition: border-color .15s, transform .15s;
+}
+.project-cover img { width: 100%; height: auto; display: block; }
+.project-cover:hover { border-color: var(--blood-bright); transform: translateY(-1px); }
+@media (max-width: 760px) {
+  .project-card.has-cover { grid-template-columns: 1fr; }
+  .project-cover { grid-column: 1; grid-row: 1; max-width: 320px; margin-bottom: 0.9rem; }
+}
+
+/* Logbook presentation card */
+.log-pres { display: flex; gap: 1.2rem; align-items: flex-start; }
+.log-pres .project-cover { position: static; flex: 0 0 300px; width: 300px; }
+.log-pres-body { flex: 1; min-width: 0; }
+@media (max-width: 760px) {
+  .log-pres { flex-direction: column; }
+  .log-pres .project-cover { flex-basis: auto; width: 100%; max-width: 360px; }
+}
+
+/* Wide modal for PDF previews */
+.modal-box.wide { max-width: min(1400px, 96vw); height: 94vh; max-height: 94vh; display: flex; flex-direction: column; overflow: hidden; padding: 1.1rem 1.4rem 1.2rem; }
+.modal-box.wide #modal-content { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.modal-box.wide #modal-content h3 { margin: 0 3rem 0.8rem 0; }
+.modal-box.wide embed { flex: 1; width: 100%; height: auto; min-height: 0; }
+.modal-overlay:has(.modal-box.wide) { padding: 1.5vh 2vw; }

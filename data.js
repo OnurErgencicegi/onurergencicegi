@@ -145,64 +145,593 @@ const SITE_DATA = {
   "internship_weeks": [
     {
       "title": {
-        "en": "Week 1 — Orientation & environment setup",
-        "tr": "1. Hafta — Oryantasyon ve ortam kurulumu"
+        "tr": "Gün 1–5 — Onboarding & Tahsilat API",
+        "en": "Days 1–5 — Onboarding & the collections API"
       },
-      "period": "24 Jun – 28 Jun 2024",
+      "period": "24.07.2025 – 30.07.2025",
       "content": {
-        "en": "[Summarize your logbook entries for this week: onboarding, tools/accounts set up, first introduction to the ERP systems and the team.]",
-        "tr": "[Bu haftaki staj defteri notlarını özetle: işe giriş süreci, kurulan araçlar/hesaplar, ERP sistemleri ve ekiple ilk tanışma.]"
-      }
+        "tr": "İşletmenin sistemlerini tanıdım ve tahsilat banka hareketleri API'si üzerinde çalıştım: veri yapısını inceledim, tarih aralığına göre filtreleme kurdum ve 30 fatura sınırını döngüyle aşan, test edilmiş bir toplu çekim mekanizması geliştirdim.",
+        "en": "I got to know the company's systems and worked on the collections bank-transactions API: I studied its data structure, built date-range filtering, and developed a tested bulk retrieval loop that gets past the 30-invoice limit."
+      },
+      "days": [
+        {
+          "day": 1,
+          "date": "24.07.2025",
+          "title": {
+            "tr": "İşletmeye ve Sisteme Genel Bakış",
+            "en": "Overview of the company and its systems"
+          },
+          "text": {
+            "tr": "Staja başladığım ilk gün işletmede kullanılan sistemler tanıtıldı. INNOVA klasör yapısı üzerinden şirketin kullandığı yazılım altyapısı, API entegrasyonları ve mevcut proje dosyaları hakkında genel bilgi aldım. Çalışacağım geliştirme ortamı ve gerekli erişim izinleri tanımlandı.",
+            "en": "On my first day the company's systems were introduced. Through the INNOVA folder structure I learned about the software infrastructure, API integrations and existing project files. My development environment and access permissions were set up."
+          }
+        },
+        {
+          "day": 2,
+          "date": "25.07.2025",
+          "title": {
+            "tr": "Tahsilat Banka Hareketleri API'sinin İncelenmesi",
+            "en": "Exploring the collections bank-transactions API"
+          },
+          "text": {
+            "tr": "Tahsilat banka hareketlerinin API üzerinden nasıl çekildiğini inceledim. API'nin döndürdüğü veri yapısını, alanlarını ve kimlik doğrulama sürecini öğrendim. Örnek istekler göndererek dönen veriyi analiz ettim.",
+            "en": "I studied how collection bank transactions are pulled through the API: the response structure, its fields and the authentication flow. I sent sample requests and analyzed the returned data."
+          }
+        },
+        {
+          "day": 3,
+          "date": "28.07.2025",
+          "title": {
+            "tr": "Tarih Aralığına Göre Filtreleme",
+            "en": "Filtering by date range"
+          },
+          "text": {
+            "tr": "Belirli tarih aralıkları için tahsilat kayıtlarını filtreleyecek bir yapı üzerinde çalıştım. Kullanıcının seçtiği başlangıç ve bitiş tarihine göre API'ye istek gönderilmesini sağlayan mantığı kurdum ve test ettim.",
+            "en": "I worked on a structure that filters collection records for specific date ranges. I built and tested the logic that sends requests to the API based on the start and end dates the user selects."
+          }
+        },
+        {
+          "day": 4,
+          "date": "29.07.2025",
+          "title": {
+            "tr": "Döngü ile Toplu Fatura Çekimi",
+            "en": "Bulk invoice retrieval with a loop"
+          },
+          "text": {
+            "tr": "Tek istekte en fazla 30 faturanın döndüğünü tespit ettim. Bu sınırı aşmak için istekleri bir döngüye bağlayarak, seçilen tarih aralığındaki tüm faturaların otomatik olarak, zaman aşımına (timeout) düşmeden çekilmesini sağladım.",
+            "en": "I found that a single request returns at most 30 invoices. To get past that limit I chained the requests in a loop, so all invoices in the chosen date range are fetched automatically without timing out."
+          }
+        },
+        {
+          "day": 5,
+          "date": "30.07.2025",
+          "title": {
+            "tr": "Tahsilat Modülünün Test Edilmesi",
+            "en": "Testing the collections module"
+          },
+          "text": {
+            "tr": "Geliştirdiğim döngü tabanlı fatura çekme mekanizmasını farklı tarih aralıklarıyla test ettim. Karşılaştığım hataları giderdim ve modülün kararlı şekilde çalıştığından emin oldum.",
+            "en": "I tested the loop-based invoice retrieval with different date ranges, fixed the bugs I ran into and made sure the module works reliably."
+          }
+        }
+      ]
     },
     {
       "title": {
-        "en": "Week 2 — Understanding the ERP integration layer",
-        "tr": "2. Hafta — ERP entegrasyon katmanını öğrenme"
+        "tr": "Gün 6–10 — E-Fatura XML okuyucu (Python)",
+        "en": "Days 6–10 — E-invoice XML reader (Python)"
       },
-      "period": "1 Jul – 5 Jul 2024",
+      "period": "31.07.2025 – 06.08.2025",
       "content": {
-        "en": "[What you studied about the existing ERP integration components, the codebase, and the problem the company was facing with the licensed remote-desktop tool.]",
-        "tr": "[Mevcut ERP entegrasyon bileşenleri, kod tabanı ve şirketin lisanslı uzak masaüstü aracıyla yaşadığı problemle ilgili öğrendiklerin.]"
-      }
+        "tr": "E-fatura XML yapısını inceleyip Python ile bir XML okuyucu geliştirdim; fatura, kalem, özet ve taraf bilgilerini ayrıştırıp düzenli bir Excel raporuna aktaran ikinci projemi tamamladım.",
+        "en": "I studied the e-invoice XML structure and built a Python XML reader that parses invoice, line, summary and party data and exports it to a clean Excel report. This was my second project."
+      },
+      "days": [
+        {
+          "day": 6,
+          "date": "31.07.2025",
+          "title": {
+            "tr": "E-Fatura XML Yapısının İncelenmesi",
+            "en": "Studying the e-invoice XML structure"
+          },
+          "text": {
+            "tr": "E-fatura XML dosyalarının yapısını detaylı şekilde inceledim. Fatura kimliği, fatura no, fatura UUID, zarf UUID, UBL versiyonu gibi alanların XML içerisinde nerede yer aldığını tespit ettim.",
+            "en": "I examined the structure of e-invoice XML files in detail and located fields such as invoice ID, invoice number, invoice UUID, envelope UUID and UBL version."
+          }
+        },
+        {
+          "day": 7,
+          "date": "01.08.2025",
+          "title": {
+            "tr": "Python ile XML Okuyucu Geliştirmeye Başlama",
+            "en": "Starting a Python XML reader"
+          },
+          "text": {
+            "tr": "Python dilinde bir XML okuyucu geliştirmeye başladım. Girdi olarak XML dosyasını alan, bu dosyayı ayrıştıran (parse eden) temel kod yapısını oluşturdum.",
+            "en": "I started building an XML reader in Python and wrote the basic code structure that takes an XML file as input and parses it."
+          }
+        },
+        {
+          "day": 8,
+          "date": "04.08.2025",
+          "title": {
+            "tr": "Fatura Bilgilerinin Ayrıştırılması",
+            "en": "Parsing invoice information"
+          },
+          "text": {
+            "tr": "XML okuyucu üzerinde fatura no, fatura UUID, profil tipi, para birimi, kalem sayısı, düzenleme tarihi ve saati gibi alanların ayrıştırılmasını sağlayan kod bloklarını yazdım.",
+            "en": "I wrote the code blocks that parse fields such as invoice number, UUID, profile type, currency, line count, issue date and time."
+          }
+        },
+        {
+          "day": 9,
+          "date": "05.08.2025",
+          "title": {
+            "tr": "Kalem, Özet ve Taraf Bilgilerinin Çıkarılması",
+            "en": "Extracting line items, summaries and party details"
+          },
+          "text": {
+            "tr": "Fatura kalemleri, fatura özeti, mali özet, alıcı-satıcı taraf bilgileri, zarf ve imza bilgilerinin XML'den okunarak yapılandırılmış şekilde çıkarılmasını sağladım.",
+            "en": "I made the reader extract invoice lines, invoice and financial summaries, buyer and seller details, and envelope and signature information from the XML in a structured way."
+          }
+        },
+        {
+          "day": 10,
+          "date": "06.08.2025",
+          "title": {
+            "tr": "XML Verisinin Excel'e Aktarılması",
+            "en": "Exporting XML data to Excel"
+          },
+          "text": {
+            "tr": "XML okuyucudan elde edilen fatura detay verilerini Excel dosyasına aktaran modülü tamamladım. Böylece e-fatura detay raporu, girdi olarak XML alıp çıktı olarak düzenli bir Excel raporu üreten ikinci projemi bitirmiş oldum.",
+            "en": "I completed the module that writes the invoice detail data into an Excel file. This finished my second project: an e-invoice detail report that takes XML as input and produces a clean Excel report."
+          }
+        }
+      ]
     },
     {
       "title": {
-        "en": "Week 3–4 — Building iDesk (RustDesk rebrand)",
-        "tr": "3-4. Hafta — iDesk'i inşa etmek (RustDesk rebrand)"
+        "tr": "Gün 11–15 — Bulut tahsilat, Netsis entegrasyonu & Arsa Ziyaret uygulaması",
+        "en": "Days 11–15 — Cloud collections, Netsis integration & Plot Visit app"
       },
-      "period": "8 Jul – 19 Jul 2024",
+      "period": "07.08.2025 – 13.08.2025",
       "content": {
-        "en": "[The decision to rebrand RustDesk, setting up the custom auth server, key technical challenges you solved, and how you tested it internally.]",
-        "tr": "[RustDesk'i yeniden markalama kararı, özel auth sunucusunun kurulumu, çözdüğün temel teknik zorluklar ve şirket içinde nasıl test ettiğin.]"
-      }
+        "tr": "Bulut tahsilat arayüzündeki seçim özelliklerini geliştirdim, seçili faturaları Netsis API'sine aktaran işlevi yazdım ve üçüncü projem olan Arsa Ziyaret Uygulaması için analizden kişi/proje/ziyaret modüllerine kadar çalıştım.",
+        "en": "I improved the selection features of the cloud collections interface, wrote the function that pushes selected invoices to the Netsis API, and worked on my third project, the Plot Visit app, from needs analysis through the person/project/visit modules."
+      },
+      "days": [
+        {
+          "day": 11,
+          "date": "07.08.2025",
+          "title": {
+            "tr": "Bulut Tahsilat Uygulaması Arayüzü",
+            "en": "Cloud collections app interface"
+          },
+          "text": {
+            "tr": "Bulut tahsilat uygulamasının arayüzü üzerinde çalıştım. Belirli aralıklarla çekilen faturaların yanında bulunan checkbox yapısını, tümünü seçme ve seçili olanları iptal etme özelliklerini inceledim ve geliştirdim.",
+            "en": "I worked on the interface of the cloud collections app, reviewing and improving the checkboxes next to periodically fetched invoices, including select-all and cancel-selected."
+          }
+        },
+        {
+          "day": 12,
+          "date": "08.08.2025",
+          "title": {
+            "tr": "Netsis API'ye Veri Aktarımı",
+            "en": "Pushing data to the Netsis API"
+          },
+          "text": {
+            "tr": "Seçilen faturaların Netsis veri tipine dönüştürülüp Netsis API'sine push edilmesini sağlayan işlevi geliştirdim. Buton tetiklemesiyle çalışan bu süreci test ettim.",
+            "en": "I built the function that converts selected invoices into Netsis data types and pushes them to the Netsis API. The process is triggered by a button, and I tested it."
+          }
+        },
+        {
+          "day": 13,
+          "date": "11.08.2025",
+          "title": {
+            "tr": "Arsa Ziyaret Uygulaması İhtiyaç Analizi",
+            "en": "Needs analysis for the Plot Visit app"
+          },
+          "text": {
+            "tr": "Üçüncü projem olan Arsa Ziyaret Uygulaması için ihtiyaç analizi yaptım. Uygulamanın amacının seracıların müşteri arsalarını ziyaret etmesi olduğunu belirledim; müşteri tarafı ile kullanıcı tarafının ayrı yapılar olarak tasarlanmasına karar verildi.",
+            "en": "I did the needs analysis for my third project, the Plot Visit app. Its purpose is for greenhouse builders to visit customers' plots, and we decided to design the customer side and the user side as separate structures."
+          }
+        },
+        {
+          "day": 14,
+          "date": "12.08.2025",
+          "title": {
+            "tr": "Harita Konumu ve Arsa Bilgileri Modülü",
+            "en": "Map location and plot information module"
+          },
+          "text": {
+            "tr": "Müşteri tarafından gelen harita konum pini, kullanıcı bilgileri, arsa büyüklüğü ve arsa sahibinin iletişim bilgilerinin sisteme işlenmesini sağlayan modül üzerinde çalıştım.",
+            "en": "I worked on the module that records the map location pin from the customer, user details, plot size and the plot owner's contact information."
+          }
+        },
+        {
+          "day": 15,
+          "date": "13.08.2025",
+          "title": {
+            "tr": "Kişi, Proje ve Ziyaret Modüllerinin Tamamlanması",
+            "en": "Completing the person, project and visit modules"
+          },
+          "text": {
+            "tr": "Uygulamaya kişi ekleme, proje ekleme ve ziyaret ekleme/çıkarma özelliklerini ekledim. Kişi bilgilerine (isim, soyisim, telefon) ulaşılabilen ve ziyaretler sırasında kullanılacak checklist yapısını tamamladım.",
+            "en": "I added adding people, adding projects, and adding/removing visits. I also finished the checklist used during visits, with access to people's details (name, surname, phone)."
+          }
+        }
+      ]
     },
     {
       "title": {
-        "en": "Week 5–6 — Rollout & polishing",
-        "tr": "5-6. Hafta — Yaygınlaştırma ve cilalama"
+        "tr": "Gün 16–20 — iDesk: araştırma ve RustDesk sunucusu",
+        "en": "Days 16–20 — iDesk: research & RustDesk server"
       },
-      "period": "22 Jul – 2 Aug 2024",
+      "period": "14.08.2025 – 20.08.2025",
       "content": {
-        "en": "[Deploying iDesk company-wide, user/license management, feedback from colleagues, and the fixes that followed.]",
-        "tr": "[iDesk'i şirket genelinde devreye alma, kullanıcı/lisans yönetimi, çalışma arkadaşlarından gelen geri bildirimler ve sonrasında yaptığın düzeltmeler.]"
-      }
+        "tr": "Şirketin yıllık ücret ödediği uzak masaüstü aracına alternatif arayışıyla iDesk başladı. Açık kaynak RustDesk'i buldum, mimarisini öğrendim, kendi sunucumuza kurdum ve test edip işverenimden devam onayı aldım.",
+        "en": "iDesk began as a search for an alternative to the remote desktop tool the company paid for every year. I found open-source RustDesk, learned its architecture, set it up on our own server, tested it and got my employer's approval to continue."
+      },
+      "days": [
+        {
+          "day": 16,
+          "date": "14.08.2025",
+          "title": {
+            "tr": "iDesk Projesinin Ortaya Çıkışı",
+            "en": "How the iDesk project began"
+          },
+          "text": {
+            "tr": "İşverenimin, şirketin yıllık yaklaşık 12-15 bin TL ödediği uzak masaüstü uygulamasına alternatif, kendi altyapımızda çalışan bir çözüm geliştirme talebiyle iDesk projesi başladı. Konunun kapsamlı bir mühendislik gerektirdiğini görerek araştırmaya başladım.",
+            "en": "The iDesk project started from my employer's request for an in-house alternative to the remote desktop app the company paid roughly 12–15 thousand TL a year for. I saw that it required serious engineering and started researching."
+          }
+        },
+        {
+          "day": 17,
+          "date": "15.08.2025",
+          "title": {
+            "tr": "Açık Kaynak Alternatiflerin Araştırılması",
+            "en": "Researching open-source alternatives"
+          },
+          "text": {
+            "tr": "Uzak masaüstü bağlantısı için açık kaynaklı çözümleri araştırdım. Araştırmalarım sonucunda RustDesk aracını buldum ve bu aracın kendi sunucumuzda barındırılabilir olduğunu tespit ettim.",
+            "en": "I researched open-source options for remote desktop connections, found RustDesk, and confirmed that it can be hosted on our own server."
+          }
+        },
+        {
+          "day": 18,
+          "date": "18.08.2025",
+          "title": {
+            "tr": "RustDesk Mimarisinin Öğrenilmesi",
+            "en": "Learning the RustDesk architecture"
+          },
+          "text": {
+            "tr": "RustDesk'i ayağa kaldırmak için gereken bileşenleri (HBBS, HBBR) ve sunucu portları üzerinden servis sunma mantığını öğrendim. Kurulum adımlarını dokümante ettim.",
+            "en": "I learned the components needed to run RustDesk (HBBS, HBBR) and how it serves connections over server ports, and documented the setup steps."
+          }
+        },
+        {
+          "day": 19,
+          "date": "19.08.2025",
+          "title": {
+            "tr": "RustDesk Sunucusunun Kurulumu",
+            "en": "Setting up the RustDesk server"
+          },
+          "text": {
+            "tr": "Elimdeki Droplet üzerinde RustDesk sunucusunu ayağa kaldırdım. HBBS ve HBBR servislerini yapılandırıp gerekli portları açarak sunucuyu hizmete sundum.",
+            "en": "I brought the RustDesk server up on my Droplet, configured the HBBS and HBBR services and opened the required ports to put the server into service."
+          }
+        },
+        {
+          "day": 20,
+          "date": "20.08.2025",
+          "title": {
+            "tr": "Sunucunun Test Edilmesi ve Onay Alınması",
+            "en": "Testing the server and getting approval"
+          },
+          "text": {
+            "tr": "Kurduğum RustDesk sunucusunu farklı istemcilerle test ettim. Ardından çalışmayı işverenime sundum; olumlu geri bildirim üzerine projeye devam etme kararı alındı.",
+            "en": "I tested the RustDesk server with different clients and presented the work to my employer. Following positive feedback, we decided to continue the project."
+          }
+        }
+      ]
     },
     {
       "title": {
-        "en": "Week 7–8 — Wrap-up & handover",
-        "tr": "7-8. Hafta — Kapanış ve teslim"
+        "tr": "Gün 21–24 — iDesk istemci özelleştirme & giriş altyapısı",
+        "en": "Days 21–24 — iDesk client customization & login backend"
       },
-      "period": "5 Aug – 19 Aug 2024",
+      "period": "21.08.2025 – 26.08.2025",
       "content": {
-        "en": "[Final documentation, presenting the results to the team, and what the internship taught you about shipping something a company actually depends on.]",
-        "tr": "[Son dokümantasyon, sonuçları ekibe sunma ve stajın sana bir şirketin gerçekten bağımlı olduğu bir şeyi teslim etmek konusunda öğrettikleri.]"
-      }
+        "tr": "RustDesk istemcisini markamıza özgü hale getirdim: kişisel/kurumsal giriş, kaydol ve şifre sıfırlama ekranlarını tasarladım ve bunların arkasındaki kullanıcı altyapısını sunucuda SQL veritabanı üzerinde kurdum.",
+        "en": "I made the RustDesk client our own: I designed the personal/corporate login, sign-up and password reset screens and built the user backend behind them on the server with an SQL database."
+      },
+      "days": [
+        {
+          "day": 21,
+          "date": "21.08.2025",
+          "title": {
+            "tr": "Client Arayüzü Özelleştirme Planlaması",
+            "en": "Planning the client interface customization"
+          },
+          "text": {
+            "tr": "RustDesk istemcisinin (client) görünüşünü değiştirme çalışmalarını planladım. Kişisel giriş, kurumsal giriş, kaydol ve şifremi unuttum gibi ekranların eklenmesine karar verildi.",
+            "en": "I planned how to change the look of the RustDesk client. We decided to add screens such as personal login, corporate login, sign-up and forgot password."
+          }
+        },
+        {
+          "day": 22,
+          "date": "22.08.2025",
+          "title": {
+            "tr": "Giriş Ekranlarının Tasarımı",
+            "en": "Designing the login screens"
+          },
+          "text": {
+            "tr": "Kişisel ve kurumsal giriş ekranlarının arayüz tasarımını yaptım. Varsayılan RustDesk panelinden farklı, markamıza özgü bir görünüm oluşturmaya çalıştım.",
+            "en": "I designed the interface of the personal and corporate login screens, aiming for a look specific to our brand rather than the default RustDesk panel."
+          }
+        },
+        {
+          "day": 23,
+          "date": "25.08.2025",
+          "title": {
+            "tr": "Kaydol ve Şifre Sıfırlama Ekranları",
+            "en": "Sign-up and password reset screens"
+          },
+          "text": {
+            "tr": "Kaydol, şifremi unuttum ve web sitesine yönlendirme özelliklerini istemci arayüzüne ekledim. Amacımız uygulamanın varsayılan ve ücretsiz RustDesk deneyiminden ayrışmasıydı.",
+            "en": "I added sign-up, forgot password and redirect-to-website features to the client. The aim was to set the app apart from the default, free RustDesk experience."
+          }
+        },
+        {
+          "day": 24,
+          "date": "26.08.2025",
+          "title": {
+            "tr": "Giriş/Kaydol Altyapısının Sunucuda Kurulması",
+            "en": "Setting up the login/sign-up backend on the server"
+          },
+          "text": {
+            "tr": "Giriş yap ve kaydol işlemlerinin arka planını sunucu tarafında SQL veritabanı üzerinde kurdum. Kullanıcı kayıtlarının güvenli şekilde tutulmasını sağladım.",
+            "en": "I built the backend for login and sign-up on the server side using an SQL database, making sure user records are stored securely."
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "tr": "Gün 25–32 — iDesk web sitesi, üyelik ve kota sistemi",
+        "en": "Days 25–32 — iDesk website, membership & quota system"
+      },
+      "period": "27.08.2025 – 05.09.2025",
+      "content": {
+        "tr": "Ekiple birlikte iDesk web sitesini geliştirdim; Free/Pro tier sistemini, kurumsal üyelik mantığını ve kota kurallarını kodladım, parola/bağlantı onay mekanizmalarını yazdım, ödeme entegrasyonuna destek verdim ve site görsellerini yapay zekayla ürettim.",
+        "en": "With the team I built the iDesk website; I coded the Free/Pro tier system, corporate membership logic and quota rules, wrote the password and connection-approval mechanisms, supported the payment integration and generated the site visuals with AI."
+      },
+      "days": [
+        {
+          "day": 25,
+          "date": "27.08.2025",
+          "title": {
+            "tr": "Web Sitesi Geliştirmeye Başlama",
+            "en": "Starting the website"
+          },
+          "text": {
+            "tr": "Ekip arkadaşlarımla birlikte iDesk için bir web sitesi geliştirmeye başladık. Sitenin temel sayfa yapısı ve içerik planlaması üzerinde çalıştım.",
+            "en": "Together with my teammates I started developing a website for iDesk. I worked on the basic page structure and content planning."
+          }
+        },
+        {
+          "day": 26,
+          "date": "28.08.2025",
+          "title": {
+            "tr": "Web Sitesi Geliştirmeye Devam",
+            "en": "Continuing the website"
+          },
+          "text": {
+            "tr": "Web sitesi geliştirme çalışmalarına devam ettim. Sayfa tasarımları ve içerikleri üzerinde ekip arkadaşlarımla birlikte revizyonlar yaptık.",
+            "en": "I continued the website work. With my teammates I revised the page designs and content."
+          }
+        },
+        {
+          "day": 27,
+          "date": "29.08.2025",
+          "title": {
+            "tr": "Tierlendirme Sisteminin Tasarlanması",
+            "en": "Designing the tier system"
+          },
+          "text": {
+            "tr": "Ücretli (Pro) ve ücretsiz kullanıcı ayrımını yapan tierlendirme sistemi üzerinde çalıştım. İki kullanıcı tipi arasındaki farkları belirleyerek sistem mantığını kurguladım.",
+            "en": "I worked on the tier system that separates paid (Pro) and free users, defining the differences between the two user types and shaping the system logic."
+          }
+        },
+        {
+          "day": 28,
+          "date": "01.09.2025",
+          "title": {
+            "tr": "Kurumsal Üyelik Sistemi",
+            "en": "Corporate membership system"
+          },
+          "text": {
+            "tr": "Kurumsal üyelik sistemi geliştirdim. Kurumsal kaydolan kişilerin şirket sahibi statüsü kazanarak birden fazla Pro üyeliği satın alabilmesini ve kurum koduyla ekip üyelerine Pro üyelik tanımlayabilmesini sağlayan mantığı kurdum.",
+            "en": "I built the corporate membership system: people who sign up as corporate become company owners, can buy multiple Pro memberships, and can assign Pro memberships to team members with a company code."
+          }
+        },
+        {
+          "day": 29,
+          "date": "02.09.2025",
+          "title": {
+            "tr": "Kota ve Kullanım Limitlerinin Kodlanması",
+            "en": "Coding quotas and usage limits"
+          },
+          "text": {
+            "tr": "Ücretsiz kullanıcılar için 15 dakikalık oturum süresi, tek cihaza eş zamanlı bağlantı ve aylık 4 saatlik kullanım kotası sınırlarını; Pro kullanıcılar için ise bu sınırların kaldırılmasını sağlayan kuralları kodladım.",
+            "en": "I coded the rules for free users (15-minute sessions, one simultaneous device connection, 4 hours of usage per month) and the removal of those limits for Pro users."
+          }
+        },
+        {
+          "day": 30,
+          "date": "03.09.2025",
+          "title": {
+            "tr": "Parola Yönetimi ve Bağlantı Onay Mekanizması",
+            "en": "Password management and connection approval"
+          },
+          "text": {
+            "tr": "Bağlanılacak bilgisayarlar için kalıcı parola oluşturma, geçici parola izni verme ve bağlantı isteklerini anlık onaylama gibi bağlantı onay mekanizmalarını geliştirdim.",
+            "en": "I developed connection approval mechanisms: setting a permanent password for computers to be connected to, granting a temporary password, and approving connection requests instantly."
+          }
+        },
+        {
+          "day": 31,
+          "date": "04.09.2025",
+          "title": {
+            "tr": "Ödeme Sistemi Entegrasyonuna Destek",
+            "en": "Supporting the payment integration"
+          },
+          "text": {
+            "tr": "Web sitesine entegre edilecek ödeme sistemi çalışmalarına destek verdim. Ödeme akışının site içerisindeki kullanıcı üyelik süreciyle uyumlu çalışmasını kontrol ettim.",
+            "en": "I supported the work on the payment system to be integrated into the website and checked that the payment flow works with the user membership process on the site."
+          }
+        },
+        {
+          "day": 32,
+          "date": "05.09.2025",
+          "title": {
+            "tr": "Yapay Zeka ile Görsel Üretimi",
+            "en": "AI-generated visuals"
+          },
+          "text": {
+            "tr": "Web sitesi için Gemini Pro kullanarak çeşitli görseller oluşturdum ve bu görselleri sitenin ilgili bölümlerine yerleştirdim.",
+            "en": "I created various visuals for the website using Gemini Pro and placed them in the relevant sections of the site."
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "tr": "Gün 33–35 — Saha ziyaretleri & satış sürecine giriş",
+        "en": "Days 33–35 — Field visits & joining the sales process"
+      },
+      "period": "08.09.2025 – 10.09.2025",
+      "content": {
+        "tr": "İşverenimle sahadaki işletmeleri ziyaret edip etiketleme sistemini ve müşteri ihtiyaç analizini gözlemledim; satışların nasıl şekillendiğini görüp satış faaliyetlerine katılmaya karar verdim ve CRM ile mail hesaplarımı kurdum.",
+        "en": "I visited businesses in the field with my employer, observing a labeling system and customer needs analysis. Seeing how sales take shape, I decided to join the sales work and set up my CRM and email accounts."
+      },
+      "days": [
+        {
+          "day": 33,
+          "date": "08.09.2025",
+          "title": {
+            "tr": "Saha Ziyareti: Etiketleme Sisteminin İncelenmesi",
+            "en": "Field visit: examining a labeling system"
+          },
+          "text": {
+            "tr": "İşverenimle birlikte, QR kod okutucu ile süreç takibi yapan etiketleme teknolojisinin kurulu olduğu bir işletmeyi ziyaret ettim. Sistemin sahada nasıl işlediğini yerinde gözlemledim.",
+            "en": "With my employer I visited a business that uses labeling technology with QR code scanners for process tracking, and observed on site how the system works."
+          }
+        },
+        {
+          "day": 34,
+          "date": "09.09.2025",
+          "title": {
+            "tr": "Saha Ziyaretlerinde İhtiyaç Analizi",
+            "en": "Needs analysis on field visits"
+          },
+          "text": {
+            "tr": "Ziyaret ettiğimiz işletmelerde müşterilerin yazılım ihtiyaç ve isteklerine göre yapılan değişikliklere eşlik ettim. Satışların nasıl şekillendiğini ve iş süreçlerinin nasıl yürütüldüğünü gözlemledim.",
+            "en": "At the businesses we visited, I accompanied changes made according to customers' software needs and requests, and observed how sales take shape and how business processes run."
+          }
+        },
+        {
+          "day": 35,
+          "date": "10.09.2025",
+          "title": {
+            "tr": "Satış Sürecine Dahil Olma ve CRM Hesabı",
+            "en": "Joining the sales process and CRM account"
+          },
+          "text": {
+            "tr": "İşverenimle ortak kararla satış faaliyetlerine katılmaya karar verdim. Bana tanımlanan CRM hesabı üzerinden çalışmaya başladım ve Outlook SMTP hesabımı kullanıma aldım.",
+            "en": "By joint decision with my employer, I decided to take part in sales activities. I started working from the CRM account assigned to me and set up my Outlook SMTP account."
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "tr": "Gün 36–40 — Satış çalışması: araştırma, arama ve toplu mail",
+        "en": "Days 36–40 — Sales work: research, calls & bulk email"
+      },
+      "period": "11.09.2025 – 17.09.2025",
+      "content": {
+        "tr": "Antalya'daki plastik ve beton firmalarını araştırıp hedef listesi çıkardım, tanıtım sunumu ve HTML mail şablonu hazırladım, firmaları telefonla arayıp Logo Netsis kullanımını sordum, sonuçları CRM'e işledim ve tanıtım mailini gönderdim.",
+        "en": "I researched plastics and concrete companies in Antalya and built a target list, prepared an introduction presentation and an HTML email template, phoned the companies about Logo Netsis usage, logged the results in the CRM and sent the introduction email."
+      },
+      "days": [
+        {
+          "day": 36,
+          "date": "11.09.2025",
+          "title": {
+            "tr": "Hedef Firmaların Araştırılması",
+            "en": "Researching target companies"
+          },
+          "text": {
+            "tr": "İnternet üzerinden Antalya bölgesindeki plastik ve beton sektöründeki firmaları araştırıp iletişim bilgilerini derledim. Sektörün genel olarak dijitalleşmede geride kaldığı bilgisi doğrultusunda hedef listesi oluşturdum.",
+            "en": "I researched plastics and concrete companies in the Antalya region online and compiled their contact details. Knowing the sector generally lags in digitalization, I built a target list."
+          }
+        },
+        {
+          "day": 37,
+          "date": "12.09.2025",
+          "title": {
+            "tr": "Tanıtım Sunumunun Hazırlanması",
+            "en": "Preparing the introduction presentation"
+          },
+          "text": {
+            "tr": "Gemini ve ilgili araçları kullanarak şirketimizin sunduğu hizmetleri anlatan, hem metin hem de görsel içerikli bir tanıtım sunumu hazırladım.",
+            "en": "Using Gemini and related tools, I prepared an introduction presentation, with both text and visuals, describing the services our company offers."
+          }
+        },
+        {
+          "day": 38,
+          "date": "15.09.2025",
+          "title": {
+            "tr": "Mail Şablonu ve Taslağının Oluşturulması",
+            "en": "Creating the email template and draft"
+          },
+          "text": {
+            "tr": "Outlook üzerinde HTML tabanlı bir mail şablonu hazırladım. Şablona imzamı ve hazırladığım tanıtım sunumunu ek olarak yerleştirip taslak olarak kaydettim.",
+            "en": "I prepared an HTML-based email template in Outlook, added my signature and the introduction presentation as an attachment, and saved it as a draft."
+          }
+        },
+        {
+          "day": 39,
+          "date": "16.09.2025",
+          "title": {
+            "tr": "Telefon ile Firmalara Ulaşma",
+            "en": "Reaching companies by phone"
+          },
+          "text": {
+            "tr": "Belirlediğim plastik ve beton firmalarını telefonla aradım; Logo Netsis kullanıp kullanmadıklarını sorarak muhasebe departmanlarına ulaşmaya çalıştım. Görüştüğüm kişilerden iletişim bilgilerini ve mail adreslerini aldım.",
+            "en": "I phoned the plastics and concrete companies on my list and asked whether they use Logo Netsis, trying to reach their accounting departments. I collected contact details and email addresses from the people I spoke to."
+          }
+        },
+        {
+          "day": 40,
+          "date": "17.09.2025",
+          "title": {
+            "tr": "CRM Kaydı ve Toplu Mail Gönderimi",
+            "en": "CRM entries and bulk email"
+          },
+          "text": {
+            "tr": "Görüştüğüm firmaların bilgilerini CRM sistemine işledim. Hazırladığım tanıtım mailini şirket e-posta adresimden ilgili firmalara göndererek staj sürecimdeki satış çalışmalarını tamamladım.",
+            "en": "I entered the companies I spoke with into the CRM, then sent the introduction email from my company address to the relevant firms, completing my sales work during the internship."
+          }
+        }
+      ]
     }
   ],
   "experience": [
     {
       "title": "Innova Software — Software Development Intern (ERP Integration)",
-      "period": "Jun 24 – Aug 19, 2024",
+      "period": "Jul 24 – Sep 17, 2025",
       "description": {
         "en": "Developed integration components for Innova's ERP systems. Rebranded and deployed RustDesk (open-source remote desktop tool) as \"iDesk\" — an in-house alternative to a third-party tool the company had been licensing for roughly ₺14.000/year — with a custom auth server, eliminating recurring licensing costs and giving the company full ownership of a sellable remote-support product.",
         "tr": "Innova'nın ERP sistemleri için entegrasyon bileşenleri geliştirdim. Şirketin yıllık yaklaşık ₺14.000 karşılığında lisansladığı üçüncü parti bir araca alternatif olarak, açık kaynak RustDesk'i özel bir auth sunucusuyla \"iDesk\" adı altında yeniden markalayıp devreye aldım — bu sayede yinelenen lisans maliyetleri ortadan kalktı ve şirket satılabilir bir uzak destek ürününe tam sahiplik kazandı."
@@ -221,17 +750,26 @@ const SITE_DATA = {
         "en": "Social navigation & city discovery app in Flutter that surfaces popular nearby points of interest based on real-time location, with AI-assisted multi-stop route optimization and a Supabase-powered social layer (follow friends' visited spots & reviews).",
         "tr": "Flutter ile geliştirilmiş, gerçek zamanlı konuma göre yakındaki popüler noktaları öne çıkaran bir sosyal navigasyon ve şehir keşif uygulaması. AI destekli çok duraklı rota optimizasyonu ve Supabase tabanlı sosyal katman (arkadaşların gezdiği yerleri ve yorumlarını takip etme) içeriyor."
       },
-      "extended": {
-        "en": "Rotala was where I first learned what it really takes to build a product that solves a clear, specific problem for its users rather than a pile of features. That focus on real user need is the thread running through everything I've built since.",
-        "tr": "Rotala projesini geliştirirken edindiğim deneyimler, kullanıcı ihtiyacına odaklanan ve net bir probleme çözüm sunan ürünler geliştirmenin önemini görmemi sağladı. Bu odak, o günden beri geliştirdiğim her projenin ortak paydası oldu."
-      },
       "status": {
         "en": "In Testing",
         "tr": "Test Aşamasında"
       },
       "link": "",
       "images": [],
-      "attachment": "assets/attachments/rotala_sunum.pdf"
+      "attachment": "assets/attachments/rotala_sunum.pdf",
+      "what": {
+        "en": "Rotala is a social navigation and city discovery app. It uses your real-time location to show popular places nearby, such as cafés, viewpoints, restaurants and landmarks, so you never have to wonder where to go next. You can pick several stops and let the app arrange them into an efficient route instead of planning it by hand. On top of that there is a social layer: follow your friends, see the places they visited and read their reviews. It turns a plain map into a shared, living guide to your city, built around what people around you actually enjoy.",
+        "tr": "Rotala, sosyal navigasyon ve şehir keşif uygulaması. Gerçek zamanlı konumunu kullanarak yakınındaki popüler yerleri (kafeler, manzara noktaları, restoranlar, simge yapılar) gösteriyor; böylece bir sonraki adımda nereye gideceğini düşünmek zorunda kalmıyorsun. Birden fazla durak seçip rotayı elle planlamak yerine uygulamanın senin için verimli bir sıraya dizmesini sağlayabilirsin. Üstüne bir sosyal katman var: arkadaşlarını takip et, gezdikleri yerleri ve yorumlarını gör. Sıradan bir haritayı, çevrendeki insanların gerçekten sevdiği yerlerden oluşan ortak ve canlı bir şehir rehberine dönüştürüyor."
+      },
+      "how": {
+        "en": "Rotala is built with Flutter, so a single codebase runs on both Android and iOS. The app reads the device's location and looks up nearby points of interest, ranking them by popularity. For multi-stop trips, an AI-assisted step takes the places you selected and works out a sensible visiting order to cut down travel time. Supabase powers the social side: authentication, the follow system, and storage for visited spots and reviews, so friends' activity shows up quickly. The interface keeps the map at the center with lightweight cards for details, which keeps everything fast and simple to use on the go.",
+        "tr": "Rotala Flutter ile geliştirildi; tek bir kod tabanı hem Android hem iOS'ta çalışıyor. Uygulama cihazın konumunu okuyup yakındaki ilgi çekici noktaları buluyor ve popülerliğe göre sıralıyor. Çok duraklı gezilerde AI destekli bir adım, seçtiğin yerleri alıp yol süresini kısaltacak mantıklı bir gezi sırası çıkarıyor. Sosyal tarafı Supabase yönetiyor: kimlik doğrulama, takip sistemi, gezilen yerlerin ve yorumların saklanması; böylece arkadaşlarının hareketleri hızlıca görünüyor. Arayüzde harita merkezde, detaylar hafif kartlarda yer alıyor; bu da her şeyi hızlı ve yolda kullanması kolay tutuyor."
+      },
+      "story": {
+        "en": "Rotala is where I first learned what it takes to build a product around one clear problem instead of a pile of features. Exploring a city usually means juggling map apps, review sites and messages from friends, and I wanted all of that in one place. Building it taught me about location services, backend design and, above all, listening to real user needs. That focus became the thread running through everything I've built since; Helal Gezi is a direct result of it. Rotala is still in testing, and each round of feedback shapes what it becomes.",
+        "tr": "Rotala, tek bir özellik yığını yerine net bir probleme odaklanan ürün geliştirmenin ne demek olduğunu ilk öğrendiğim proje. Bir şehri keşfetmek çoğu zaman harita uygulamaları, yorum siteleri ve arkadaş mesajları arasında gidip gelmek demek; ben hepsini tek yerde toplamak istedim. Geliştirirken konum servislerini, backend tasarımını ve en önemlisi gerçek kullanıcı ihtiyacını dinlemeyi öğrendim. Bu odak, sonrasında geliştirdiğim her projenin ortak paydası oldu; Helal Gezi de bunun doğrudan sonucu. Rotala hâlâ test aşamasında ve gelen her geri bildirim onu şekillendiriyor."
+      },
+      "cover": "assets/covers/rotala.jpg"
     },
     {
       "title": "Derdime Ayet",
@@ -239,17 +777,26 @@ const SITE_DATA = {
         "en": "AI-powered spiritual guidance app that analyzes a user's written emotional state and retrieves the most relevant Quranic verses — Arabic text, transliteration, official Diyanet translation, and AI-generated commentary, served via a Flask + NeonDB backend. Tiered subscription model (Nur, Hikmet, İhsan).",
         "tr": "Kullanıcının yazdığı duygusal durumu analiz edip en uygun Kuran ayetlerini getiren AI destekli manevi rehberlik uygulaması — Arapça metin, transkripsiyon, resmi Diyanet meali ve AI tarafından üretilen yorum, Flask + NeonDB backend üzerinden sunuluyor. Kademeli abonelik modeli (Nur, Hikmet, İhsan)."
       },
-      "extended": {
-        "en": "The app was born from a specific observation: especially Gen Z often struggles to build a living connection with Islam, and the depth the religion carries doesn't always reach them in a form that resonates. Drawing on the richness of the Qur'an, the goal is to guide people through the struggles they're actually going through.\n\nA user writes down what they're going through in their own words; the app listens and brings forward the verse that best fits that moment — Arabic text, transliteration, and translation together — then completes the experience with a commentary on how that verse speaks to their situation.\n\nWe know people are often hesitant to open up about what's weighing on them, so the goal was to build a safe space where users can express themselves without fear of judgment.",
-        "tr": "Uygulama, özellikle Z kuşağının İslam dini ile bağ kurmakta zorlandığı bir dönemde, Kur'an-ı Kerim'in zengin içeriğinden yola çıkarak, insanlara yaşadıkları problemler üzerinden yol göstermeyi hedefliyor.\n\nKullanıcı, yaşadığı sıkıntıyı kendi kelimeleriyle yazıyor; uygulama onu dinliyor ve o duruma en uygun ayeti Arapça metni, okunuşu ve mealiyle birlikte sunuyor. Ardından, o ayetin kişinin yaşadığı duruma nasıl bir yol gösterdiğini açıklayan özel bir yorumla deneyimi tamamlıyor.\n\nİnsanların dertlerini paylaşmaktan çekindiğini biliyoruz; bu sebeple kullanıcıların hiçbir yargılanma korkusu olmadan içlerini dökebilecekleri güvenli bir platform oluşturmayı hedefledik."
-      },
       "status": {
         "en": "Pending Google Play Review",
         "tr": "Google Play İncelemesinde"
       },
       "link": "",
       "images": [],
-      "attachment": "assets/attachments/derdime_ayet_sunum.pdf"
+      "attachment": "assets/attachments/derdime_ayet_sunum.pdf",
+      "what": {
+        "en": "Derdime Ayet is a spiritual guidance app. You write down what you're going through in your own words, and the app listens and brings forward the Quranic verse that best fits that moment. Each result includes the Arabic text, transliteration and the official Diyanet translation, followed by a short AI-written commentary on how the verse speaks to your situation. It is meant to be a safe, judgment-free space where you can open up freely. A tiered subscription model (Nur, Hikmet, İhsan) lets people choose how deep they want to go.",
+        "tr": "Derdime Ayet, manevi rehberlik sunan bir uygulama. Yaşadığın sıkıntıyı kendi kelimelerinle yazıyorsun; uygulama seni dinliyor ve o ana en uygun ayeti getiriyor. Her sonuçta Arapça metin, okunuş ve resmi Diyanet meali yer alıyor; ardından ayetin durumuna nasıl yol gösterdiğini anlatan kısa, AI tarafından hazırlanan bir yorum geliyor. Amaç, insanların yargılanmadan rahatça içini dökebileceği güvenli bir alan olmak. Kademeli abonelik modeli (Nur, Hikmet, İhsan) ise herkesin ne kadar derinleşmek istediğini seçmesine izin veriyor."
+      },
+      "how": {
+        "en": "The mobile app is written in Flutter and talks to a Flask backend backed by a NeonDB (PostgreSQL) database that holds the verses, their transliteration and the Diyanet translation. When you submit your text, an AI model analyzes the emotional state behind it and the backend retrieves the most relevant verses. A second AI step then writes a commentary connecting the verse to your situation. Results come back as a single, clean card. Access to features is handled through the subscription tiers, and the app is currently waiting on Google Play review before release.",
+        "tr": "Mobil uygulama Flutter ile yazıldı ve ayetlerin, okunuşların ve Diyanet mealinin tutulduğu NeonDB (PostgreSQL) veritabanına bağlı bir Flask backend ile konuşuyor. Yazdığın metni gönderdiğinde bir AI modeli arkasındaki duygusal durumu analiz ediyor ve backend en alakalı ayetleri getiriyor. İkinci bir AI adımı ise ayeti senin durumuna bağlayan bir yorum yazıyor. Sonuç tek ve sade bir kart olarak dönüyor. Özelliklere erişim abonelik kademeleriyle yönetiliyor; uygulama şu anda yayın öncesi Google Play incelemesini bekliyor."
+      },
+      "story": {
+        "en": "The app was born from a simple observation: especially Gen Z often struggles to build a living connection with Islam, and the depth of the religion doesn't always reach them in a form that resonates. I wanted to draw on the richness of the Qur'an to guide people through the struggles they are actually facing. People also tend to hesitate before sharing what weighs on them, so the goal was a safe place to express yourself without fear of judgment. It's a project where technology and meaning meet, and one I built with great care.",
+        "tr": "Uygulama basit bir gözlemden doğdu: özellikle Z kuşağı İslam'la yaşayan bir bağ kurmakta zorlanıyor ve dinin taşıdığı derinlik her zaman karşılık bulacak biçimde ulaşmıyor. Kur'an-ı Kerim'in zengin içeriğinden yola çıkarak insanlara gerçekten yaşadıkları sıkıntılar üzerinden yol göstermek istedim. İnsanlar dertlerini paylaşmaktan da çekiniyor; bu yüzden yargılanma korkusu olmadan içini dökebileceğin güvenli bir alan hedefledim. Teknolojiyle anlamın buluştuğu, büyük bir özenle geliştirdiğim bir proje."
+      },
+      "cover": "assets/covers/derdime_ayet.jpg"
     },
     {
       "title": "Berserk Journal",
@@ -263,7 +810,19 @@ const SITE_DATA = {
       },
       "link": "",
       "images": [],
-      "attachment": null
+      "attachment": null,
+      "what": {
+        "en": "Berserk Journal is an emotion-driven AI journaling app. You write an entry in any language, and the app detects the emotions behind your words, recognizing around 50 emotions across up to 130 languages, with 13 actively supported. Entries are automatically organized by language and dominant emotion, then matched with visuals, GIFs and music that fit the mood. A community feed lets you browse entries by language, emotion or engagement, so you can see how other people express what you're feeling. It's a diary that understands you and shows you a mirror of your own mood.",
+        "tr": "Berserk Journal, duygu odaklı bir AI günlük uygulaması. İstediğin dilde bir kayıt yazıyorsun; uygulama kelimelerinin ardındaki duyguları tespit ediyor: 130'a kadar dilde yaklaşık 50 duyguyu tanıyor, 13 dil aktif olarak destekleniyor. Kayıtlar dile ve baskın duyguya göre otomatik düzenleniyor, ardından ruh haline uygun görsel, GIF ve müzikle eşleştiriliyor. Topluluk akışında kayıtları dile, duyguya veya etkileşime göre gezebiliyor, senin hissettiğini başkalarının nasıl ifade ettiğini görebiliyorsun. Seni anlayan ve ruh halinin aynasını tutan bir günlük."
+      },
+      "how": {
+        "en": "The app is built with Flutter. Each entry is sent to a Hugging Face NLP model that classifies the text into its dominant emotion and detects the language. Based on that result the app tags the entry, picks matching visuals, GIFs and music, and stores everything so entries can be filtered by language and emotion later. The community feed reads those tags to sort and surface entries by language, emotion or engagement. Keeping the model as an external service means the emotion detection can be improved or swapped without changing the app itself.",
+        "tr": "Uygulama Flutter ile geliştirildi. Her kayıt, metni baskın duygusuna göre sınıflandıran ve dili tespit eden bir Hugging Face NLP modeline gönderiliyor. Bu sonuca göre uygulama kaydı etiketliyor, uygun görsel, GIF ve müziği seçiyor ve her şeyi saklıyor; böylece kayıtlar sonradan dile ve duyguya göre filtrelenebiliyor. Topluluk akışı bu etiketleri okuyarak kayıtları dile, duyguya veya etkileşime göre sıralıyor ve öne çıkarıyor. Modelin harici bir servis olması, duygu tespitini uygulamayı değiştirmeden geliştirmeyi ya da değiştirmeyi mümkün kılıyor."
+      },
+      "story": {
+        "en": "Berserk Journal grew out of my own habit of writing unfiltered thoughts, the kind you write in the moment and keep exactly as they were. Reading them back, I noticed that the feeling behind a text is often clearer than the words themselves, and I wondered what it would look like if an app could see that too. I wanted a journal that doesn't just store what you wrote but reflects how you felt, and that lets you feel less alone by seeing others put similar feelings into words. It's still in testing.",
+        "tr": "Berserk Journal, anın içinde yazılan ve olduğu gibi bırakılan filtresiz düşünceler yazma alışkanlığımdan doğdu. Yazdıklarımı geri okurken bir metnin ardındaki duygunun çoğu zaman kelimelerden daha net olduğunu fark ettim ve bir uygulama bunu da görebilse nasıl olurdu diye merak ettim. Sadece ne yazdığını saklamayan, nasıl hissettiğini de yansıtan; başkalarının benzer duyguları nasıl kelimelere döktüğünü görerek kendini daha az yalnız hissettiren bir günlük istedim. Hâlâ test aşamasında."
+      }
     },
     {
       "title": "Helal Gezi",
@@ -271,21 +830,43 @@ const SITE_DATA = {
         "en": "Halal travel guide mapping halal restaurants, markets, and mosques across Europe on one interactive map, with a Flask + NeonDB backend serving curated \"Editor's Pick\" listings, auto city-detection, one-tap directions, and nearby-alternatives suggestions.",
         "tr": "Avrupa genelindeki helal restoranları, marketleri ve camileri tek bir interaktif harita üzerinde gösteren bir seyahat rehberi. Flask + NeonDB backend'i editör onaylı mekan listeleri, otomatik şehir algılama, tek dokunuşla yol tarifi ve yakın alternatif önerileri sunuyor."
       },
-      "extended": {
-        "en": "I wanted to share the mobile app I built called \"Helal Gezi.\"\n\nThe app helps Muslims traveling or living abroad easily find halal restaurants, halal markets, and mosques/mescids in their current or upcoming city, all on a single map. My goal while building it was a simple, usable app that gets Muslims travelling abroad to reliable places quickly and easily.\n\nThe experience I gained building Rotala showed me how important it is to build products focused on real user needs and a clear problem. Helal Gezi is a direct result of that mindset — I carried over what I'd learned about location-based services to build something I expect to see even higher engagement from.",
-        "tr": "Geliştirdiğim \"Helal Gezi\" adlı mobil uygulamayı sizinle paylaşmak istedim.\n\nUygulama, seyahat eden Müslümanların bulundukları veya gidecekleri şehirlerdeki helal restoranları, helal marketleri ve cami/mescitleri tek bir harita üzerinden kolayca bulmalarını sağlıyor. Bu projeyi geliştirirken amacım, özellikle yurt dışında seyahat eden Müslümanların güvenilir yerlere hızlı ve kolay bir şekilde ulaşabilecekleri sade ve kullanışlı bir uygulama geliştirmekti.\n\nRotala projesini geliştirirken edindiğim deneyimler, kullanıcı ihtiyacına odaklanan ve net bir probleme çözüm sunan ürünler geliştirmenin önemini görmemi sağladı. Helal Gezi de bu anlayışın bir sonucu olarak ortaya çıktı. Özellikle konum tabanlı servisler ile geliştirme yaparken kazandığım pratikleri, yeni projelerde daha yüksek etkileşim beklentisiyle yansıtmak amacıyla bu uygulamayı geliştirdim."
-      },
       "status": {
         "en": "In Testing",
         "tr": "Test Aşamasında"
       },
       "link": "",
       "images": [],
-      "attachment": "assets/attachments/helal_gezi_sunum.pdf"
+      "attachment": "assets/attachments/helal_gezi_sunum.pdf",
+      "what": {
+        "en": "Helal Gezi is a travel guide for Muslims living or traveling abroad. It puts halal restaurants, halal markets and mosques across Europe on one interactive map, so you can find reliable places in your current or next city quickly. It detects your city automatically, offers one-tap directions, and suggests nearby alternatives if a place doesn't suit you. Curated \"Editor's Pick\" listings highlight the places that have been checked. The goal is simple: a clean, usable app that gets you to a trustworthy meal or prayer space without endless searching.",
+        "tr": "Helal Gezi, yurt dışında yaşayan veya seyahat eden Müslümanlar için bir seyahat rehberi. Avrupa genelindeki helal restoranları, helal marketleri ve cami/mescitleri tek bir interaktif haritada topluyor; böylece bulunduğun ya da gideceğin şehirde güvenilir yerleri hızlıca bulabiliyorsun. Şehrini otomatik algılıyor, tek dokunuşla yol tarifi veriyor ve bir yer sana uymazsa yakındaki alternatifleri öneriyor. Editör onaylı \"Editörün Seçimi\" listeleri kontrol edilmiş mekanları öne çıkarıyor. Amaç basit: bitmeyen aramalar yerine güvenilir bir yemeğe ya da ibadet alanına ulaştıran sade ve kullanışlı bir uygulama."
+      },
+      "how": {
+        "en": "The app is built with Flutter and reads places from a Flask backend connected to a NeonDB (PostgreSQL) database. The backend serves the curated \"Editor's Pick\" listings as well as regular entries for restaurants, markets and mosques. On launch the app detects your location and city, loads the relevant places onto an interactive map, and lets you filter by type. Tapping a place opens details with one-tap directions in your maps app, and the app can suggest nearby alternatives based on distance. The location-based logic reuses what I learned while building Rotala.",
+        "tr": "Uygulama Flutter ile geliştirildi ve mekanları NeonDB (PostgreSQL) veritabanına bağlı bir Flask backend'den okuyor. Backend, editör onaylı \"Editörün Seçimi\" listelerini ve restoran, market, cami kayıtlarını sunuyor. Uygulama açıldığında konumunu ve şehrini algılıyor, ilgili mekanları interaktif haritaya yüklüyor ve türe göre filtrelemene izin veriyor. Bir mekana dokununca detaylar açılıyor ve tek dokunuşla harita uygulamanda yol tarifi alabiliyorsun; uygulama mesafeye göre yakın alternatifler de önerebiliyor. Konum tabanlı mantık, Rotala'yı geliştirirken öğrendiklerimi yeniden kullanıyor."
+      },
+      "story": {
+        "en": "I wanted to share an app I built for a very practical need: Muslims traveling or living abroad often struggle to find reliable halal food and prayer spaces quickly. My goal was a simple, usable app that solves exactly that. The experience I gained building Rotala showed me how important it is to build around real user needs and one clear problem, and Helal Gezi is a direct result of that mindset. I carried over what I learned about location-based services, hoping to see even higher engagement this time.",
+        "tr": "Çok pratik bir ihtiyaç için geliştirdiğim bir uygulamayı paylaşmak istedim: yurt dışında yaşayan ya da seyahat eden Müslümanlar güvenilir helal yemek ve ibadet alanlarını hızlıca bulmakta çoğu zaman zorlanıyor. Amacım tam olarak bunu çözen sade ve kullanışlı bir uygulama yapmaktı. Rotala'yı geliştirirken edindiğim deneyim, gerçek kullanıcı ihtiyacına ve net bir probleme odaklanmanın önemini gösterdi; Helal Gezi bu anlayışın doğrudan sonucu. Konum tabanlı servisler hakkında öğrendiklerimi bu projeye taşıdım ve bu sefer daha yüksek etkileşim görmeyi umuyorum."
+      },
+      "cover": "assets/covers/helal_gezi.jpg"
     }
   ],
   "past_projects": [],
   "certificates": [
+    {
+      "title": {
+        "en": "KOSGEB Entrepreneurship Training — Certificate of Participation",
+        "tr": "KOSGEB Girişimcilik Eğitimi — Katılım Belgesi"
+      },
+      "issuer": "KOSGEB (Small and Medium Enterprises Development Organization of Türkiye)",
+      "date": "2025",
+      "file": "assets/certificates/kosgeb_girisimcilik_egitimi.jpg",
+      "description": {
+        "en": "I completed the KOSGEB Entrepreneurship Training, covering both the Traditional Entrepreneurship (completed 26 March 2025) and Advanced Entrepreneurship (completed 4 April 2025) programs, and received this certificate of participation. It gave me a practical grounding in business planning and how to turn an idea into a real venture — a perspective that directly supports the products I build.",
+        "tr": "KOSGEB Girişimcilik Eğitimi kapsamında Geleneksel Girişimci Eğitimi (26.03.2025) ve İleri Girişimci Eğitimi (04.04.2025) programlarını tamamlayarak bu katılım belgesini almaya hak kazandım. Bu eğitim, iş planlaması ve bir fikri gerçek bir girişime dönüştürme konusunda bana pratik bir temel kazandırdı; geliştirdiğim ürünlere doğrudan katkı sağlayan bir bakış açısı oldu."
+      }
+    },
     {
       "title": {
         "en": "Ar-Ge Proje Pazarı 2026 — Participation Certificate",
@@ -336,159 +917,246 @@ const SITE_DATA = {
   "journal_entries": [
     {
       "date": "2026-09-13 00:00",
-      "mood": "neutral",
       "text_tr": "Stalker filmindeki bir söz aklıma geldi. İnsan doğduğunda ağlar ve vücudu yumuşaktır; öldüğünde ise duygusuz ve kas katıdır, gibi bir şey söylüyordu.\n\nBu düşünce beni başka bir yere götürdü.\n\nBelki çocuk olmayı bıraktığım zaman, başka bir anlamda ölmeye de başlamıştım.\n\nÇocukken dünya ile aranda çok daha doğrudan bir ilişki var.\n\nMüzik dinlersin.\n\nSanatla ilgilenirsin.\n\nBir şey görürsün ve merak edersin.\n\nBir yere gitmek istersin ve neden gittiğini fazla düşünmezsin.\n\nAklına gelir ve gidersin.\n\nİşte o aklına gelmesiyle gitmen arasındaki mesafe çok kısadır ve bence bu çok özel bir şey.\n\nSonra büyüyorsun.\n\nBir noktada düşünmeye başladığın tek şey para oluyor.\n\nGeçenlerde bir filmde adamın söylediği bir cümle beni çok etkiledi: Çocukken düşündüğü tek şey müzik ve sanatmış, şimdi düşündüğü tek şey para olmuş.\n\nBunu duyduğumda kendimi düşündüm.\n\nBen de uzun zamandır hayatımın büyük bir kısmını para, iş, sınav, gelecek ve ne yapacağım soruları üzerine kuruyorum.\n\nSanki hayatın kendisi ikinci plana düşüyor.\n\n\"Bunun bana ne faydası var?\"\n\n\"Para kazandırır mı?\"\n\n\"CV'ye katkısı olur mu?\"\n\n\"Geleceğim için doğru mu?\"\n\nSürekli hesap yapıyorum.\nVe aslına bakarsan küçüklüğümden beri hayatımda kaybettiğim en önemli dinamiklerden birisi de bu spontanlıktı sanırım. Çünkü küçükken aklıma gelen ilhamların, dürtülerin, heyecanların peşinden koşmaya dair daha büyük bir baloncuk vardı ve o artık çok daha küçük. Bu tıpkı hayatta insana dair hazları almaktan geride kalmış ihtiyaçlarını, kafein, nikotini, alkolle gideren insanların yaşadığı dönüşüm de bu belki.\nSonra garip bir şekilde İran'a gitmek istedim.\n\nİran...\n\nO esnada iran: Abi ben ne alaka ya?\n\nAma belki mesele gerçekten İran'a gitmek değil.\n\nBelki mesele, uzun zamandır hayatımda programda olmayan hiçbir şeyi yapmamam.\n\nBelki zihnim artık \"Bir şey de sadece istediğin için yap.\" diyor.\n\nBir yere sadece merak ettiğim için gitmek.\n\nBir şeyi sadece hoşuma gittiği için yapmak.\n\nBir şey üretirken onun kariyerime katkısını düşünmemek.\n\nBazen hiçbir planımda olmayan bir şeyi yapmak.\n\nBunu düşününce şöyle hissettim:\n\nArtık yetişkin olsam bile hâlâ içimde, küçükken olduğu gibi diğer çocuklarla koşup oynamak isteyen bir parçam var.\n\nDüşünmeden hareket edebileceği bir alan istiyor.\n\nHayatında düşüncelerin, takvimlerin, yöneticilerin, ailenin ve şartların içeriye müdahale edemediği; eğlenebileceğin bir çerçeve gerekiyor.\n\nÇocukken her şey doğrudandı.\n\nŞimdi ise araya bin tane düşünce giriyor.\n\nBelki yeniden çocuk olmam gerekmiyor.\n\nZaten çocukluğa geri dönemem.\n\nAma çocukken sahip olduğum o doğrudan temasın bir kısmını yeniden bulabilirim.\n\nÇünkü belki insanın tamamen büyümesi; her şeyi ciddiye alması, her davranışının hesabını yapması ve sonunda sadece para düşünmesi demek değildir.\n\nBelki insan bazen sadece yaşayabilmelidir.\n\nBelki mesele yeniden çocuk olmak değil.\n\nSadece biraz daha canlı olmak.\n\nBen bu konuda biraz zorlanıyorum.\n\nÇünkü hayatın bir diğer gerçeği de şu: İnsan bazen bir bitiş çizgisine ulaştığında sevineceğini ve o zaman dinlenecek vakti bulacağını düşünüyor.\n\nAma belki arada molalar gerekiyor.\n\nKesinlikle gerekiyor.\n\nBelki mutluluğun matematiksel bir formülü bile üretilebilir.\n\nBenim mutlu olmam aslında dünyanın en kolay şeyi.\n\nSadece güzel bir fırsat yaratmam veya bulmam lazım.\n\nAma o vakte kadar her şeyin bambaşka olmamasını umuyorum.",
       "text_en": "A line from the film Stalker came to mind. It said something like: when a person is born they cry and their body is soft; when they die they're emotionless and their muscles are stiff.\n\nThat thought took me somewhere else.\n\nMaybe the moment I stopped being a child, I also started dying in another sense.\n\nAs a kid you have a much more direct relationship with the world.\n\nYou listen to music.\n\nYou take an interest in art.\n\nYou see something and you get curious.\n\nYou want to go somewhere and you don't overthink why.\n\nIt crosses your mind, and you go.\n\nThe distance between something crossing your mind and you actually going is very short, and I think that's a very special thing.\n\nThen you grow up.\n\nAt some point the only thing you start thinking about is money.\n\nRecently a line a character said in a movie really struck me: as a kid, the only thing he thought about was music and art; now the only thing he thinks about is money.\n\nWhen I heard that, I thought about myself.\n\nFor a long time now I've also been building most of my life around money, work, exams, the future, and questions about what I should do next.\n\nIt's as if life itself gets pushed to second place.\n\n\"What's the use of this to me?\"\n\n\"Will it make me money?\"\n\n\"Will it help my CV?\"\n\n\"Is it the right thing for my future?\"\n\nI'm constantly calculating.\nAnd honestly, I think spontaneity is one of the most important dynamics I've lost in my life since childhood. Because as a kid there was a much bigger bubble around chasing the inspirations, impulses, and excitements that crossed my mind, and that bubble is much smaller now. This might be the same transformation people go through when they start filling needs that have fallen behind — needs related to feeling human pleasures — with caffeine, nicotine, or alcohol instead.\nThen, weirdly, I wanted to go to Iran.\n\nIran...\n\nIn that moment: bro, what does Iran even have to do with anything?\n\nBut maybe the point isn't really going to Iran.\n\nMaybe the point is that for a long time now I haven't done a single thing that wasn't on some schedule.\n\nMaybe my mind is now saying, \"Do something just because you want to.\"\n\nGoing somewhere just because I'm curious.\n\nDoing something just because I like it.\n\nNot thinking about how it contributes to my career while I'm making something.\n\nSometimes doing something that isn't part of any of my plans.\n\nWhen I thought about this, here's what I felt:\n\nEven though I'm an adult now, there's still a part of me inside that wants to run around and play with other kids, just like when I was little.\n\nIt wants a space where it can act without thinking.\n\nI need a framework in my life where thoughts, schedules, managers, family, and circumstances can't interfere — a place where I can just have fun.\n\nAs a kid, everything was direct.\n\nNow a thousand thoughts get in the way.\n\nMaybe I don't need to become a child again.\n\nI can't go back to childhood anyway.\n\nBut maybe I can rediscover some part of that directness I had as a kid.\n\nBecause maybe growing up completely doesn't mean taking everything seriously, accounting for every single behavior, and ending up thinking only about money.\n\nMaybe a person sometimes just needs to be able to live.\n\nMaybe the point isn't becoming a child again.\n\nJust being a little more alive.\n\nI'm struggling a bit with this.\n\nBecause another truth about life is this: sometimes a person thinks they'll be happy once they reach a finish line, and that's when they'll finally have time to rest.\n\nBut maybe you need breaks along the way.\n\nYou definitely do.\n\nMaybe there's even a mathematical formula for happiness that could be worked out.\n\nBeing happy is actually the easiest thing in the world for me.\n\nI just need to create or find a good opportunity.\n\nBut until then, I hope not everything changes into something completely different."
     },
     {
       "date": "2026-09-13 00:00",
-      "mood": "neutral",
       "text_tr": "Sıradan Bir İnsan Olmanın Özgürlüğü\n\nUzun zamandır kendimi diğer insanlardan biraz ayrı bir yerde gördüğümü fark ediyorum.\n\nÇocukluğumdan beri kendimi özel biri olarak düşünmüşüm. Bazen iyi anlamda, bazen kötü anlamda. Sanki diğer insanlar doğal olarak bir insanlık grubunun parçasıyken ben o grubun dışında kalmışım. Onların yaşadığı şeyler benim doğama ait değilmiş gibi.\n\nİnsanların birbirlerini sevmesini, para kazanmasını, bir şeyler başarmasını, gezmesini, arkadaşlık kurmasını, hayatlarını yaşamasını izliyordum. Ama bütün bunlar sanki benim için hazırlanmış şeyler değildi.\n\nKendimi bazen insanlığın içinde yaşayan bir insan gibi değil, insanları dışarıdan izleyen hasarlı bir humanoid gibi hissediyordum.\n\nSon zamanlarda Mark Manson'ın \"Ustalık Gerektiren Kafaya Takmama Sanatı\" isimli kitabını okumuştum. Kitapta diyordu ki:\n\n\"Herkesin güleceği, alay edeceği, en ezik insan olduğun fikirlerine bu kadar kapılırsan örtük biçimde bir narsizm yaşıyorsun demektir. Çünkü 'kimselere benzemiyorum, ben bir istisnayım, farklı ve özel bir insanım' demeyi kabul etmiş olursun.\"\n\nBunun üzerine düşündüğümde garip bir şey fark ettim.\n\nBelki de kendimi bu kadar özel görmemin bana düşündüğüm kadar faydası olmamıştı.\n\nÇünkü insan kendini özel gördüğünde, başına gelen kötü şeyleri de özel bir hikâyeye dönüştürmeye başlayabiliyor.\n\n\"Ben diğerlerinden farklıyım.\"\n\n\"Kimse beni anlamıyor.\"\n\n\"Benim hayatım zaten böyle.\"\n\n\"Bende bir şeyler bozuk.\"\n\nVe sonunda bunun daha ağır bir versiyonu ortaya çıkıyor:\n\nBen özel bir kurbanım.\n\nBunun tehlikeli tarafı şu: Kendini özel bir kurban olarak gördüğünde, hayatındaki her şey sanki senin dünyanın en altın oran trajedik özel kaderinin hikayesinin bir parçasıymış gibi görünmeye başlıyor. Ve sen de o trajedinin ana zavallı karakteriymişsin gibi.\n\nOysa muhtemelen öyle değildir.\n\nBelki ben 7 milyar insan gibi onlardan herhangi bir tanesiyim, sadece sıradan bir insanım.\n\nVe ilk başta bu düşünce bana küçültücü geliyordu.\n\nŞimdi ise tam tersine, oldukça rahatlatıcı geliyor.\n\nÇünkü sıradan bir insansam başarısız olmamın özel bir anlamı yok.\n\nParasız kalmamın özel bir anlamı yok.\n\nBu, basit bir şekilde durumları düzeltmen için çalışman gerektiğini duygu sömürüsü yapmadan ortaya koyuyor; çünkü yolda gördüğün, durumu kötü olan komşunu gördüğün zaman onun daha az para harcaması, birikim yapıp borçları kapatması gerektiğini gayet soğuk, normal bir şekilde görebilirsin.\n\nYalnız kalmamın özel bir anlamı yok.\n\nBir sınavda istediğim sonucu alamamamın özel bir anlamı yok.\n\nHayatımın bazı dönemlerinde hiçbir şeyin yolunda gitmemesinin de özel bir anlamı olmak zorunda değil.\n\n+ neden ben :'( neden bennn !!!\n\n- sen kimsin ki aq...\n\nBunların hepsi insanların başına geliyor.\n\nBen de insanlardan biriyim.\n\nBelki de yıllardır kendimi insanlığın dışında hissetmek yerine, ilk defa onun içine karışmam gerekiyor.\n\nSıradan olmak, önemsiz olmak demek değil.\n\nSadece bütün hayatımı açıklamak için kendime özel bir mitoloji kurmak zorunda olmadığım anlamına geliyor.\n\nBen de acıkıyorum.\n\nBen de korkuyorum.\n\nBen de para kazanmak istiyorum.\n\nBen de sevilmek istiyorum.\n\nBen de bazen hiçbir şey yapmak istemiyorum.\n\nBen de bazen bir şarkı dinleyip hayatın anlamı hakkında düşünmeye başlıyorum.\n\nBunların hiçbirisi beni özel yapmıyor.\n\nVe belki de güzel olan tarafı tam olarak bu.\n\nÇünkü insan olmak için özel olmam gerekmiyor. Zaten bir insan olmam beni yeterince özel yapar.\n\n---\n\nBazen kendimi hayatın dışında kalmış bir seyirci gibi hissediyorum.\n\nSanki herkes bir şeyler yaşıyor ve benim payıma hiçbir şey düşmüyor.\n\nAma belki de burada da bir yanılgı var.\n\nHayatın içine girmek için bir gün birilerinin gelip beni oyuna çağırmasını beklemem gerekmiyor.\n\nİnsanların çoğu hayatlarını böyle yaşamıyor zaten.\n\nBirileri sabah işe gidiyor.\n\nBirileri borç ödüyor.\n\nBirileri biraz para biriktiriyor.\n\nBirileri akşam eve gelip bir saat kitap okuyor.\n\nBirileri bir şey öğreniyor.\n\nBirileri başarısız oluyor.\n\nBirileri tekrar deniyor.\n\nBunların çoğu dışarıdan bakıldığında önemsiz hareketler.\n\nAma yıllar boyunca birikiyorlar.\n\nBir insanın karakteri de bazen böyle kimsenin görmediği küçük seçimlerle oluşuyor.\n\nBelki şu anda elimde çok fazla şey olmayabilir. Ama bu, hiçbir şey yapamayacağım anlamına gelmiyor.\n\nBir işe girmek bile bir şey.\n\nBir beceri öğrenmek bir şey.\n\nBir gün daha devam etmek bile bazen bir şey.\n\n---\n\nKendime daha sık şunu hatırlatmam gerekiyor:\n\nBen özel bir kurban değilim.\n\nBen sadece bir insanım.\n\nVe bunun kötü bir şey olduğunu düşünmek yerine, bundan biraz özgürlük çıkarmayı öğrenebilirim.\n\nÇünkü insanlığın dışında değilim.\n\nBen de bu kalabalığın içindeyim.\n\nBen de hata yapan, kaybeden, isteyen, korkan, seven ve bazen hiçbir şey bilmeyen insanlardan biriyim.\n\nVe bu benmerkezci düşünceyi terk ettikçe sanki kocaman bir grubun ferdiymişim gibi hissediyorum kendimi; tanımadığım insanlarla aynı ailenin bir ferdi gibi. Çünkü narsistik bir benmerkezci olmadan dünyaya bakmak, senin gibi insanları görmemi sağlıyor ve senin gibi insanlar görmek beni gülümsetiyor, kendiliğinden bağlar inşa ediyor, seni tanımadığın insanlara karşı güler yüzlü yapıyor.\n\nDünyanın bana özel bir şey borçlu olması gerekmiyor.\n\nBenim de dünyaya kendimi kanıtlamak zorunda olmam gerekmiyor.\n\nBelki sadece elimden geleni yapıp, önümdeki hayatı yaşamam gerekiyor.\n\nVe belki sıradan olmak, sandığımın aksine, hayatın bana verdiği en büyük özgürlüklerden biri.",
       "text_en": "The Freedom of Being an Ordinary Person\n\nI've been noticing for a long time now that I see myself as somewhat separate from other people.\n\nSince childhood I've thought of myself as someone special. Sometimes in a good way, sometimes in a bad way. As if other people were naturally part of some group called humanity, and I'd ended up outside that group. As if the things they went through didn't belong to my nature.\n\nI'd watch people love each other, make money, achieve things, travel, make friends, live their lives. But all of it felt like it wasn't meant for me.\n\nI sometimes felt less like a person living inside humanity, and more like a damaged humanoid watching people from the outside.\n\nI recently read Mark Manson's book \"The Subtle Art of Not Giving a F*ck.\" In it he said:\n\n\"If you get this caught up in the idea that you're the biggest loser everyone will laugh at and mock, you're covertly experiencing a kind of narcissism. Because you've essentially agreed to say, 'I'm not like anyone else, I'm an exception, I'm a different and special person.'\"\n\nWhen I thought about that, I noticed something strange.\n\nMaybe seeing myself as this special hadn't actually done me as much good as I thought.\n\nBecause when a person sees themselves as special, they can start turning the bad things that happen to them into a special story too.\n\n\"I'm different from everyone else.\"\n\n\"Nobody understands me.\"\n\n\"This is just how my life is.\"\n\n\"Something in me is broken.\"\n\nAnd eventually a heavier version of this shows up:\n\nI am a special victim.\n\nThe dangerous part of this is: once you see yourself as a special victim, everything in your life starts to look like it's part of the story of your own golden-ratio, tragic, special fate — and you're the pitiful main character of that tragedy.\n\nBut that's probably not the case.\n\nMaybe I'm just one of any of the 7 billion people out there, just an ordinary person.\n\nAt first this thought felt diminishing to me.\n\nNow, on the contrary, it feels quite relieving.\n\nBecause if I'm an ordinary person, there's nothing special about failing.\n\nThere's nothing special about being broke.\n\nThis lays it out plainly, without any emotional manipulation, that you simply need to work to fix your situation — because when you see a neighbor whose situation is bad, you can look at it coldly and normally and say he needs to spend less and save up to pay off his debts.\n\nThere's nothing special about being lonely.\n\nThere's nothing special about not getting the result I wanted on an exam.\n\nThere doesn't have to be anything special about nothing going right during certain periods of my life either.\n\n+ why me :'( why meeee !!!\n\n- who do you think you are, come on...\n\nAll of this happens to people.\n\nI'm one of those people too.\n\nMaybe instead of feeling outside of humanity for years, I need to actually blend into it for the first time.\n\nBeing ordinary doesn't mean being unimportant.\n\nIt just means I don't have to build a special mythology for myself to explain my entire life.\n\nI get hungry too.\n\nI get scared too.\n\nI want to make money too.\n\nI want to be loved too.\n\nSometimes I don't want to do anything either.\n\nSometimes I listen to a song and start thinking about the meaning of life too.\n\nNone of this makes me special.\n\nAnd maybe that's exactly the beautiful part.\n\nBecause I don't need to be special to be human. Simply being human already makes me special enough.\n\n---\n\nSometimes I feel like a spectator left outside of life.\n\nAs if everyone else is experiencing things and none of it is coming my way.\n\nBut maybe there's a mistake here too.\n\nI don't need to wait for someone to come one day and invite me into the game in order to step into life.\n\nMost people don't even live their lives that way anyway.\n\nSome people go to work in the morning.\n\nSome people pay off debt.\n\nSome people save up a little money.\n\nSome people come home in the evening and read for an hour.\n\nSome people learn something.\n\nSome people fail.\n\nSome people try again.\n\nMost of this looks like insignificant movement from the outside.\n\nBut it accumulates over the years.\n\nA person's character is sometimes built exactly this way, out of small choices nobody sees.\n\nMaybe I don't have much in hand right now. But that doesn't mean I can't do anything.\n\nEven getting a job is something.\n\nLearning a skill is something.\n\nEven just making it through one more day is sometimes something.\n\n---\n\nI need to remind myself of this more often:\n\nI am not a special victim.\n\nI am just a person.\n\nAnd instead of thinking of that as a bad thing, I can learn to draw a bit of freedom out of it.\n\nBecause I'm not outside of humanity.\n\nI'm inside this crowd too.\n\nI'm one of those people who makes mistakes, loses, wants things, gets scared, loves, and sometimes knows nothing.\n\nAnd the more I let go of this self-centered way of thinking, the more I feel like a member of one huge group — like a member of the same family as people I've never met. Because looking at the world without narcissistic self-centeredness lets me actually see people like you, and seeing people like you makes me smile, builds bonds on its own, makes me warmer toward people I don't even know.\n\nThe world doesn't owe me anything special.\n\nI don't have to prove myself to the world either.\n\nMaybe I just need to do what I can and live the life in front of me.\n\nAnd maybe being ordinary, contrary to what I used to think, is one of the greatest freedoms life has given me."
     },
     {
       "date": "2026-09-13 00:00",
-      "mood": "neutral",
       "text_tr": "Lisede Dark Souls oynuyordum. Bilen bilir. Dark Souls 3'ü, şu çift kılıçlı boss'a kadar kendi kendime ilerleyerek getirmiştim ve bu oyunun zorluğunun onu ne kadar kıymetli yaptığını o zamanlar bilmiyordum.\n\nÇünkü boss sana bir kere vurduğu zaman ölüyorsun. Ama boss'u öldürmek için onun saldırılarından belki kırk kere kaçman gerekiyor. Yani onun bir saldırı paterni var. Bir kombo yapıyor. Mesela üç tane peş peşe vuruyor, sonrasında kısa bir duraksama anı oluyor. O esnada yaklaşıp bir takla atarak ona doğru ilerliyor ve bir tane vurma hakkı kazanıyorsun gibi bir şey. Belki şanslıysan iki, üç tane.\n\nSonra tekrar kombolara başladığında takla atarak darbelerinden kaçmaya çalışıyorsun. Çünkü bir tane vurursa, dediğim gibi, ölüyorsun.\n\nBundan dolayı bir boss'u öldürmek çok zor. Oyundaki neredeyse her şey bir kere vurduğu zaman öldürebildiği için sürekli titizlikle oynaman gerekiyor. Sürekli aynı yere dönüp ölüyor ve öfkeleniyorsun.\n\nAma boss'un canı bayağı azaldığı zaman bu durum o anı çok değerli hâle getiriyor. Çünkü bayağı bir emek vermişsin, çaba sarf etmişsin ve artık bir değişiklik yaratmak üzeresin. Bir boss'u öldürdüğün zaman da bu, dünyanın en güzel hissi oluyor.\n\nTabii ben o esnada bunun nedenini bilmiyordum. Ama bunun aslında dünyanın en değerli şeylerinden biri olduğunu sonradan fark ettim.\n\nVe o çift kılıçlı boss'u öldüremedim. Çünkü sürekli vuruyordu, sürekli vuruyordu ve benim vurma şansım yoktu. Sanırım oyunda biraz geri kaldığım için ve karakterimi yeterince geliştirmediğim için yeterli hasarı veremiyordum.\n\nBundan dolayı öfkelendim ve internete direkt \"Dark Souls hilesi\" yazdım. Bir tane hile indirdim. Daha sonra boss'u çok hızlı bir şekilde öldürebilmeye başladım.\n\nİlk başta gerçekten sihirli gibiydi. Dünyanın en iyi hissi oldu benim için. Ama bu sadece bir sefer oldu. Ondan sonra bir daha asla aynı hissi yaşayamadım.\n\nOyunun da tadı kalmadı, tuzu kalmadı.\n\nVe bu bana şunu düşündürdü: Belki hayatı değerli kılan şey de ölümlü olmamızdır. Belki hayattaki bazı anlar da Dark Souls'taki o boss'un son canı gibi.\n\nO anda doğru vuruşu yapmak zorundasın. Eğer o anı mükemmel hâle getiremezsen, onu mahvetmiş olacaksın. Çünkü o anın sadece bir kere yaşanmak gibi bir özelliği var. Eğer başaramazsan, o hak ölüyor.\n\nAma yeterince çaba sarf edersen, o boss'u öldürmek için bekleyip bekleyip birer ikişer vuruş yaparak toplamda yüz kere vurduysan, aynı bu çabayı gerçek hayatta da verirsen, o anın boşa gitmediğini hissediyorsun.\n\nBelki hayat da biraz Dark Souls gibi. Hayat kısıtlı, anlar kısıtlı; ölümsüz olmak bu anların sınırsız değerini de kocaman bir sıfır yapardı.",
       "text_en": "I used to play Dark Souls in high school. Those who know, know. I'd made it through Dark Souls 3 all on my own, all the way to that dual-sword boss, and back then I had no idea how much the game's difficulty was exactly what made it valuable.\n\nBecause the boss kills you the moment he lands a single hit. But to kill him, you have to dodge his attacks maybe forty times. He has an attack pattern. He does a combo. Say he strikes three times in a row, and then there's a brief pause. In that window you close in, roll toward him, and get to land one hit. Maybe two or three if you're lucky.\n\nThen as soon as he starts his combos again, you're rolling to dodge his strikes. Because if he lands even one, like I said, you're dead.\n\nThat's why killing a boss like this is so hard. Since almost everything in the game can kill you in one hit, you have to play with constant precision. You keep dying at the same spot over and over and it makes you furious.\n\nBut once the boss's health finally drops low, that's exactly what makes the moment so precious. Because you've put in serious effort, real work, and you're right on the verge of making something happen. And when you finally kill a boss, it's the best feeling in the world.\n\nOf course, at the time I didn't understand why. But I realized later that this was actually one of the most valuable things in the world.\n\nAnd that dual-sword boss — I never managed to kill him. He kept hitting me, kept hitting me, and I never got my chance to strike back. I think I'd fallen a bit behind in the game and hadn't leveled my character enough to deal sufficient damage.\n\nSo I got furious and typed straight into the internet: \"Dark Souls cheat.\" I downloaded one. After that I started killing the boss almost instantly.\n\nAt first it genuinely felt like magic. It was the best feeling in the world for me. But it only happened once. After that I could never feel that same thing again.\n\nThe game lost all its flavor after that.\n\nAnd it made me think: maybe what makes life valuable is precisely the fact that we're mortal. Maybe certain moments in life are just like that boss's last sliver of health in Dark Souls.\n\nIn that moment you have to land the right hit. If you can't make that moment perfect, you will have ruined it. Because that moment only ever happens once. If you fail, that chance dies.\n\nBut if you put in enough effort — if you waited and waited, landing one or two hits at a time until you'd struck a hundred times total to kill that boss — and if you put that same effort into real life, you feel like the moment wasn't wasted.\n\nMaybe life is a bit like Dark Souls too. Life is limited, moments are limited; being immortal would reduce the boundless value of these moments to a great big zero."
     },
     {
       "date": "2026-09-13 00:00",
-      "mood": "neutral",
       "text_tr": "Bugün bağımlılıklarımızı neden bırakamadığımız üzerine düşündüm. Bir bağımlılığı bırakmak neden bu kadar zor? Çünkü bıraktığın anda, nereden geldiğini tam olarak bilmediğin bir stres sürekli omuzlarına yüklenmeye başlıyor. Özellikle sigarayı bırakırken, beklemediğin anlarda nikotin isteği geliyor. Bir anda çok yoğun bir sigara içme arzusu yaşayabiliyorsun.\n\nMesela arkadaşlarım sigarayı bırakmaya çalışırken sürekli bunun imkânsız olduğunu, asla başarılamayacak bir hedef olduğunu söylüyorlar.\n\nBen ise yaklaşık kırk kere sigarayı bırakmayı denedim ve kırk kere başarısız oldum. Şimdi kırk birinci denememi sürdürüyorum.\n\nBelki aramızdaki fark burada. Ben artık bu sürecin neye benzediğini biliyorum.\n\nSigara içmemeye karar verdiğimde, sonrasında hiçbir şey olmayacağını düşünmüyorum. Tam tersine, bir noktada beklemediğim bir anda sigara isteğinin geleceğini biliyorum. Ve o an geldiğinde paniğe kapılmamaya çalışıyorum. Bu şunu düşünmeme sebep oluyor: bu işin bir yöntemi var ve ben bu yöntemi arkadaşlarımdan daha iyi biliyorum, dolayısıyla bunu yapabiliyorum. Yani bu tıpkı araba kullanabilmek gibi bir kabiliyet olmalı. Çünkü insan bilmediği bir yolda daha kolay panikliyor.\n\n\"Acaba yanlış yola mı girdim?\" \"Bir şeyler ters mi gidiyor?\" \"Bu daha ne kadar sürecek?\" — ve genelde bunun asla sona ermeyeceği bir psikolojiye girerek teslimiyet göstermek.\n\nAma bildiğin bir yolda yürürken bir noktadan sonra beynin şalteri kapanıyor. Nereye gittiğini biliyorsun.\n\nBence sigarayı bırakmak da biraz böyle. Bu süreçte karşıma çıkacak şeyleri bilirsem, onların ne anlama geldiğini bilirsem, süreç üzerinde daha fazla hâkimiyet hissediyorum. Madem belli bir yöntem biliyorum, bildiğim kadarıyla bahsetmek isterim.\n\nMesela bir gün sigara içmeyi bırakmaya karar versem, gerekirse kendimi odaya kapatırım. Ne kadar yemek yiyebiliyorsam yerim. Sürekli su içerim. Yürüyüşe çıkarım. Müzik dinlerim. İnternet kafeye giderim. Oyun oynarım. Film izlerim. Ne gerekiyorsa yaparım. Sadece sigarayı unuturum, boşveririm, ertelerim. Ama sigara içmem. Sadece bir gün içmem. Ve bu aslında işin yüzde doksanıdır.\n\nSonra ikinci gün yine bazı ataklar gelir. Ama artık birinci günü görmüşümdür. Bunun ne olduğunu biliyorum. İkinci gün hissettiğim ataklar birinci güne benzeyebilir, sorun değil, azaldığını biliyorum ve görüyorum derim. Ve üçüncü gün, beşinci gün derken fark zaten kendisini ortaya koyar. Yabancıların şöyle bir sözü var: \"only way out is diving in.\" Öncelikle kabul ederim, teslim olurum, savaşmam bile. Derin nefes alırım, fizyolojime, bünyeme kulak veririm, vücudumun çırpınışlarına kulak veririm ki göz ardı ettiğim hislerim beni ele geçirmesin. Onları dinlemeye gayret ederim, \"evet sizi dinledim, sakin olun\" der gibi.\n\nBenim için en önemli şeylerden biri de şu: Sigara isteğinin bir dalga gibi gelip geçtiğinin farkında olmak. Çok yoğun hissettirse bile sonsuza kadar sürmeyeceğini bilmek. Bazen sadece birkaç dakika boyunca çok güçlü bir şekilde geliyor ve sonra azalıyor.\n\nO birkaç dakikayı geçirebildiğinde aslında önemli bir şey öğreniyorsun: \"Bu his geldi ama ben sigara içmedim.\" Bu olayı oluş sırasıyla hayal edin lütfen: sigara içmek aklında yok ama sigara içen birini gördün ve bir anda başından aşağı kaynar sular indi. Önce vücudunu hoşa al, gözünü kapat, burnundan derin bir nefes al, karnını iyice doldur. Bu acının seni yok etmesine teslim ol, izin ver. Aradan bir dakika geçene kadar refleksif şekilde sigaraya ulaşmak için adım atmaya başlama. Fark burada başlar: sadece bir dakika kıpırdamadan dur. İşin bilimsel noktasına değinmem gerekirse, böyle bir duygu fırtınası amigdalanın ürünü ama bir dakika boşluğa dayanabilirsin ve dayanabilirsen beyin \"baba geldik kardeşim, ne bu tantana, biz sigara içmiyoruz demedik mi kardeşim, ne bu gürültü\" diyerek her şeyi sakinleştirir. Sadece sürece güven ve teslim ol.\n\nBir kere atlattığın şeyi ikinci kez yaşadığında artık tamamen yabancı bir şey olmuyor. \"Aa, ben bunu daha önce yaşamıştım\" diyorsun. Daha önce takıldığın yeri artık biliyorsun. Bu yüzden benim için pes etmemek çok önemli. Çünkü pes etmediğin sürece hâlâ yoldasın.\n\nBen şu anda yaklaşık üç aydır sigara içmiyorum. Ama bundan önce üç ay içtim. Ondan önce altı ay içmedim. Ondan önce yine bir süre içtim, sonra tekrar bıraktım. Bir iki yıldır aşağı yukarı böyle devam ediyor.\n\nBir de şu düşünce aklıma geliyor: Bazen insan \"Ben sigara içebilirim\" ihtimalini açık tuttuğu sürece, sigarayla sürekli pazarlık yapıyor. \"Bir tane içsem ne olur?\" \"Bugün çok zorlandım.\" \"Bir tane içip tekrar bırakırım.\" Kapı açık olduğu sürece her kriz bir pazarlığa dönüşüyor.\n\nAma kendine gerçekten \"Ne olursa olsun sigara içmeyeceğim\" dediğinde durum değişiyor. Tabii bunu sadece söylemek yetmeyebilir. Hatta ilk başta buna sen bile inanmıyor olabilirsin. Çünkü geçmişte defalarca tekrar sigara içmişsin. O zaman sözlerle değil, eylemlerle kendini ikna etmeye başlayacaksın.\n\nCanın sigara istiyor ve içmiyorsun. Bir daha istiyor ve yine içmiyorsun. Bir süre sonra beynin de yeni gerçeği öğreniyor: \"Tamam. Bu adam sigara içmiyor.\"\n\nBelki sigarayı bırakmak tam olarak budur. Sigaranın hiç aklına gelmemesi değil. Aklına geldiğinde artık bunun seni yönetmemesi.\n\nBazen sigara içmiyorken çok canım sigara çekiyor. O anda \"Bir tane içsem ve bu his sona erse\" diye düşünülebilir. Ben genelde bu tarz durumlarda, beni silah zoruyla tehdit bile etseler \"sigara falan içmeyeceğim kardeşim\" diye kendi kendime tansiyonumu yükseltip telkinlerde bulunuyorum. Böyle kızgın kararlı bir moda girdiğim zaman psikolojim \"tamam abi, bu adam içmeyecek\" diyor ve krizler son buluyor. Tabii artık ihtiyacım yok, yeterince uzun süredir içmiyorum, şu anda ufak cerrahi müdahaleler benim için yeterli oluyor. Ama ilk etapta işler zorken insan kendini \"ben bilerek geri başladım kardeşim, yoksa ben bırakabildiğimi biliyorum\" gibi bilinçli ya da bilinçsiz bahaneler mi dersiniz, duruş belirtir gibi yalanlar söylemeye çok yatkın; mantıklı argümanlar çok daha sonsuz tabii. Ama ben diyorum ki: Sigara içen bir insanın bütün gün sigara düşünmesi gerekiyor zaten. Adamın gün içinde defalarca sigara içmesinin sebeplerinden biri de bu.\n\nBen sigara içmeyen bir insan olarak günün belli zamanlarında sigarayı hatırlıyorsam, bunu kabul edebilirim. Eğer bundan sonra kaderim buysa, günde iki üç kere birkaç dakikalığına sigara aklıma gelsin. Ama günde yirmi kere gelmesin. Her birkaç saatte bir hayatımı bırakıp on beş dakikalığına sigara içmeye gitmek zorunda kalmayayım. Burnum zaten hemen tıkanıyor. Burnum tıkalıyken uyuyamıyorum. Ben böyle bir hayatı kabul etmiyorum. Onun için sigara içmiyorum. Ve asla da içmeyeceğim.",
       "text_en": "Today I thought about why we can't quit our addictions. Why is quitting an addiction so hard? Because the moment you quit, a stress you can't quite trace the source of starts settling permanently on your shoulders. Especially with quitting smoking, the craving for nicotine hits you at moments you never expect. All of a sudden you get an intense urge to smoke.\n\nFor example, my friends who try to quit smoking keep saying it's impossible, that it's a goal that can never be achieved.\n\nAs for me, I've tried to quit smoking about forty times and failed forty times. Right now I'm on my forty-first attempt.\n\nMaybe that's the difference between us. I now know what this process actually looks like.\n\nWhen I decide not to smoke, I don't assume that nothing is going to happen afterward. On the contrary, I know that at some unexpected moment, the craving is going to come. And when it does, I try not to panic. This makes me think: there's a method to this, and I understand that method better than my friends do, which is why I'm able to do it. In other words, it must be a skill, just like being able to drive a car. Because a person panics more easily on a road they don't know.\n\n\"Did I take a wrong turn?\" \"Is something going wrong?\" \"How much longer is this going to last?\" — and usually you end up surrendering by slipping into the mindset that it's never going to end.\n\nBut when you're walking down a road you already know, at some point your brain just switches off that alarm. You know where you're headed.\n\nI think quitting smoking is a bit like that. If I know what's going to come up during this process, if I know what those things mean, I feel like I have more control over it. Since I've said I know a certain method, I'd like to share what I know.\n\nFor example, if I decide one day to quit smoking, I'll lock myself in my room if I have to. I eat as much as I can. I keep drinking water. I go for walks. I listen to music. I go to an internet cafe. I play games. I watch movies. Whatever it takes, I do it. I just forget about the cigarette, brush it off, put it off. But I don't smoke. I just don't smoke that one day. And that, really, is ninety percent of the whole thing.\n\nThen on the second day, some more cravings come. But by now I've already been through day one. I know what this is. The cravings I feel on day two might resemble day one's, and that's fine — I tell myself I know it's fading and I can see that. And by day three, day five, the difference makes itself obvious on its own. There's a saying: \"the only way out is diving in.\" First I accept it, I surrender, I don't even fight it. I take a deep breath, I listen to my physiology, to my body, to its convulsions, so that the feelings I've been ignoring don't end up taking over. I try to actually listen to them, as if saying, \"Yes, I've heard you, calm down now.\"\n\nOne of the most important things for me is this: being aware that the urge to smoke comes and goes like a wave. Knowing that even though it feels extremely intense, it won't last forever. Sometimes it comes on very strong for just a few minutes and then it fades.\n\nWhen you manage to get through those few minutes, you actually learn something important: \"That feeling came, and I didn't smoke.\" Picture this happening step by step, please: smoking isn't even on your mind, but then you see someone smoking, and suddenly it's like boiling water pouring down over you. First, comfort your body, close your eyes, take a deep breath through your nose, fill your stomach fully. Surrender to that pain, let it happen. Don't start reflexively moving toward a cigarette until a full minute has passed. That's where the difference begins: just stand still for one minute, don't move. If I have to touch on the scientific side of it, a storm of emotion like this is a product of the amygdala, but you can withstand one minute of that void, and if you do, your brain basically goes, \"Oh, hey, we're back, buddy — what's all this commotion, didn't we say we don't smoke, what's all this noise,\" and it calms everything down. Just trust the process and surrender to it.\n\nOnce you've gotten through something once, the second time you go through it, it's no longer something completely unfamiliar. You say, \"Oh, I've been through this before.\" You already know where you tend to get stuck. That's why not giving up matters so much to me. Because as long as you don't give up, you're still on the road.\n\nRight now I haven't smoked for about three months. But before that I smoked for three months. Before that I didn't smoke for six months. Before that I smoked again for a while, then quit again. It's been going on like this, roughly, for a year or two.\n\nAnother thought that comes to mind: sometimes, as long as a person keeps the possibility of \"I could smoke\" open, they end up constantly negotiating with the cigarette. \"What if I just have one?\" \"I've had such a hard day.\" \"I'll have one and then quit again.\" As long as that door stays open, every crisis turns into a negotiation.\n\nBut when you truly say to yourself, \"No matter what happens, I will not smoke,\" things change. Of course, just saying it might not be enough. At first, you might not even believe it yourself, because you've relapsed so many times before. That's when you start convincing yourself not with words, but with actions.\n\nYou crave a cigarette, and you don't smoke it. You crave it again, and you still don't smoke it. After a while, your brain learns the new reality too: \"Alright. This guy doesn't smoke.\"\n\nMaybe that's exactly what quitting smoking is. Not that the thought of smoking never crosses your mind again — but that when it does, it no longer controls you.\n\nSometimes, even while not smoking, I crave it intensely. In that moment you might think, \"What if I just had one and this feeling ended?\" What I usually do in situations like that is deliberately rile myself up and lecture myself, thinking something like, \"Even if they threatened me at gunpoint, I still wouldn't smoke, bro.\" When I get into that stubborn, angry mode, my psychology basically says, \"Alright man, this guy's not going to smoke,\" and the craving ends right there. Of course, I don't really need to go that far anymore — I've gone long enough without smoking that small interventions are enough for me now. But early on, when things were hard, people are very prone to telling themselves conscious or unconscious excuses like, \"I relapsed on purpose, bro, it's not like I don't know I could quit if I wanted to\" — lies that sound like they're making a stand. There's an endless supply of \"logical\" arguments for that, sure. But what I say is: a person who smokes basically has to think about cigarettes all day anyway. That's actually one of the reasons they end up smoking so many times a day.\n\nAs someone who doesn't smoke, if cigarettes cross my mind at certain points during the day, I can live with that. If that's my fate from now on, fine — let smoking cross my mind two or three times a day for a few minutes. But not twenty times a day. Let me not have to drop everything every few hours and go smoke for fifteen minutes. My nose already gets stuffed up so easily. I can't sleep when my nose is blocked. I don't accept a life like that. That's why I don't smoke. And I never will."
     },
     {
       "date": "2026-06-25 19:46",
-      "mood": "love",
       "text_tr": "Eğer bir dilek hakkım olsaydı, gerçeklikten kopup zamanın akmadığı bir odada istediğim kadar düşünebildiğim molalar verebilmeyi isterdim. Çünkü gerçek hayatta bunu gerçekten sık sık yapıyorum ve en çok korktuğum şey bunu yaparken yıllarımın geride kaldığını görmek olurdu. Ama hep geleceği hedef alan hayallerim, bugünü her zaman ıskaladı. Halbuki bir zamanlar gelecek olan o zamanlar, tarihler şu anda geçmişte kalmış olsa bile. Bir şeyleri yanlış yaptığımı biliyorum ve anlıyorum ki düşünerek de bulamıyorum. Halbuki tek silahım düşünmekti. Öyleyse aslında bir silahım bile yokmuş. Aynı kurbanlık bir koyunun beklediği gibi bekliyorum.",
       "text_en": "If I had a wish, I'd want to be able to step out of reality into a room where time doesn't pass, and take as many breaks as I want just to think. Because in real life I actually do this very often, and the thing I fear most is realizing, while doing it, that my years have slipped away in the meantime. But my dreams, always aimed at the future, kept missing the present. Even though those future moments were once \"the future,\" they've now become dates that already belong to the past. I know I'm doing something wrong, and I understand that I can't figure it out just by thinking either. And yet thinking was my only weapon. So it turns out I never really had a weapon at all. I'm waiting the way a sacrificial sheep waits."
     },
     {
       "date": "2026-03-05 23:19",
-      "mood": "love",
       "text_tr": "Bozulmuş, eksik ya da kusurlu şeylerdeki canlılığı görmeyi seviyorum. 'Hatasız insan olmaz' derler ama tam öyle değil; insan olduğun için hata yapmıyorsun, hata yaptığın için insansın aslında. Sesin titreyip kırıldığı, aklının bulandığı, pürüzlü ve eksik cümleler okumak... bana organik bir yaşam kıvılcımı hissi veriyor. O ham canlılıkta bir hayat, bir hikâye, bir ilham görüyorum. Eğer bir yapay zekâ böyle bir cümleyi yazsaydı — pürüzsüz, yağ gibi akan — ve sonra bunu anlatsaydı, gerçek bir insana baktığımda hissettiğim heyecanı bana vermezdi. Bu bana Jim Carrey'nin botoks yaptırmasıyla ilgili bir paylaşımı hatırlattı. Biri şöyle yorum yapmıştı: 'Şimdi daha sıkı, kusursuz bir cildin olabilir ama seni sen yapan binlerce ifadeyi kaybettin; deneyimlerini ve anılarını geride bıraktın.' Kusursuz ve mükemmel şeyler beni heyecanlandırmıyor. Birbirini takip etmeyen desenlere ilgi duyuyorum. Orantısızlık aslında gizli bir Altın Oran — belki göze değil ama doğrudan ruha seslenen bir oran.",
       "text_en": "I love seeing the vitality in things that are distorted, incomplete, or flawed. They say 'no human is without error,' but it's not quite like that; it's not that you make mistakes because you are human, it's more that you are human because you make mistakes. Reading sentences that are rough, flawed, where your voice falters or cracks, where your mind gets clouded... it gives me the impression of an organic spark of life. In that raw vitality, I see a life, a story, and an inspiration. If an AI wrote a sentence like this—perfectly smooth, flowing like oil—and then narrated it, it wouldn't give me the same thrill I get when I look at a real person. This reminded me of a post about Jim Carrey getting Botox. Someone commented: 'You might have a tighter, flawless skin now, but you've lost the thousands of expressions that made you you; you left the experiences and memories behind.' Things that are flawless and perfect don't excite me. I'm drawn to patterns that don't follow one another. Disproportion is actually a hidden Golden Ratio — perhaps not to the eye, but one that speaks directly to the soul."
     },
     {
       "date": "2026-02-08 07:07",
-      "mood": "neutral",
       "text_tr": "Ne olursa olsun devam edeceğim. Zorlandığımda ayaklarıma bakma eğilimindeyim; bu, günlük davranışlarım hakkında çok şey söylüyor ve kendimi düzeltmek istiyorum. Bunun yerine gökyüzüne bakıp nereye geldiğimi düşüneceğim. Başardıktan sonra elimden geleni yaptığımı ve bana verilen zamanı iyi değerlendirdiğimi bileceğim. Sonra yine aynı kişi olacağım ama yeni bir kararla ve yeni bir yönle.",
       "text_en": "I will keep going no matter what. If it feels hard, I tend to look at my feet; this says a lot about my daily behavior, and I want to correct myself. Instead, I will look at the sky and think about where I have arrived. After I make it, I'll know I did what I could and spent the time given to me well. Then, I will be the same person, but with a new decision and a new direction."
     },
     {
       "date": "2026-02-04 07:32",
-      "mood": "fear",
       "text_tr": "kafam patlamak üzere. her şeyin aynı anda bin bir yöne bölünmesinin son derece normal olduğu bir hayat yaşıyorum. bütün bu senaryoları sonuna kadar oynatmak çok yorucu. yapabileceğim gerçekten sonsuz şey var ve sadece olasılıkları hayal etmek bile beni tüketiyor. yatmadan önce kafamda dönüp duran düşüncelerden daha kötü bir şey yok, stresten vücudum tıpkı bir radyatör gibi yanıyor. her şey olabilir. belki bir şey istiyorum ve olacağından emin olsam ona her şeyimle sarılırdım ama hiçbir şey kesin değil. eğer bir şey kesin olsaydı en çok istediğim şey yapardım, sorun olmazdı. ama bu belirsizlikte boğuluyorum ve sönüp gitmekten korkuyorum. hiç kimse olmaktan ve sefil bir hayat yaşamaktan dehşete kapılıyorum. ama bu konuda ne yapabileceğimi biliyorum. yapabileceğim tek şey kendimi aynı anda farklı yollarda geliştirmek. sonuçta hangisinin işe yarayacağını bilmiyorum çünkü ben bir balıkçıysam sadece oltayı nasıl atacağımı bilirim. ben balık değilim, kendi yemime kendim niye takılayım. eğer nerede balık tutacağımı yanlış bildiysem, tamam onu da hesabıma yaz ama ben sadece her şeyi kabul edip elinden gelenin en iyisini yapan biri olmak istiyorum. topu kendi sahamdan çıkarmak istiyorum lanet olsun, gerisi önemli değil. yanlış alanı seçtiysem ya da bir hata yaptıysam, önemli değil, hallederiz. yani ne olursa olsun toparlanacağız değil mi. korkmamayı seçiyorum. elimden gelenin en iyisini yapacak kadar korkuyorum ve peşinden koştuğum şeyi her şeyimle vermek isteyecek kadar istiyorum. ama işe yaramadığını duyarsam da aynı hızla sırtımı dönerim. tabii ki hayat sadece tek kırılma noktalarından ibaret değil ve ona böyle davranmam ne kadar kırılgan olduğumu gösteriyor ama ben üzülmek ya da strese girmek için doğmadığımı düşünüyorum. eğer yaşamak için doğduysam, bugün havanın lanet olası güzel olduğunu söylerim. içimde fırtınalar kopsa bile kendimi kandırmak istiyorum. çalışmayı bırakmadan strese girmeyi bırakmak istiyorum. belki kendimi kandırarak sakinleştirebilirim, malum derler ya 'yapana kadar yapıyormuş gibi yap.' umarım doğrudur. belki kendimi öyle eğitirim de gerçekten başka hiçbir şeyi umursamam. sadece eve gidip bir bardak çay içmekten heyecan duyan biri olmak istiyorum.",
       "text_en": "my head is about to explode. i am living a life where it is totally normal for things to split off into a thousand different directions at once. playing out all these scenarios to the end is exhausting. there are literally endless things i could do and just imagining the possibilities wears me out. there is nothing worse than thoughts racing through my head before bed and my body burns up like a radiator from the stress. anything could happen. maybe i want something and if i knew for sure it would happen i would cling to it with everything i have but nothing is certain. if something were certain i would make it the thing i want most no problem. but i am drowning in this uncertainty and i am scared of fading away. i am terrified of being a nobody and living a miserable life. but i know what i can do about it. the only thing i can do is improve myself across different paths at the same time. in the end i dont know which one will work out since if i am a fisherman i just know how to cast the line. i am not the fish why should i get caught on my own bait. if i am wrong about where to fish fine put that on my tab too but i just want to be a guy who accepted everything and did his absolute best. i just want the ball out of my fucking court the rest doesnt matter. if i picked the wrong field or if i made a mistake whatever it is fine we will handle it. i mean we are gonna bounce back no matter what right. i am choosing not to be afraid. i am scared enough to do my best and i want what i am chasing enough to give it everything i have. but if i hear it didnt work out i will turn my back just as fast. sure life isnt just about single breaking points and the fact that i treat it that way says a lot about how fragile i am but i just think i wasnt born to be sad or stressed out. if i was born to live then i will just say the weather is fucking beautiful today. even if there are storms raging inside me i want to fool myself. i want to stop stressing without stopping the work. maybe i can calm myself down by tricking myself and you know what they say fake it till you make it. i hope that is true. maybe i will train myself to be like that so i truly dont give a fuck about anything else. i just want to be the kind of guy who gets excited about simply going home and having a cup of tea."
     },
     {
       "date": "2026-02-04 07:31",
-      "mood": "joy",
       "text_tr": "Son telefon görüşmemizde kıkırdıyordu. Ben spor yaptığım için nefes almakta zorlanıyordum; onu cevaplamak için ağırlıkları tam set ortasında bırakmıştım. Ayrılıktan bahsederken sesi mutlu geliyordu. Kibirli bir tonla, 'Üzüleceğini biliyorum, üzgünüm' dedi. Tabii ki ona istediğini vermedim, köpekbalığının yanında kanamaya gerek yok, ona 'Hayır değilim, aslında biliyordum' dedim. Nasıl bildiğimi sordu. 'Bir insan için bir şeyler yapmaya çalışıp da onlar bunu takdir etmediğinde, anlamak zor değil' dedim. Aslında asıl hata bendeydi. O, kim olduğunu hiç inkâr etmedi; benim için doğru kişi olmadığını hiç saklamadı. Ama bir süreliğine mutlu olmak istedim, bu yüzden geri dönüşü zor bir yola daha derinden girdim. Sevgi ile bağımlılığın farklı şeyler olduğunu fark ettim. Ben bağımlıydım. O, mutsuz hayatımda sadece bir haz kaynağıydı. Şimdi bu bağı kırma şansına sahip olduğum için mutluyum çünkü bunun olması gerekiyordu. Her geciktirdiğim gün, düşüş daha da yüksekten olacaktı.",
       "text_en": "During our last phone call, she was giggling. I was barely breathing because I was working out; I had literally dropped the weights mid-set to answer her. She sounded happy while talking about breaking up. With an arrogant tone, she said, 'I know you're going to be upset, sorry about it.' of course ı didnt gave her what she wanted no need to bleed next to a shark told her, 'No, I'm not. Actually, I knew it.' She asked how. I said, 'When you try to do things for a person and they don't appreciate it, it's not hard to understand.' In reality, the core fault was mine. She never denied who she was; she never hid that she wasn't the right person for me. But I wanted to be happy for a while, so I went deeper down a path that was hard to return from. I realized that love and addiction are different things. I was addicted. She was just a source of pleasure in my unhappy life. Now, I am glad to have the chance to break this bond because it had to happen. Every day I delayed it, the fall would have been from even higher."
     },
     {
       "date": "2026-02-03 09:28",
-      "mood": "sadness",
       "text_tr": "Şu an hayatımda çok kritik bir noktadayım. Okulun kapanmasına yaklaşık dört ay kaldı. Dördüncü sınıftayım, ilk dönem bitti, ikinci dönem başlıyor. Dört ay sonra mezun bir insan olacağım. Üç ay sonra da KPSS var. Yani şimdi başlarsam üç ay çalışıp KPSS'ye girmiş olacağım. Bir yandan Almanca öğrenmeye çalışıyordum. En azından A2 seviyesine gelmek istiyordum. Bir yandan yazılım tarafında da boş durmadım. Raatme adında bir mobil uygulama geliştiriyorum. Bitmesine bir iki hafta kaldı, zaten bitecek. Yayınlayacağım. Tartışmaya bile açık değil, bitecek. Ama kendime şunu soruyorum: Raatme neden bu kadar önemli? Gerçekten önemli mi yoksa \"başladım, bitirmeliyim\" dediğim için mi bitiriyorum? Bitirmem gerekiyorsa doğru olanı mı yapıyorum yoksa kendime bir şey mi kanıtlamaya çalışıyorum? Yazın Raatme ile ilgili bir scooter markasına mail attım. \"Neden sosyal medya linkiniz yok\" diye. Kabul ettiler, sunum istediler. Adam \"buluşalım\" dedi ama yıllık izne çıktı, mail arada kayboldu. Daha dün mesaj attı, \"Onur özür dilerim, seni bekletmiş miyim?\" diye. Ama artık bir şey bekliyor muyum, emin değilim. Çünkü yazılım bugüne kadar bana para kazandırmadı. Yarın kazandırır mı bilmiyorum. Nasıl kazandırır bilmiyorum. Sıkıntıya girer miyim bilmiyorum. Korkudan ölür müyüm bilmiyorum. Planlarım vardı. Bir portfolyo sitesi, benim yerime cevap veren bir yapay zeka. EasyEdit adında bir uygulama fikri. Belzer Journal için videolar. Türkçe, İngilizce, Almanca içerikler. Bunları bam bam bam yapıp yayınlamak. İstanbul'da staj kovalamak. Gerçek staj olmazsa naylon staj bulup imzalatmak. Yurtta kal, İstanbul'u gör. Orada iş ara. Olursa uzun vadeye çevir. Bir yandan Almanca öğren, gelecekte Almanya'da yazılımcı ol. Çok para kazan. Güzel arabalar sür. Evet, bunları hayal ettim. Asıl hayal buydu. Ama gerçekler var. Junior developer olarak iş bulmak zor. Bulduğunda asgari ücretten çok farklı kazanmak zor. Beynini yıpratman gerekiyor. Suriye'den mi geldim, aç mı kaldım? Kendime niye eziyet edeyim? Yazın bir otelde 45 bin liraya çalıştım, resmen 45 bin liraya beni sömürdüler. Şimdi diyorum ki: KPSS var. Çalışırsam 85-90 alabilirim. Alırsam memur olurum. 40 bin lira maaş. İzin var. Mesai az. Boş zaman var. Kimse sana böyle bir konfor vermez. Bugün konuştuğum bir kız var. O da benim gibi bu yıl mezun oluyor. Muhasebe okuyor. Tek başına bir eve taşınmış, İşkur genç programından para alıyor, bir şekilde döndürüyor. Dedi ki: \"Tek hayalim KPSS'den atanmak. O zaman ailemin evine bir daha dönmem.\" Onu dinlerken düşündüm: Bu bir işaret mi? Çünkü KPSS benden net bir şey istiyor: puan. İnsanlar, ilişkiler, yazılım hayalleri… bunlarda hep belirsizlik var. Ama KPSS'ye girersin, bir puan alırsın. Geçersen geçersin. Sonra ne istersen onu yaparsın. Aile evime dönmek istemiyorum. Mezun olduktan sonra iş ararken aile evinde kalıp aşağılanmak istemiyorum. İşsiz kalırsam, parasız kalırsam \"hiçbir şey olamadın\" muamelesi görmek istemiyorum. KPSS olursa kirayı öder. Hayatımı güvenceye alır. Sonra istersem memurluğu bırakırım. Zaten sonsuza kadar ona yaslanmak istemiyorum. Ama şu an bu konfora çok ihtiyacım var. Çünkü güven olursa korkusuzca üretirim, yaratıcılığıma güvenirim. Ama KPSS'ye girmek yüzde 80-90 alacağım anlamına gelmiyor. Belki alamam. Sayısalda iyiyimdir, YKS'de iyiydim. Ama bu garanti değil. Çalışmam lazım. Zaman ayırmam lazım. O zamanı ayırırsam yazılım projeleri yavaşlar. Ayırmazsam KPSS gider. Her düğmeye aynı anda basmak saçma olabilir. Şöyle düşünüyorum: Günde 2-2,5 saatimi KPSS'ye ayırıp günün başına koyayım, o angaryayı hallet; kalan zamanda yazılıma devam et. Raatme'den sonra AI portfolyo sitesi, EasyEdit… Bunların yarım kalmasını istemiyorum. Videoların çekilmesini, yayınlanmasını istiyorum. Mezun olduğumda elimde bir şey olsun istiyorum. Ama içimde büyük bir korku var: Mezun oluyorum, iş bulamıyorum. Aylarca sürüyor. KPSS'ye bakmadığıma pişman oluyorum. \"Keşke iki ay çalışsaydım\" diyeceğim. Ya da tam tersi oluyor: KPSS'ye yaslanıyorum, yazılım sönüyor, hayallerim sönüyor. Sonra memur oluyorum ama içimde bir boşluk kalıyor. Aslında çok basit bir şey istiyorum: Birlikte yaşayabileceğim biri. Belki bir çocuğumuz olur. Mutlu olmak. Kendimi güvende hissetmek. Sürekli korku içinde yaşamamak. Şimdi hayatta kalmak istiyorum. Ailemden gelen paraya güvenemem. Okul bitiyor, sıra bana geliyor. Şu an önümde iki yol varmış gibi hissediyorum: Biri acıyı kabullenmek. İşsiz kalma, parasız kalma, belirsizlik riskini almak. \"Özgürlük\" ve \"hayal\" uğruna risk almak. Diğeri KPSS. Konfor. Güven. Maaş. Zaman. Hayalleri sonra sürdürmek. Hangisinin doğru olduğunu bilmiyorum. Bildiğim tek şey şu: Korkuyorum. Ama aynı zamanda yaşamak istiyorum.",
       "text_en": "Right now im at a super critical point in my life. about four months left till school closes. im in fourth year, first term finished, second term starting. four months later ill be a graduated human being. Three months later theres KPSS. So like if i start now, study for three months i will have entered KPSS. On one hand i was tryna learn German. Wanted to get to at least A2 level. On one hand didnt stay idle on software side. im developing a mobile app called Raatme. one two weeks left for it to finish, its gonna finish anyway. Im gonna release it. Its not even open to discussion, it will finish. But i ask myself this: why is Raatme this important? Is it really important or am i finishing it just cuz i said \"i started, i must finish\"? If i have to finish am i doing the right thing or am i just tryna prove something to myself? In the summer i emailed a scooter brand about Raatme. Like \"why dont you guys have social media link\". They agreed, wanted a presentation. The guy said lets meet but went on annual leave, the email got lost in between. Just yesterday he messaged, \"Onur sorry, did i keep you waiting?\" But am i expecting anything anymore, im not sure. Cuz software didnt make me money until today. Will it make money tomorrow i dont know. How will it make money i dont know. Will i be under stretch i dont know. Will i die of fear i dont know. I had plans. A portfolio site, an AI that answers instead of me. An app idea called EasyEdit. Videos for Belzer Journal. Turkish, English, German content. To do these bam bam bam and publish. Chasing internship in Istanbul. If not real internship find a nylon internship and get it signed. Stay in dorm, see Istanbul. Look for job there. If it happens turn it to long term. On one hand learn German, become a software developer in Germany in the future. Earn lots of money. Ride nice cars. Yeah, i dreamed of these. This was the main dream. But there are realities. Its hard to find job as junior developer. Hard to earn much different than minimum wage when you find. You need to wear out your brain. Did i come from Syria or something, did i starve? Why should i torture myself? I worked at a hotel in summer for 45 thousand liras, they literally fucked me for 45 thousand liras. Now i say: There is KPSS. If i study i can get 85-90. If i get it i become a civil servant. 40 thousand lira salary. There is vacation. Overtime is low. There is free time. Nobody gives you a comfort like this. Theres a girl i talked to today. She is graduating this year like me too. Studying accounting. Moved to a house alone, getting money from iskur youth program, spinning it somehow. She said: \"My only dream is to get appointed from KPSS. Then i will never go back to family house.\" While listening to her i thought: Is this a sign? Because KPSS wants a clear thing from me: score. People, relationships, software dreams… there is always uncertainty in these. But you enter KPSS, you get a score. If you pass you pass. Then you do whatever you want. I dont want to go back to family house. I dont want to stay at family house and get looked down on while looking for a job after graduating. If i stay jobless, if i stay moneyless, i dont want to see \"you became nothing\" treatment. If KPSS happens, it pays the rent. Secures my life. Then if i want i quit civil service. I dont want to lean on it forever anyway. But i need this comfort very much right now. Because if there is trust i produce fearlessly, i trust my creativity. But entering KPSS doesnt mean i will get 80-90 percent. Maybe i cant get it. Im good at numerical, i was good at YKS. But this is not guaranteed. I gotta study. I gotta spare time. If i spare that time software projects will slow down. If i dont spare KPSS will go. Pressing every button at the same time might be ridiculous. I am thinking this: If i spare 2-2.5 hours a day to KPSS, put it at the start of the day, get the chore out of the way; continue software in the remaining time. After Raatme, AI portfolio site, EasyEdit… I want these not to stay half finished. I want videos to be shot, published. I want to have something in my hand when i graduate. But there is a huge fear inside me: I graduate, cant find a job. It lasts for months. I regret not looking at KPSS. Ill say \"I wish i studied for two months\". Or the exact opposite happens: I lean on KPSS, software dies out, my dreams die out. Then i become a civil servant but a void remains inside me. Actually i want a very simple thing: Someone i can live together with. Maybe we have a child. Be happy. Feel myself safe. Not live inside fear constantly. I want to survive now. I cant rely on money coming from my family. School is ending, the turn is coming to me. right now i feel like there are two roads in front of me: One is accepting the pain. Risking staying jobless, staying moneyless, uncertainty. Taking risk for sake of \"Freedom\" and \"dream\". The other is KPSS. Comfort. Trust. Salary. Time. Continuing dreams later. I dont know which one is right. The only thing i know is this: Im scared. But at the same time i want to live."
     },
     {
       "date": "2026-02-03 09:28",
-      "mood": "neutral",
       "text_tr": "Normalde, acı çekmeyeceğim yollara kendimi sokarak aslında kendime kötülük ettiğimi düşünüyordum. Çünkü babam, hayatta kalabilmek için, eşi ve çocuğu olan bir adam olmasına rağmen açık öğretimden okudu, bir yandan farklı bir şehirde çalıştı, sonra başka bir şehre gitti, orada iş buldu ve tüm ailesini yanına topladı. Mesela babama bakıyorum, tam bir dev adam ve ona benzemek istiyorum tabii ki ama bu noktada babamla aramızı ayırmamız gerekiyor çünkü tıpkı ilkel çağlarda daha güçlü, kaslı insanların hayatta kalması ama bilişsel olarak geride olması gibi. İnsan şimdi bilişsel olarak daha ileride. Aynı bunun gibi babamın, eşine ve çocuklarına bir hayat sağlamak için \"yarın ne yiyeceğiz acaba\" gibi sorular sorması gerekiyordu, gerçek anlamda hayatta kalmak için bu soruyu sorma zorunluluğumuz yok artık. Ve bizim sorunumuz, bilişsel ve entelektüel yeteneklerimizi daha da keskinleştirmek ki çocuklarımız çok çok çok daha iyi yerlerde doğabilsin ve çok çok farklı sorular sorabilsinler.",
       "text_en": "Normally i was thinking i am doing evil to myself actually by putting myself into continue ways where i wont suffer pains. Because my dad in his time to stay alive despite being a man with wife and child he read from open university and on one hand worked in a different city then went to a different city and found a job there and gathered all his family to his side. For example i look at my dad He is a total giant man and i want to be like him of course but we need to separate with my dad at this point because just like how in primitive ages stronger, muscular people were living but were backward cognitively. The human now but cognitively more forward. Just like this with my dad having to ask questions like wonder what we will eat tomorrow to provide a life to his wife, children for that real staying alive we dont have the necessity to ask this question. And our problem is sharpening our cognitive abilities, intellectual abilities more so our children can be born in much much much better places and they can be asking very very different questions."
     },
     {
       "date": "2026-02-03 09:15",
-      "mood": "fear",
       "text_tr": "Bir an için okul bittiğinde ne yapacağımı falan düşünüyordum, kafam patlıyor. Ama düşündüm de, mesela liseye başladığımda fen bilgisi dersi, coğrafya, tarih, ne oldu falan. Sosyal bilgiler dersi açılıyor. Biyoloji dersi, fizik dersi mesela. Amına koyayım, \"burada sıçacağız\" diye düşünmüştüm. İşler kontrolden çıkacak, boka batacağız falan diye düşünüyordum ama üniversite bittiğinde sizin için de aynı şeyi düşünmeye başladım, bu aslında bir örüntüymüş. Üniversiteye ilk geldiğimde de korkmuştum. Bu üniversite de ne, dersleri geçecek miyiz yoksa siktir mi olacağız gibisinden. Sanırım üniversite bitince öyle bir şey, sakin bir iş bulursam çünkü şu an yaşadığım yer hiç iyi bir örnek gibi hissettirmiyor. Günde bir buçuk saat işe gitmek istemiyorum. Yaşadığım yer gerçek bir iş, güzel bir iş için çok uzak. Buradaki aile ortamı iyi değil. O yüzden bazı şeyler denemem lazım. Mesela bir an için Amerika'da yaşadığımı hayal ettim. Bilmiyorum belki bir ressamımdır. Ya da teknik işler yapan biriyimdir, müşteriler gelir, insanlar gelir. İnsanların evlerine giderim. Mesela bir çilingir olduğumu hayal ediyorum. Sadece o işi, bu işi yapmak her ne ise. İşler gelir. Yaşıyorum ve bununla barışığım. Anlıyor musun? Bu \"sorun yok\" senaryosu kafamda hiç yok. Bu olduğunda, iş gelir gider, biz de işimizi yaparız, bir şekilde yaşarız, ölmeyiz. O psikoloji kafamda öyle yok. Şu an beni ölesiye korkutan şey buydu ve bunu sindirebilirsem, hayatıma gerçekten bir eğri katabilirsem çok mutlu olacağımı düşünüyorum. Tabii ki hayalim Almanya'ya gitmek. Almanya'da neler yapılabileceğine de bakacağız. Şu anki hedefim Almanca öğrenmek. Saat şu an 21.24. Elimizden geleni yapıp mutlu oluyoruz diyebilmek istiyorum. Ama Türkiye'de olmak istemiyorum abi. Bu çok abartılı bir yaklaşım olabilir ama dünyanın farklı dillerin konuşulduğu farklı yerlerinde çalışmış olmak istiyorum. Anlıyor musun? Lanet olsun İzlanda'ya gitmek istiyorum. Anlıyor musun? \"Ne yaa\" dersin ama istiyorum kanka. Sonra Norveç'te çalışmak istiyorum kanka. Finlandiya'da yaşamak istiyorum kanka. Yok, Hollanda da olur. Bilmiyorum. Amerika'da da yaşamak isterdim. Mesela California'da üç yıl yaşamak isterdim kanka. Hangi lanet işi yapıyorsam yapayım. Önemli değil. Yani sonunda beni değiştirecek olan uzmanlık işleri, bu kadar açık fikirli ve sadece bu konfor projesi üzerinde çalışmış biri olarak, hangi farklı konularda kendimi satabilirim diye düşünüyorum. Ağzım da laf yapıyor sonuçta. Bunun dışında turizm sektöründe çalıştım. Max Royal Belek'te çalıştım. Turizm sektöründe çok dolu bir özgeçmişim var. Land of Legends'ta çalıştım. Max Royal Belek'te çalıştım. Crystal Yarav Hotel'de çalıştım. Sonra 13 yaşında falayken minicikken Lara Fish House'da çalıştım. Kokoreç dükkanında çalıştım. Sonra Reklam Kariyer'de çalıştım. Hepsinde garson, komi olarak çalıştım. Belki çeşitli meslekler öğrenmedim ama bir işin nasıl yapıldığını, iş ahlakının ne olduğunu, çalışma ortamının nasıl olduğunu, sorumlulukların ciddiyetini, önemin ne olduğunu biliyorum ve bence işin yüzde doksanı bu. Mesela ben bir araba motorunu sökemem ama açık fikirliliğe bak, \"araba motoru nereden geldi\" diyorum. Ama bir motoru indiremem, sökemem, tamir edip geri takamam ama bilmiyorum, olay açık mı yoksa bilmiyorum, mezun olduktan sonra Amerika'da birden araba tamiri yapmaya başladığımı hayal et. Çok garip. Süper spor arabalar tamir etmeye başlasaydım çok güzel olurdu. Ama o para nerede, yani o arabaları nasıl yapıyorum, parçaları söküp birleştiriyorum. Ama güzel bir iş gibi görünüyor. Videolarını izliyorum bilmiyorum. Bir adam bir Ducati motosiklet görüyor. 500 dolar mı, 2000 dolar mı ne? Çok güzel bir Ducati. Bu parça değişecek, o parça değişecek diye her parçayı ayrı ayrı sipariş ediyor. Bozukları çıkarıp yenilerini takıyor. Motosiklet kaza yapmış, parça parça olmuş falan ama toplanabilir durumdaymış. Adam mesela onu toplamış. Ben de bu işi yapabilirim aslında dedim. Ama bunlar \"ha\" deyip heveslenmekle olan şeyler değil. İşleri yıllarca, yıllarca, yıllarca zaman harcayarak öğreneceksin. Ama bilmiyorum şimdiye kadar yıllarımı başarılı bir şekilde harcayacak sabrım olan bir şey var mıydı ya. Belki sorun buradan koptu.",
       "text_en": "i was thinking of like for a moment what am i gonna do when school ends etc my head is exploding. But like i thought about it you know when i started high school for example science class for instance, geography, history whatever happened. Social studies class opens up etc. Like biology class, physics class. Ah fuck it i thought we are gonna get screwed here. Things will get out of control and we will have eaten shit etc i was thinking but when university finished i started thinking the same thing for you guys and this was actually a pattern. I was scared when i first came to university too. Like what is this university? Are we gonna pass the classes or are we gonna get fucked or what. I guess after uni finishes if i find a chill job like that cuz where i live right now doesnt feel like a good example at all cuz. i dont want to go to work one and a half hours a day. The place i live is too far for a real job, a nice job. Family environment isnt good here. So gotta try some things. Like i imagined for a moment like im living in America. I dunno maybe im a painter you know? Or like im a guy doing technical jobs and customers come, people come. I go to peoples houses. I imagine im a locksmith for example. Just doing that job, doing this job whatever. Jobs come. I am living and i have become okay with this. You know? This scenario of being okay is so not in my head. When this happens like eh work comes and goes and we do work too. Like somehow we live, we dont die. That psychology is not in my head like that. Right now the thing that scares me to death was this and if i can digest this and Really add a curve to my life i think ill be very happy. Of course my dream is going to Germany. We'll look at what can be done in Germany too. My goal right now is learning German. Time is already 21.24. Like i want to be able to say we do our best and we become happy ya. But i dont want to be in Turkey man. This might be a very exaggerated approach but like i want to have worked in different places of the world where different languages are spoken. You know? I wanna go to Iceland for fucks sake. You know? Youd say what the hell but i want it bro. Later i want to work in Norway bro. I want to live in Finland bro. No wait Netherlands works too. I dunno. I would have wanted to live in America too. For example i would have wanted to live in California for three years bro. Whatever the fuck job im doing dammit. Doesnt matter. Like ultimately the thing that will change the expertise jobs i mean as a person who is this open minded and only worked on this comfort project like in what different topics can i sell myself like i think about that. My mouth makes words etc too. Apart from that i worked in tourism sector. i worked at Max Royal Belek. Like i have a very full CV in tourism sector. I worked at Land of Legends. I worked at Max Royal Belek. I worked at Crystal Yarav Hotel. Later when i was like tiny tiny at 13 years old or something i worked at Lara Fish house. Worked at kokorec place. Later worked at Reklam kariyer. I worked as a waiter, as a commi in all of them. Like maybe i didnt learn various trades but like how is a job done, what is work ethic, like how is the work environment, seriousness of responsibilities, what is the importance i know these and i think this is ninety percent of the work. Like i cant go and separate a car engine from myself but look at the open mindedness, where did car engine come from i say. But like i cant download an engine, a car engine. Cant take it apart tear it down, repair it and put it back but i dunno, is the event being open or i dunno, imagine suddenly starting to do car repair in America after graduating. Very weird. If i started repairing super sport cars etc would be very nice. But where is that money, i mean how do i do those cars i mean separate parts, tear down, combine. But looks like a nice job. I watch videos of it i dunno. A guy sees a Ducati bike. Is it 500 dollars, 2000 dollars or what? Like a very beautiful Ducati bike. Like this part will change, that part will change etc he orders separately for every part. Takes out broken ones puts new ones. Like bike had an accident, became into pieces etc etc but like it was in a condition to be gathered. The guy gathered it for example. I said i can do this job actually. But these arent things that happen by saying ha, by getting enthusiastic. Like jobs you will learn by spending years, years, years. But i dunno if there was anything i had patience to spend years on successfully until now spending my years ya. Maybe the problem broke off from here."
     },
     {
       "date": "2026-01-31 04:25",
-      "mood": "joy",
       "text_tr": "tam uyumak üzereyken bunu düşündüm hep kendimi ancak bir yere ulaştığımda mutlu olabilen biri gibi hissediyorum bilirsin uzun zamandır yazı yazmadım eskiden çok severdim tabii bugün yapsam bile eskisi gibi aynı zevki almazdım çünkü o zamanlar bir nevi ilkel bir şekilde yapıyordum ve bakış açım ilkel olduğu için yarattığım şeyden utanmıyordum ne demek istediğimi anlıyor musun öyle bir sevinçle, ilhamla dolu, duygular taşarak yazardım her gün kapımızın önündeki bankta otururdum mesela dolunay olduğunda dünyanın en özel anıymış gibi hissederdim yazarken bir şeyleri o kadar özel hissederdim ki gerçek olamayacak kadar normalde bu kadar hisseden biri uyuşturucu falan almış olmalı yazmayı o kadar çok severdim ama bugün eskisi gibi yapmaya çalıştığımda yarattığım şeyi beğenmiyorum ve tek sevdiğim şey böyle konuşarak kendimi analiz etmek belki romantize ediyorumdur ama eski günlerle aynı tadı veriyor mu bilmiyorum bu tam olarak \"hayat o zaman daha iyiydi\" demek değil demek istediğim şu bir x zamanı vardı ve bir şeyler dinliyordum ve çok iyiydi o \"çok iyiydi\" şeyini yakalamaya çalışıyorum nostaljik bir tahrikle değil ve şu an düşünüyorum söylüyorum sana o zamanlar yazı bana çok iyi davrandı iyi hissetme ihtiyacımı yüzde yüz karşıladı heyecan verici vurgular şok edici farkındalık vahşi açılar gerçeklik kontrolleri algılayamadığın şeyleri sana gösteriyor ama bir yazar gösteriyor ve \"vay be\" diyorsun neyse bundan çok keyif alırdım ama şimdi nerede olabileceğimi hayal ediyorum gerçekten ölümlü olduğumu ve tekrar yaşamayacağımı fark ediyorum sadece tek hayatlı bir yaratığım ama günlük hayatıma baktığımda bu yaşam şekli bu keyif alma şekilleri bana ait hissetmiyor tabii ki kim olduğumun arkasında yıllar süren bir çaba var ama yazarken çok mutluydum resim de çizerdim sanatsal şeyler yapmayı severdim ama bu şeyler bazen gerçek hayatla uyuşmuyor ve söylüyorum sana şimdi onları yapsam bile keyif almıyorum özellikle şunu hayal ettim gelecekte babam gibi büyük bir adam olacağım belki çocuklarım olacak belki olmayacak işten eve gelip \"ben niye yaşıyorum ki\" diye hissedeceğim çünkü şu an olacak olan bu ve şu an sevmediğim şeylere tahammül edebiliyorsam bunun sebebi düzensiz hayatımın hâlâ umut temsil etmesi bugünü yarınlar için feda ediyorum diyebilirim ama yarın ne diyeceğim niye yapıyor olacağım korkunç bir anlamsızlık olacak belki ve o anlamlar çocuklarımı büyütmek için çalışmak hayatta kalmak için çalışmak gibi ugh ne bu tabii ki lanet olası çalışacağız ama bir kafeste hapsolmuş hayvan gibi çalışmak istemiyorum belki anlam aradığım için anlamsızlıkla karşılaşıyorum bunun çıktısı elbette anlam aramayı bırakmak değil ama sadece bir şeyleri kabul edip bana uyduğuna inandığım bir anlam bulmak da istemiyorum bunun yolu ne ya anlam acı verici gerçeklerle beslenir ya da hayat değişir çözüm bu ama o anlamın bana huzur vermesini istiyorum bana iyi davranmasını beni iyileştirmesini beni hayatta tutmasını beni canlandırmasını istiyorum beni güzel şeyleri çeken bir insana dönüştürmesini ilham verici yapmasını istiyorum çünkü bana ilham vermesini istiyorum bunu yapabilir miyim çok mu zor",
       "text_en": "just as i was bout to sleep i thought about this i always feel like im the type of person who can only be happy when i reach somewhere you know like i havent done writing for a long time which i used to enjoy a lot of course even if i did it today i wouldnt get the same joy as before cause back then i was doing it kinda primitively and since my perspective was primitive i wasnt ashamed of what i created you know what i mean i used to write with such joy full of inspiration overflowing with emotions id sit on the bench in front of our door every day like when there was a full moon feeling like it was the most special moment in the world writing feeling things so special they couldnt be real normally someone feeling that much should be on drugs or something i loved writing that much but today when i try to do it like i did back then i dont like what i make and the only thing i like doing is analyzing myself by talking like this maybe romanticizing it but i dont know if it gives the same taste as the old days this isnt exactly saying life was better back then what i mean is like there was a time x and i was listening to stuff and it was so good im trying to catch that \"it was so good\" thing not in a nostalgic agitation and i think right now like i tell you back then writing treated me so well it satisfied my need to feel good 100% like exciting emphasizes shocking awareness wild angles reality checks showing you things you cant perceive but a writer does and you go wow anyway i enjoyed that a lot but now im thinking imagining where i could be realizing im truly mortal and wont live again just a creature with one life but looking at my daily life this way of living these ways of enjoying things dont feel like they belong to me of course theres years of effort in who i became but like i was so happy writing i used to draw too loved doing artistic stuff but these things sometimes dont match real life and im telling you i dont enjoy them even if i do them now specifically i imagined this like in the future ill be a big man like my dad maybe ill have kids maybe not coming home from work feeling like why the fuck am i living cause thats what would happen right now and if i can tolerate things i dont like right now its because my unsettled life still represents hope i can say im sacrificing today for tomorrows but what will i say tomorrow why will i be doing it itll be a terrible meaninglessness maybe and those meanings like working to raise my kids working to survive like ugh wtf of course we gonna fucking work but i dont want to work like an animal trapped in a cage maybe i encounter meaninglessness cause im looking for meaning the output of this isnt stop looking for meaning obviously but i dont want to just accept things and find a meaning i believe fits me whats the way for this either meaning feeds on painful truths or life changes thats the solution but i want that meaning to give me peace i want it to treat me heal me keep me alive revitalize me i want it to turn me into a person who attracts beautiful things make me inspiring cause i want it to inspire me can i do this is it too hard"
     },
     {
       "date": "2026-01-31 04:25",
-      "mood": "joy",
       "text_tr": "okurken yine hayale daldım ve bunu yazmak istedim çünkü kaydedersem ve ağzımdan çıkarırsam kafamda büyümez, en azından daha az yer kaplar ama sorunlarım burada bitmiyor çünkü kaynak basit ilişkiler değil, bir kamyon gibi bana çarpmak üzere olan hayatın kırılma noktaları okul bundan sonra bitiyor ve işler ciddileşiyor lisede de böyle bir kırılma yaşamıştım ama bu sefer farklı çünkü başka bir üniversiteye giderek erteleme şansım yok bundan sonra doğrudan hayatın kucağına düşeceğim almanyaya gitmek istiyorum bilmiyorum bir yerde çalışırım o işi bulmak istiyorum falan o yüzden dört beş ay dişimi sıkacağım ve üniversitenin bu son döneminde ne yazık ki bir kız arkadaşlık hayatı istemiyorum aslında istiyorum tabii ki içten içe o kızları bile özlüyorum eski sevgililerim hayatıma çok renk katmıştı çünkü dürüst olmak gerekirse onlarsız hayatım o kadar da iyi görünmüyor onların yerine koyduğum şeyler verdikleri zevki vermiyor çünkü doldurdukları boşluk başka bir yerde neyse tamam görüyorum ki önümüzdeki 4-5 ay gerçekten çok çalışmam lazım hayatımda dikkat dağıtıcı şey olmayacak çünkü şakalar bitti falan ama sonra düşünüyorum tamam 4-5 ay bir hayvan gibi çalışacağım ve sonra yine hiçbir şey olmayacak yine iş bulmakta zorlanacağım ve bir yere ulaşmış olacağım ama o yer pek de bir yer olmayacak ne demek istediğimi anlıyor musun belki iş bulmaya yetmeyecek belki maaş yetmeyecek belki almanyada olmayacak almanyada olsa bile belki çok yorucu olacak beni konfor alanımdan uzun süre çıkaracak yaşam standartlarımdan ama o hedefe giden yolda mücadele etmeden alacağım keyif keyif bile olmayacak arkadaşlarım der ki zaten nereye gidecekse oraya gideceğiz kendini bu kadar strese sokmaya sıkıştırmaya gerek var mı diye düşünüyorlar ama ben öyle düşünmek istemiyorum çünkü kendi kaderimi değiştirdiğime inanıyorum ama şu var işleri değiştirmeye çalışan versiyonuma ne kadar müdahale edebilirim bilmiyorum çünkü bir insan olarak yavaşım dahi de değilim elimden geleni yapmaya çalışıyorum ama çok umutlu değilim kendime inanmıyorum kendime inansam bile yaptığım şeylerin başkaları tarafından önemli bir iş olarak görüleceğine inanmıyorum mesela daniel goleman'ın duygusal zeka adlı kitabını okuyordum sana bir bölümü okumak istiyorum güzel bir bölüm mesela diyordu ki penn'den psikolog martin seligman o yılın başında iyimserlik seviyelerini test etmiş şaşırmamış biondi seligman'ın bir yüzmeden sonra yaptığı bir deneyde eski formunu yakalamış biondi'nin en iyi performansını göstermesi beklenen bir yerde antrenör sporcuya aslında olduğundan daha kötü bir derece aldığını söylemiş bu karamsar geri bildirime rağmen dinlenip tekrar denemesi istendiğinde biondi'nin zaten iyi olan performansı daha da iyileşmiş ama test sonuçlarına göre karamsar çıkan diğer takım üyelerine aynı yalan söylendiğinde ikinci denemede daha da kötü başarısız olmuşlar yani kendime pek inanmıyor muyum yoksa inanmasam da devam mı edeceğim tabii ki başka seçeneğim yok zaten elimden başka bir şey gelmiyor daha kötüsünü yapsaydım elimden gelenin en iyisini yapıp başarısız olmaktan daha mutsuz olurdum bunu da biliyorum sadece bu lanet dünyada mutlu olma hakkımın tükendiğini hissediyorum",
       "text_en": "started daydreaming again while reading and i just wanted to write this down thinking like if i record it and get it out of my mouth it wont grow inside my head and at least take up less space but my problems didnt end with this cause the source isnt simple relationships its life breaking points bout to hit me like a truck school is over after this and things are getting serious i had this break in high school too but this time its different cause i dont have the chance to delay it by going to another uni im gonna fall right into lifes lap from now on i wanna go to germany i dunno ill work somewhere i wanna find that job etc so ill grit my teeth for four five months and in this final stretch of uni i dont want a girl life unfortunately actually i do want it of course deep down i even miss these girls like girlfriends i had added so much color to my life cause honestly my life doesnt look that good without them like things i put in their place dont give the pleasure they gave cause the void they filled is somewhere different anyway okay i see that for the next 4-5 months i gotta work real hard no distractions in my life cause jokes over etc but then i think okay ill work like an animal for 4-5 months and then nothing will happen again ill still struggle finding a job and ill have reached somewhere but that place wont be much of a place you know what i mean maybe it wont be enough to find a job maybe the salary wont be enough maybe it wont be in germany if it is in germany maybe itll be too tiring taking me out of my comfort zone my living standards for a long time but without struggling on the road to that goal the joy i get wont even be joy like my friends say we go where were gonna be anyway like is there a need to stress yourself squeeze yourself so much thats what they think but i dont wanna think like that cause i believe i change my own fate but theres this i dont know how much i can intervene with the version of me trying to change things cause as a human im slow you know im not a genius either im trying to do my best but im not too hopeful i dont believe in myself like even if i believe in myself i dont believe the things i do will be seen as important work by others for example i was reading a book called emotional intelligence by daniel goleman i wanna read you a part a nice part for example it said psychologist martin seligman from penn tested optimism levels early that year he wasnt surprised biondi caught his old form in an experiment seligman did after a swim where biondi was expected to show his best performance the coach told the athlete he got a worse time than he actually did despite this pessimistic feedback when asked to rest and try again biondis performance which was already good got even better but when they told the same lie to other team members who turned out to be pessimistic from test results they failed harder the second time so like do i not believe in myself much or ill keep going despite not believing in myself of course i have no other choice nothing else comes from my hand anyway if i did worse id be unhappier than doing my best and failing i know that too i just feel like my right to be happy in this fucking world has run out"
     },
     {
       "date": "2026-01-28 10:11",
-      "mood": "joy",
       "text_tr": "Her şeyin, hemen değil ama yavaş yavaş, her geçen gün daha iyi olacağına kendimi ikna etmeye çalışıyordum.",
       "text_en": "I was trying to convince my self everything going to be better everyday not instantly but slowly"
     },
     {
       "date": "2026-01-27 17:57",
-      "mood": "fear",
       "text_tr": "Bazen başımın üstünde görünmez bir saat varmış gibi yaşıyorum. Dramatik hiçbir şey olmuyor ama vücudum buna inanmıyor. Göğsüm sıkışıyor, sanki kötü bir şey zaten yola çıkmış ve ben sadece bunu fark etmekte geç kalmışım gibi. Üzgün hissetmiyorum. Gözetleniyormuşum gibi hissediyorum. Sanki hayat, dikkatimi vermediğim tam o anı bekliyor bana çarpmak için. Düşüncelerim dinlenmiyor, tarıyor. Her sessizlik şüpheli hissettiriyor. Her sakin an geçici hissettiriyor, sanki her an elimden alınacakmış gibi. Rahatlarsam her şeyin çökeceğini düşünüp duruyorum. Kontrol etmeyi bırakırsam geri döndürülemez bir şey olacak. O yüzden gergin kalıyorum. Tetikte. Hasara hazır. En korkunç kısım kötü bir şeyin olabileceği değil. Böyle yaşamaya alışabilecek olmam. Sürekli hazırlıklı, sürekli bekleyen, panikten hep bir adım uzakta. Ve bu korkunun beni koruyor mu yoksa yavaş yavaş beni içinde kaybolmaya mı eğittiğini bilmiyorum.",
       "text_en": "Sometimes I feel like Im living with an invisible timer above my head. Nothing dramatic is happening but my body doesnt believe that. My chest is tight like something bad is already on its way and Im just late to realize it. I dont feel sad. I feel watched. Like life is waiting for the exact moment Im not paying attention to hit me. My thoughts dont rest they scan. Every silence feels suspicious. Every calm moment feels temporary like its about to be taken away. I keep thinking if I relax everything will collapse. If I stop controlling things something irreversible will happen. So I stay tense. Alert. Ready for damage. The scariest part is not that something bad might happen. Its that I might get used to living like this. Always bracing always expecting always one step away from panic And I dont know whether this fear is protecting me or slowly training me to disappear inside it."
     },
     {
       "date": "2026-01-27 17:50",
-      "mood": "surprise",
       "text_tr": "Bazen merak ediyorum — her şey yolunda gitseydi, yine ben olur muydum? Ya taşıdığım bu ağırlık, bu sürekli fazla düşünme, hiçbir şeyi tam anlamıyla yaşayamama hissi, aslında beni tanımlayan şeyse? Belki bazı hayatlar keyfini çıkarmak için değil, anlaşılmak için var. Ve belki ben yanlış bir hayatın kurbanı değilim, çok erken uyanmış doğru bir hayatın tanığıyım.",
       "text_en": "Sometimes I wonder— if everything had gone right, would I still be me? What if this weight I carry, this constant overthinking, this feeling of never quite fully living things is actually what defines me? Maybe some lives aren't meant to be enjoyed, but to be understood. And maybe I'm not the victim of a wrong life, but the witness of a right one who woke up too early."
     },
     {
       "date": "2026-01-27 17:13",
-      "mood": "love",
       "text_tr": "bence olgunluğun en büyük işareti bir şeyi sevmek, o anın tadını olabildiğince çıkarmak ama aynı zamanda sonsuza kadar seninle kalmayacağını da kabullenmek... ve o zaman geldiğinde bu gerçeğin seni ezmesine izin vermemek. sanırım büyümek gerçekten bu.",
       "text_en": "i think the biggest sign of being mature is loving something, enjoying the moment as much as you can but also accepting that it wont stay with you forever... and not letting that fact crush you when the time comes. i guess thats what growing up really is."
     },
     {
       "date": "2026-01-27 17:03",
-      "mood": "love",
       "text_tr": "Yalnızlık beni parçalamıyor. Yalnız hissedebilirim ve yine de bütün kalabilirim. Sevilmek için çaresiz değilim. Sevgi, yalvardığım bir şey değil, izin verdiğim bir şey. Kendimi onay karşılığında satmıyorum. Başkalarının onayı kendi değerlerimin üstünde değil. Sevilmeyebilirim ve yine de güvende olabilirim. Görülmeyebilirim ve yine de tamamen var olabilirim. Biri beni seviyorsa, onun için kendimi yok ettiğim için değildir. Sevgiye layık olmak için performans sergilemeye ya da kendimi tüketmeye ihtiyacım yok. Bir eksikliği fazla telafi ederek gizlemiyorum. Özümde eksik hiçbir şey yok. Verdiğim şey uyum sağlamaktan değil, samimiyetten geliyor. İçimdeki gerçek olan kalıcıdır. Zorlanan şey solar ve artık solan şeyin peşinden koşmuyorum. Başarılarım kendimi cezalandırmak üzerine kurulu değil. İşlev görmek için korkuya ihtiyacım yok. Kendimi korkutarak disipline sokmuyorum. Disiplini seçiyorum çünkü bana hizmet ediyor. Kendimi tehdit etmeden hata yapabilirim. Öğrenmek için utanca ihtiyacım yok. Büyümek için öfkeye ihtiyacım yok. Utanmaz ya da omurgasız değilim. Dikkatliyim çünkü kendimi korumayı öğrendim. İnsanların yanında performans sergilemeden kendim olabilirim. Etkilemeye ihtiyacım yok. Kabul edilmek için küçük yalanlara ihtiyacım yok. Ya açıkça konuşurum ya da sessiz kalırım. İkisi de dürüsttür. Sadece kafamın içinde yaşamıyorum. Düşünceler ve duygular içimden geçer ama beni yönetmezler. Emin olmasam bile harekete geçerim. Hayatım rastgele faktörlerle belirlenmiyor. Tutarlı eylemlerle sonuçları etkiliyorum. Her şey yarım kalmış olsa bile kendime saygı duyuyorum. Sonuçlar gelmeden önce bile çaba önemlidir. İşler ciddileştiğinde çalışıyormuş gibi yapmıyorum. Çalışıyorum. İlerleme dramatik değildir. Tekrarlayıcıdır ve bazen sıkıcıdır ama yine de kalırım. 21 ağır geldiği için 20'de donup kalmıyorum. Kusurlu bir şekilde ilerliyorum. Değerimi sadece sonuçlarla tanımlamıyorum. Değerim, kendimi kanıtladıktan sonra kazandığım bir şey değil. Eylemlerim anlam katar ama var olma hakkımı yaratmaz. İzin almadan gurur duymama izin veriyorum. Suçluluk duymadan dinlenmeme izin veriyorum. Ruh halim başkalarının davranışlarına ait değil. Tepkileri fark ederim ama onlara kontrolü teslim etmem. Ayakta kalmak için başkalarını küçümsemeye ihtiyacım yok. Kendi eksiklerimi inkâr etmeden insanları net görüyorum. Kendimden nefret etmeden sorumluluk alıyorum. Tutarsız olduğumda bile gerçek bir insanım. Devam edeceğime kendime güvenebilirim. Meşru olmak için mükemmel olmama gerek yok. İlgiyi hak etmek için çökmeme gerek yok. Sessizce, istikrarlı bir şekilde ve kendime karşı şiddet göstermeden sağlam biri olmayı seçiyorum.",
       "text_en": "Loneliness does not break me apart. I can feel alone and still stay whole. I am not desperate to be loved. Love is something I allow not something I beg for. I do not trade myself for approval. Other people's approval is not above my own values. I can be disliked and still be safe. I can be unseen and still exist fully. If someone loves me it is not because I destroyed myself for them. I do not need to perform or exhaust myself to be worthy of affection. I do not hide a deficiency by overcompensating. There is nothing missing at my core. What I give comes from sincerity not from adaptation. What is real in me lasts. What is forced fades and I no longer chase what fades. My achievements are not built on self punishment. I do not need fear to function. I do not scare myself into discipline. I choose discipline because it serves me. I can make mistakes without threatening myself. I do not need shame to learn. I do not need anger to grow. I am not shameless or spineless. I am cautious because I learned to protect myself. I can be myself around people without performing. I do not need to impress. I do not need small lies to be accepted. I speak plainly or I stay silent. Both are honest. I do not live only in my head. Thoughts and emotions pass through me but they do not rule me. I act even when I feel unsure. My life is not decided by random factors. I influence outcomes through consistent action. I respect myself even when things are unfinished. Effort counts even before results arrive. When things become serious I do not pretend to work. I work. Progress is not dramatic. It is repetitive and sometimes boring and I stay anyway. I do not freeze at 20 because 21 feels heavy. I move imperfectly forward. I do not define my value only by results. My worth is not something I earn after proving myself. My actions add meaning but they do not create my right to exist. I allow myself to feel proud without permission. I allow myself to rest without guilt. My mood is not owned by other people's behavior. I notice reactions but I do not hand them control. I do not need to look down on others to feel above water. I see people clearly without denying my own gaps. I take responsibility without self hatred. I am a real person even when I am inconsistent. I can trust myself to keep going. I do not need to be perfect to be legitimate. I do not need to collapse to deserve care. I choose to become solid quietly steadily and without violence toward myself."
     },
     {
       "date": "2026-01-27 17:02",
-      "mood": "sadness",
       "text_tr": "Ne düşünüyordum biliyor musun? Hiç kimse içindeki çocuğu gerçekten öldüremez. 'İçimizdeki çocuk' dediğimiz şey aslında bir bileşimdir — zevk anlayışımız, iştahımız, heyecanımız, çekingenliğimiz, mahcubiyetimiz, kaygımız ve yaratıcılığımızın ta kendisi. Küçük ve kırılgan hissettirir ama onu gerçek, canlı ve bir şekilde değerli yapan da budur. Bazı insanlar içlerindeki çocuğu 'öldürmekten' bahsediyor ama bu mantıklı değil. Onu susturabilirsin, bastırabilirsin ama fiziksel ölümüne kadar gerçekten yok edemezsin. Yani asla geç değil. O çocuğu dinlemek için asla geç değildir.",
       "text_en": "You know what I was thinking? Nobody can truly kill the inner child within themselves. What we call the 'inner child' is really a blend of things—our sense of taste, our appetite, excitement, shyness, embarrassment, anxiety, and the very source of our creativity. It feels small and fragile, but that's also what makes it real, alive, and somehow precious. Some people talk about 'killing' their inner child, but that doesn't make sense. You can silence it, you can suppress it, but you can't truly destroy it until your physical death. So it's never too late. its never late for listening the kid"
     },
     {
       "date": "2026-01-27 17:02",
-      "mood": "joy",
       "text_tr": "Umut ettiğim ve sabırla peşinden koştuğum şeylerle aramda farklı bir bağ var.",
       "text_en": "There is a different kind of bond with the things I hoped for and patiently pursued."
     },
     {
       "date": "2026-01-27 17:00",
-      "mood": "neutral",
       "text_tr": "Fark ettim ki zayıflıklarımız aslında en büyük hazinelerimiz. İyi yanlarımız çoğu zaman fark edilmez çünkü onların eksikliğini hissetmeyiz; onları oldukları gibi bırakırız ve zamanla ortalama olmaya, doğal ve sessizce çalışmaya alışırlar. Ama kendimizde belirli bir yerde zayıf hissettiğimizde, o zayıflık farkındalığı zorlar. Tetikte, tepkisel ve dikkatli oluruz. Güçlü yanlarımız gibi işlev görmesi gereken o zayıf parça, ilgi ve niyet talep etmeye başlar. Bu farkındalık bize onu keskinleştirme, cilalama ve parlatma şansı verir. Ve bir zamanlar en zayıf noktamız olan şey en güçlü yanımız haline geldiğinde, sanki Tanrı'nın eli uzanıp bizi dipten kaldırıp yukarıya doğru yönlendiriyormuş gibi hissettirir. tanrı bir yerlerde.. biraz altta biraz uzakta",
       "text_en": "I've realized that our weaknesses are actually our greatest treasures. The good things about us often go unnoticed because we don't feel a lack of them; we leave them as they are, and over time they settle into being average—working naturally and silently. But when we feel weak in a certain part of ourselves, that weakness forces awareness. We become alert, reactive, and attentive. That weak part, which should function like our stronger sides, begins to demand care and intention. This awareness gives us the chance to sharpen it, refine it, and make it shine. And when what was once our weakest point becomes our strongest, it feels like the hand of God reaching down—lifting us from the bottom and guiding us upward. god's some where.. slightly underneath slightly faraway"
     },
     {
       "date": "2026-01-27 17:00",
-      "mood": "joy",
       "text_tr": "Servisim geçerken ona el salladım çünkü beni göreceğini düşünmüştüm, o yüzden acele etmedim. Durmaya hiç niyeti olmadığını fark edince koşmaya başladım. Trafikte sıkıştı ve şoför geçmek üzere olduğum yolu görüp hareket etmeye karar verdiğinde beni fark etti ve durdu. Hayatımda niyetlerim ve olaylar hep ters yönlerde hareket eder. Umutsuz olduğumda hayat bana umut verir. Umutlu olduğumda o umudu, hâlâ ummaya devam edebileceğim en alt seviyeye kadar alır. Çok umutlu olduğumda karnıma bir yumruk atar. Yere düştüğümde bana kalkma umudu verir ya da belki o umudu kendi içimde ben yaratıyorumdur.",
       "text_en": "When my shuttle was passing by I waved at it because I thought it would see me so I was not in a rush. When I realized it had no intention of stopping I started running. It got stuck in traffic and when the driver saw the road I was about to cut in front of and decided to move that is when he noticed me and stopped. In my life my intentions and events always move in opposite directions. When I am hopeless life gives me hope. When I am hopeful it takes that hope away down to the lowest level where I can still continue hoping. When I am very hopeful it punches me in the stomach. When I fall to the ground it gives me the hope to get up or maybe I create that hope inside myself."
     },
     {
       "date": "2026-01-27 16:57",
-      "mood": "sadness",
       "text_tr": "Sanırım hayattaki döngüm, bir şeyleri istemek ve onlara dürüstçe ulaşamamak. Sürekli aktif olarak bir şey hayal ediyor, düşünüyor, kuruyorum ama çaba yalnızca yarım kalıyor. Ve bu yarım çabalar üst üste yığılıp beni hep bir sonraki şeyi bekler halde tutan bir döngüye dönüşüyor. Belki de ilk kez elimde ilginç ve etkili olabilecek somut bir şey var. Geçmişte yazıyla ilgili benzer bir şey yaşamıştım. Benzer bir şekilde performans gösterip benzer bir sonuçla bitirmiş, sonra onu yok etmiştim. Sonra çok resim çizdim. Gerçekten çok. Sonra o yeteneğin sönmesine izin verdim. Annem de benim için yaptığım şeyleri yok etti. Şimdi kod yazmaya çalışıyorum ve temelde aynı döngüyü tekrar tekrar yaşıyorum. Bunların hiçbiri gerçekten kurtulmak istediğim şeyler değildi. Sadece ara vermem gereken şeylerdi. Farklı yaklaşmam gereken şeylerdi. O mücadeleyi belki kazanamadım ama devam etmek için motivasyon arıyorsam bu olmalı. Sadece farklı türde bir motivasyon. Ne demek istediğimi anlıyorsun. Sigarayı bırakalı dört ay oldu ve çalışmak istiyorum ama yapamıyorum. Kendimi son derece yorgun hissediyorum. Sigara içerken çok yorgun hissettiğim zamanlar olurdu. Bıraktıktan sonra kendimi kolay kolay yorulmayan biri olarak görmeye başladım. Ama o yaz bittiğinde gerçekten toparlanamadım. Şimdi toparlandığımı söyleyebilirim aslında ama çok zordu. Yine de oldu. Çünkü irade bir kas gibidir. Yorgun olsan bile yine de spor salonuna gidersin. Kollarında hiç güç olmasa bile kendine \"en kötü ağırlıkları kaldırıp çıkacağım\" dersin. Kendini içeri adım atmaya kandırırsın. Yavaş yavaş, hafif ağırlıklarla kendini ikna edersin. Kolların ivme kazanır ve kaldırmaya alışır. Gerçek hayat da böyle işliyor. Şu an sorunlarla uğraşıyorum ve yalnız hissediyorum, muhtemelen bundandır. Telefonum kapalı. İnternetim yok. Odamda ders çalışmaya çalıştığımda sıkışmış hissediyorum. Bugün kütüphaneye gittim ve daha da kötü hissettim. Bugün belki üç belki beş sigara içtim. Tam sayıyı bile bilmiyorum. İçmemek için çok uğraştım ve neredeyse aklımı kaçırıyordum. İçmemeye çalışırken sürekli \"içmemek çok zor, sadece erteliyorum, bu böyle devam ederse muhtemelen sonunda içeceğim\" diye düşünüp durdum. Ama bu bırakmayı denediğim ilk sefer değil. Deneyimliyim, o deneyimleri unutsam bile kendilerini bana hatırlatıyorlar. Yarın kendime \"şu an içmesen ölmeyeceksin ve yarın canın bile çekmeyecek\" diyeceğim. Ne olursa olsun bunu kendime söyleyeceğim. Ve ertesi gün biri sigaradan bahsetse bile midem bulanacağını biliyorum. Bilgisayarım yavaş. İnternetim yok. Rahat çalışabileceğim bir yerim yok. Kafeye gitsem rahatlayamıyorum. Okul kütüphanesine gitsem oraya ait değilmişim gibi, kendimi zorla uydurmaya çalışıyormuşum gibi hissediyorum. Sağlık ocağının yanında başka bir kütüphane var ama görmek istemediğim insanlar olabilir, o yüzden gitmeyeceğim. Peki ne kalıyor? Sadece okul kütüphanesi kalıyor. İster istemez oraya gideceğim. İster istemez bunu öğreneceğim. Yarın gideceğim. Yarın erken kalkacağım. Kendimi soğuğa maruz bırakacağım. Başarmak istiyorum. Bu hayattan şimdiye kadar hiçbir şey elde edemedim. Bu kadar ödeyip bu kadar az karşılık alan başka biri var mı acaba. Hep yüzdüm yüzdüm, sona yaklaştım ve sonra bıraktım. Sanatta devrim yaratmadım. Resimde ya da yazıda yeni bir çığır açmadım. Ama bu şeylere saatler harcadım. Ve fark ettim ki gördüğüm ya da okuduğum şeylerden daha çok sevdiğim düşünme biçimleri geliştiriyordum. Bunu yaparken başka kimsenin veremeyeceği zevkler hissediyordum. Başka kimsenin anlayamayacağı şeyler. Resim çizerken ya da yazarken keyif alıyordum. Evet çaba ve üretim vardı ama çabanın kendisinden keyif alıyordum. Bu, ağır olsalar bile şeyleri taşımayı kolaylaştırıyor. Yine öyle bir şey yapmak istiyorum. Ama kod yazmanın arka plan işi var. Çökmeleri ayıklamak, hataları ayırmak, loglama, mimari kurmak. Bunlar nefret ettiğim şeyler değil. Sevdiğim şeylere dönüştüklerini görebiliyorum. Ama bu tür bir emekten gerçekten keyif alıp almadığımdan emin değilim, özellikle mimariyi kendim kurduğum için. O aslında benim oyun alanım. LEGO ile inşa etmek gibi. Bir Minecraft evi gibi. Eleştirsem bile temelde tek başıma oynuyorum. Talimat alıp başkasının vizyonunu uygulamıyorum. Başkasının altında çalışmak muhtemelen beni perişan ederdi. Kişisel yaratım ile iş dünyası arasındaki o fark tam olarak beni korkutan şey. Bu yüzden başkası için çalışmak istemiyorum. Kod yazmanın kendisinden pek keyif almadığımı söylesem bile, kendi başıma çalıştığımda kabul edilebilir hale geliyor. Beni heyecanlandıran şey yenilik. Teknoloji. İnsanların Google çıktığında ya da Facebook, sonra ChatGPT çıktığında hissettiği o duygu. O tür bir heyecan beni motive ediyor. Kod yazma, kaldırabildiğim sürece oyun alanımın bir parçası olarak kalıyor. Ama istatistiksel olarak hayat muhtemelen hayal ettiğim gibi gitmeyecek. İş kurmak zor. Ondan hayatını güvenceye alacak kadar para kazanmak daha da zor. Bunlar düşük olasılıklı sonuçlar. Buna inanıyorum ya da inanmak istiyorum ama gerçekliği görmezden mi gelmeliyim yoksa yüzleşmeli miyim bilmiyorum. Kendime yalan söylemek istemiyorum. Gerçeklik kafamdaki hayali senaryolarla uyuşmuyor. Hayat gerçekten istediğim şey için çok sınırlı imkanlar sunuyor. Bilgisayarımda GPU olmadığı için düzgün bir 3D harita arayüzü bile sağlayamadım, Google Maps kullanmak zorunda kaldım. Tamam, uygulama yine de bir şey ifade edebilir. Ama yine de canımı acıtıyor. Instagram'ı emülatörümde çalıştırsam çalışır mı acaba. Çalışırsa etkileyici bir şey demektir. Çalışmazsa belki platformun kendisi yeterince gerçek değildir. Sadece yamalı bir şey. Bugün motive hissetmek istedim. Kendimi nasıl izole edip sahil boyunca yürüyüp gün doğumunu izlediğimi hatırladım. İçimde yine bir şeyin değiştiğini görmek istiyorum. Kötü internet ya da zayıf bir bilgisayar yüzünden ilerlemesi durabilecek biri olmamalıyım. En azından kafamdaki sorunların beni öldürecek kadar büyük olmadığını görmeliyim.",
       "text_en": "I think my cycle in this life is wanting things and not being able to reach them honestly. It feels like I am always actively dreaming about something always thinking always imagining but the effort is only half there. And these half efforts stack up one after another and turn into a loop where I am always waiting for the next thing. Maybe for the first time I actually have something concrete in my hands something that could be interesting and impactful. In the past I had something similar with writing. I performed in a similar way and ended up with a similar result and then I destroyed it. Later I drew a lot. Really a lot. And then I let that ability fade away. My mother also destroyed the things I made for me. Now I am trying to code things and I am basically living the same cycle again and again. None of these were things I truly wanted to get rid of. They were things I just needed to pause. Things I needed to approach differently. I could not win that fight maybe but if I am looking for motivation to continue this should be it. Just a different kind of motivation. You know what I mean. It has been four months since I quit smoking and I want to work but I cannot. I feel extremely tired. When I was smoking there were times I felt very exhausted. After I quit I started seeing myself as someone who does not get tired that easily. But when that summer ended I never really recovered. I can say I recovered now actually but it was very hard. Still it happened. Because willpower is like a muscle. Even if you are tired you go to the gym anyway. Even if your arms have no strength you tell yourself I will lift the worst weights possible and leave. You trick yourself into stepping inside. Slowly with light weights you convince yourself. Your arms enter momentum and get used to lifting. Real life works like that too. Right now I am dealing with problems and I feel lonely so it is probably because of that. My phone is shut off. I have no internet. When I try to study in my room I feel cramped. Today I went to the library and felt even worse. Today I smoked maybe three maybe five cigarettes. I do not even know the exact number. I tried very hard not to smoke and I almost lost my mind. While trying not to smoke I kept thinking not smoking is so hard I am just postponing it and I will probably smoke eventually if this continues. But this is not my first time trying to quit. I am experienced even if I forget those experiences they remind themselves to me. Tomorrow I will tell myself you will not die if you do not smoke right now and tomorrow you will not even crave it. I will say this to myself no matter what. And the next day when someone even mentions cigarettes I know I will feel sick. My computer is slow. I have no internet. I have nowhere comfortable to work. If I go to a cafe I cannot relax. If I go to the school library I feel like I do not belong there like I am forcing myself to fit in. There is another library near the health clinic but there might be people I do not want to see so I will not go. What is left then. There is only the school library. I will go there whether I like it or not. I will learn this whether I like it or not. Tomorrow I will go. Tomorrow I will wake up early. I will expose myself to the cold. I want to succeed. I have gotten nothing out of this life so far. I wonder if there is anyone who paid this much and got this little in return. I always swam and swam and came close to the end and then quit. I did not revolutionize art. I did not break new ground in drawing or writing. But I spent hours on these things. And I noticed I was developing ways of thinking that I personally liked more than what I saw or read. While doing that I felt pleasures no one else could give me. Things no one else could even understand. When I was drawing or writing I was enjoying it. There was effort and production yes but I enjoyed the effort itself. That makes things easier to carry even if they are heavy. I want to do something like that again. But coding has a background work. Debugging crashes separating errors logging building architecture. These are not things I hate. I can see them turning into things I like. But I am not sure if I truly enjoy this kind of labor especially because I am building the architecture myself. That is actually my playground. Like building with LEGO. Like a Minecraft house. Even if I criticize it I am basically playing alone. I am not taking instructions and executing someone else's vision. Working under someone else would probably make me miserable. That difference between personal creation and the business world is exactly what scares me. That is why I do not want to work for someone else. Even if I say I do not enjoy coding itself that much when I work on my own it becomes acceptable. What excites me is innovation. Technology. That feeling people had when Google appeared or Facebook or later ChatGPT. That kind of excitement motivates me. Coding stays as part of my playground as long as I can handle it. But statistically life probably will not turn out the way I imagine. Starting a business is hard. Making enough money from it to secure your life is even harder. These are low probability outcomes. I believe in it or I want to believe but I do not know if I should ignore reality or face it. I do not want to lie to myself. Reality does not match the imaginary scenarios in my head. Life offers very limited things for what I actually want. I could not even provide a proper 3D map interface because my computer has no GPU so I had to use Google Maps. Sure the app can still mean something. But it still hits me. If I run Instagram on my emulator would it even work. If it does it means something impressive. If it does not then maybe the platform itself is not real enough. Just patched together. Today I wanted to feel motivated. I remembered how I used to isolate myself walk along the coast and watch the sunrise. I want to see something change in me again. I should not be someone whose progress can be stopped by bad internet or a weak computer. At least I should see that the problems in my head are not big enough to kill me."
     },
     {
       "date": "2026-01-27 16:57",
-      "mood": "sadness",
       "text_tr": "Borçtan şikayet ediyorum ve sonra uzuvlarını kaybetmiş insanları görüyorum. 18 yaşında kazalar ve borçlarla hayatlarını mahvetmiş insanların hikayelerini duyuyorum. Ve fark ediyorum ki bunların hiçbiri benim başıma gelmiyor. Yine de hayatımın ne kadar değerli olduğunu göremiyorum. Belki bu, yeni ayrılmış birinin psikolojisidir. Öyle olsa bile nefret ediyorum. Kendimi uyuşturmak istiyorum. Her şeyden kaçınmak istiyorum. Sigara içmek, kaygılanmak, kızlarla konuşmak ve işten kaçınmak istiyorum. Zorunda olduğum için değil, orada saklandığım için. Ve böyle mutlu değilim. Bu beni tanımlamıyor. Biyoloji bir kısmını açıklıyor. Dışsal bir mutluluk kaynağını kaybetmek acı verir. Ruh hali değişir. Motivasyon düşer. Ama burada kalmak istemiyorum. Bu ben değilim. Sağlıklıyım. Umudum var. Yine de kaygılı hissediyorum. Ve hareket etmezsem tüm oklar doğrudan bana isabet eder. Hareket etmeye devam etmeliyim. Genç, hırslı, meraklı, düzgün konuşan hatta belki çekici bile olabilirim. Ama bunların hiçbirini kullanmazsam hiçbir şey kalmaz. Ve tüm bunların arasında yalnızca çaba gerçekten sonuç üretir. Çaba göstermeyi bıraktığımda perişan oluyorum. Durarak kendime zarar veriyorum. Durmamalıyım. Uzun vadeli hedefler zor. Kötü hissetmek normal. Ama artık kendimi hakaret ederek motive etmek istemiyorum. \"Bugün neden daha fazlasını yapmadın seni pislik\" demek istemiyorum. Bunu yaptım ve hiç işe yaramadı. Kendimi iyi hissettiren şeyler yapmak istiyorum. Ve çalışmak istiyorum.",
       "text_en": "I complain about debt and then I see people who have lost limbs. I hear stories of people who ruined their lives at 18 with accidents and debt. And I realize none of that is happening to me. Yet I still cannot see how valuable my life is. Maybe this is the psychology of someone who just broke up. Even if it is I hate it. I want to numb myself. I want to avoid everything. I want to smoke worry talk to girls and avoid work. Not because I have to but because I am hiding there. And I am not happy like this. This does not describe me. Biology explains some of it. Losing an external source of happiness hurts. Mood changes. Motivation drops. But I do not want to stay here. This is not who I am. I am healthy. I have hope. Yet I feel anxious. And if I do not move all the arrows hit me directly. I have to keep moving. I might be young ambitious curious articulate maybe even attractive. But if I do not use any of it nothing remains. And among all of these only effort actually produces results. When I stop making effort I become miserable. I hurt myself by stopping. I should not stop. Long term goals are hard. Feeling bad is normal. But I do not want to motivate myself by insulting myself anymore. I do not want to say why did you not do more today you piece of shit. I did that and it never worked. I want to do things that make me feel good. And I want to work."
     },
     {
       "date": "2026-01-27 16:56",
-      "mood": "neutral",
       "text_tr": "Bazen (kendimi suçlarken fark ediyorum) kendimi mükemmel olmadığım için suçluyorum ama neden mükemmel olmam gerektiğini düşünüyorum ki? Hiç kimse içindeki çocuğu öldüremez ama gerçekten bazı insanlar fiziksel ölümlerine kadar o çocuğu susturur. Bazıları buna içimizdeki çocuk der, bazıları yaşam enerjisi.",
       "text_en": "Sometimes I (find out while blaming myself) blame myself because being not perfect but why do I suppose to be? Nobody can kill their inner child but indeed some people quiet the kid until their physical death. Some people call it inner child some others life energy"
     }
-  ]
+  ],
+  "tourism_experience": [
+    {
+      "role": {
+        "en": "Waiter",
+        "tr": "Garson"
+      },
+      "company": "Crystal Aura Kemer",
+      "period": {
+        "en": "Jul 2023 – Oct 2023",
+        "tr": "Temmuz 2023 – Ekim 2023"
+      },
+      "location": {
+        "en": "Antalya, Türkiye · Full-time",
+        "tr": "Antalya, Türkiye · Tam zamanlı"
+      },
+      "sector": {
+        "en": "Tourism sector",
+        "tr": "Turizm sektörü"
+      }
+    },
+    {
+      "role": {
+        "en": "Waiter",
+        "tr": "Garson"
+      },
+      "company": "The Land of Legends",
+      "period": {
+        "en": "Jul 2022 – Oct 2022",
+        "tr": "Temmuz 2022 – Ekim 2022"
+      },
+      "location": {
+        "en": "Antalya, Türkiye · Full-time",
+        "tr": "Antalya, Türkiye · Tam zamanlı"
+      },
+      "sector": {
+        "en": "Tourism sector · F&B department",
+        "tr": "Turizm sektörü · Yiyecek & İçecek (F&B) departmanı"
+      }
+    },
+    {
+      "role": {
+        "en": "Intern",
+        "tr": "Stajyer"
+      },
+      "company": "Voyage Maxx Royal Belek Golf & Spa",
+      "period": {
+        "en": "Jul 2019 – Jan 2020",
+        "tr": "Temmuz 2019 – Ocak 2020"
+      },
+      "location": {
+        "en": "Antalya, Türkiye · Full-time",
+        "tr": "Antalya, Türkiye · Tam zamanlı"
+      },
+      "sector": {
+        "en": "Tourism sector · F&B department",
+        "tr": "Turizm sektörü · Yiyecek & İçecek (F&B) departmanı"
+      }
+    },
+    {
+      "role": {
+        "en": "Commis / Waiter Assistant",
+        "tr": "Komi / Garson Yardımcısı"
+      },
+      "company": "Kokoreççi Hilmi",
+      "period": {
+        "en": "Summer 2015 & 2016 (2 seasons, 3 months each)",
+        "tr": "Yaz 2015 & 2016 (2 sezon, her biri 3 ay)"
+      },
+      "location": {
+        "en": "Antalya, Türkiye · Seasonal",
+        "tr": "Antalya, Türkiye · Sezonluk"
+      },
+      "sector": {
+        "en": "Tourism sector · F&B department",
+        "tr": "Turizm sektörü · Yiyecek & İçecek (F&B) departmanı"
+      }
+    },
+    {
+      "role": {
+        "en": "Commis / Waiter Assistant",
+        "tr": "Komi / Garson Yardımcısı"
+      },
+      "company": "Lara Balık Evi İşiklar",
+      "period": {
+        "en": "Summer 2014 & 2015 (2 seasons, 3 months each)",
+        "tr": "Yaz 2014 & 2015 (2 sezon, her biri 3 ay)"
+      },
+      "location": {
+        "en": "Antalya, Türkiye · Seasonal",
+        "tr": "Antalya, Türkiye · Sezonluk"
+      },
+      "sector": {
+        "en": "Tourism sector · F&B department",
+        "tr": "Turizm sektörü · Yiyecek & İçecek (F&B) departmanı"
+      }
+    }
+  ],
+  "logbook_presentation": {
+    "title": {
+      "en": "Innova Introduction Presentation",
+      "tr": "Innova Tanıtım Sunumu"
+    },
+    "badge": {
+      "en": "Sales work · Day 37",
+      "tr": "Satış çalışması · 37. Gün"
+    },
+    "text": {
+      "en": "The introduction presentation I prepared during my sales work at the end of the internship. It explains what Innova and Logo offer, from ERP and production tracking to barcode/QR field solutions and custom integrations, and I attached it to the email template sent to the companies I researched.",
+      "tr": "Stajın sonundaki satış çalışmam sırasında hazırladığım tanıtım sunumu. Innova ve Logo'nun sunduğu çözümleri (ERP, üretim takibi, barkod/QR saha çözümleri ve özel entegrasyonlar) anlatıyor; araştırdığım firmalara gönderdiğim mail şablonuna ek olarak koydum."
+    },
+    "cover": "assets/covers/innova_tanitim.jpg",
+    "file": "assets/attachments/innova_tanitim_sunumu.pdf"
+  }
 };

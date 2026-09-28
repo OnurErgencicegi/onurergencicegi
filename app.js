@@ -11,7 +11,7 @@ const UI = {
   tab_certificates: { en: "🎖 Certificates", tr: "🎖 Sertifikalar" },
   sub_story: { en: "📜 My Story", tr: "📜 Hikayem" },
   sub_thoughts: { en: "🩸 Thoughts", tr: "🩸 Düşünceler" },
-  sub_hobbies: { en: "🎯 Hobbies & Growth", tr: "🎯 Hobiler & Gelişim" },
+  sub_hobbies: { en: "🎯 Hobbies", tr: "🎯 Hobiler" },
   sub_current: { en: "🚧 Currently working on", tr: "🚧 Şu anda üzerinde çalıştıklarım" },
   sub_past: { en: "🗡 Past projects", tr: "🗡 Geçmiş projeler" },
   currently_working_on: { en: "Currently working on", tr: "Şu anda üzerinde çalıştıklarım" },
@@ -26,7 +26,6 @@ const UI = {
   no_entries: { en: "No entries found.", tr: "Kayıt bulunamadı." },
   search_ph: { en: "Search", tr: "Ara" },
   entry_count: { en: "entries", tr: "kayıt" },
-  all_moods: { en: "All moods", tr: "Tüm ruh halleri" },
   download_presentation: { en: "⬇ Download presentation", tr: "⬇ Sunumu indir" },
   preview_presentation: { en: "🔍 Preview", tr: "🔍 Önizle" },
   no_attachment: { en: "Presentation coming soon.", tr: "Sunum yakında eklenecek." },
@@ -36,8 +35,20 @@ const UI = {
   },
   view_certificate: { en: "👁 View", tr: "👁 Görüntüle" },
   gpa_label: { en: "GPA", tr: "Not Ortalaması" },
+  tab_what: { en: "What it does", tr: "Ne yapar" },
+  tab_how: { en: "How it works", tr: "Nasıl çalışır" },
+  tab_story: { en: "Story behind the app", tr: "Uygulamanın hikayesi" },
+  journal_less: { en: "Show less", tr: "Daha az göster" },
+  min_read: { en: "min read", tr: "dk okuma" },
   read_more: { en: "Read more", tr: "Devamını oku" },
   close: { en: "Close", tr: "Kapat" },
+  tourism_title: { en: "My Tourism Working Experience", tr: "Turizm Çalışma Deneyimim" },
+  tourism_caption: {
+    en: "Years of hands-on work in hotels and restaurants around Antalya, from seasonal jobs as a kid to full-time roles.",
+    tr: "Antalya çevresindeki otel ve restoranlarda, çocukluktaki sezonluk işlerden tam zamanlı görevlere uzanan yılların saha deneyimi.",
+  },
+  transcript_view: { en: "📄 View transcript", tr: "📄 Transkripti görüntüle" },
+  transcript_dl: { en: "⬇ Download transcript", tr: "⬇ Transkripti indir" },
   staj_gunlugu: { en: "Internship Logbook", tr: "Staj Günlüğü" },
   staj_caption: {
     en: "Compiled from the day-by-day notes kept in my internship logbook.",
@@ -45,7 +56,6 @@ const UI = {
   },
 };
 
-const MOOD_EMOJI = { joy: "🌞", sadness: "🌧️", neutral: "🌫️", anger: "🔥", fear: "🌑", love: "💛", surprise: "✨" };
 
 function L(d) {
   if (d && typeof d === "object" && "en" in d && "tr" in d) return d[LANG] ?? d.en;
@@ -85,12 +95,14 @@ function renderLabels() {
   document.getElementById("lbl-story-long").textContent = t("long_story_long");
 
   document.getElementById("lbl-thoughts").textContent = t("sub_thoughts").split(" ").slice(1).join(" ");
-  document.getElementById("thoughts-caption").textContent = t("thoughts_caption");
-  document.getElementById("journal-search").placeholder = t("search_ph");
 
   document.getElementById("lbl-hobbies").textContent = t("sub_hobbies").split(" ").slice(1).join(" ");
 
   document.getElementById("lbl-work").textContent = t("tab_work").split(" ").slice(1).join(" ");
+  document.getElementById("lbl-tourism").textContent = t("tourism_title");
+  document.getElementById("lbl-tourism-caption").textContent = t("tourism_caption");
+  document.getElementById("btn-transcript-view").textContent = t("transcript_view");
+  document.getElementById("btn-transcript-dl").textContent = t("transcript_dl");
   document.getElementById("lbl-logbook").textContent = t("staj_gunlugu");
   document.getElementById("lbl-logbook-caption").textContent = t("staj_caption");
 
@@ -133,10 +145,11 @@ function projectCardHtml(p, ctx) {
   const link = p.link ? `<a href="${esc(p.link)}" target="_blank">${esc(p.link)}</a>` : "";
   const key = `${ctx}_${p.title}`.replace(/\s+/g, "_");
 
-  let extendedHtml = "";
-  if (p.extended) {
-    extendedHtml = `<details class="exp"><summary>${esc(t("read_more"))} — ${esc(p.title)}</summary><div class="exp-body">${esc(L(p.extended))}</div></details>`;
-  }
+  const tabDefs = [["what", "tab_what"], ["how", "tab_how"], ["story", "tab_story"]];
+  const tabsHtml = `<div class="ptabs" role="tablist">${tabDefs.map(([k, lbl], i) =>
+    `<button type="button" role="tab" class="ptab${i === 0 ? " active" : ""}" data-ptab="${k}" aria-selected="${i === 0}">${esc(t(lbl))}</button>`).join("")}</div>
+    ${tabDefs.map(([k], i) =>
+    `<div class="ptab-panel${i === 0 ? " active" : ""}" data-ppanel="${k}">${esc(L(p[k] || p.description || ""))}</div>`).join("")}`;
 
   let attachmentHtml = "";
   if (p.attachment) {
@@ -149,22 +162,40 @@ function projectCardHtml(p, ctx) {
     attachmentHtml = `<p style="color:var(--muted); font-size:0.85rem;">${esc(t("no_attachment"))}</p>`;
   }
 
+  const coverHtml = (p.cover && p.attachment)
+    ? `<button type="button" class="project-cover" data-pdf-preview="${esc(p.attachment)}" data-pdf-title="${esc(p.title)}" title="${esc(t("preview_presentation"))}"><img src="${esc(p.cover)}" alt="${esc(p.title)}"></button>`
+    : "";
+
   return `
-    <div class="project-card" data-key="${key}">
-      <b>${esc(p.title)}</b>${status}
-      <p>${esc(L(p.description || ""))}</p>
-      ${link}
-      ${extendedHtml}
-      ${attachmentHtml}
+    <div class="project-card${coverHtml ? " has-cover" : ""}" data-key="${key}">
+      <div class="pc-main">
+        <b>${esc(p.title)}</b>${status}
+        ${tabsHtml}
+        ${link}
+        ${attachmentHtml}
+      </div>
+      ${coverHtml}
     </div>`;
 }
 
 function bindProjectCardEvents(root) {
+  root.querySelectorAll(".ptab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".project-card");
+      card.querySelectorAll(".ptab").forEach(b => {
+        const on = b === btn;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-selected", on);
+      });
+      card.querySelectorAll(".ptab-panel").forEach(pn =>
+        pn.classList.toggle("active", pn.dataset.ppanel === btn.dataset.ptab));
+    });
+  });
   root.querySelectorAll("[data-pdf-preview]").forEach(btn => {
     btn.addEventListener("click", () => {
       openModal(`
         <h3>${esc(btn.dataset.pdfTitle)}</h3>
-        <embed src="${esc(btn.dataset.pdfPreview)}" type="application/pdf">
+        <embed src="${esc(btn.dataset.pdfPreview)}#view=FitH&navpanes=0" type="application/pdf">
       `);
     });
   });
@@ -181,41 +212,41 @@ function renderStory() {
 // ============================================================================
 // Render: Personal — Thoughts (journal)
 // ============================================================================
-function renderJournalControls() {
-  const sel = document.getElementById("mood-filter");
-  const moods = [...new Set(SITE_DATA.journal_entries.map(e => e.mood))];
-  sel.innerHTML = `<option value="">${t("all_moods")}</option>` +
-    moods.map(m => `<option value="${m}">${MOOD_EMOJI[m] || ""} ${m}</option>`).join("");
-}
-
 function renderJournal() {
-  const moodFilter = document.getElementById("mood-filter").value;
-  const searchQ = document.getElementById("journal-search").value.trim().toLowerCase();
-
-  let entries = SITE_DATA.journal_entries.filter(e => {
-    if (moodFilter && e.mood !== moodFilter) return false;
-    if (searchQ) {
-      const text = (LANG === "tr" ? e.text_tr : e.text_en) || "";
-      if (!text.toLowerCase().includes(searchQ)) return false;
-    }
-    return true;
-  });
+  const entries = SITE_DATA.journal_entries;
 
   const list = document.getElementById("journal-list");
-  document.getElementById("journal-count").textContent = `${entries.length} ${t("entry_count")}`;
 
   if (!entries.length) {
     list.innerHTML = `<p style="color:var(--muted)">${t("no_entries")}</p>`;
     return;
   }
 
-  list.innerHTML = entries.map(e => {
+  const fmtDate = (str) => {
+    const m = /^(\d{4})-(\d{2})-(\d{2})(?: (\d{2}):(\d{2}))?/.exec(str || "");
+    if (!m) return str || "";
+    const d = new Date(+m[1], +m[2] - 1, +m[3]);
+    let out = d.toLocaleDateString(LANG === "tr" ? "tr-TR" : "en-GB", { day: "numeric", month: "long", year: "numeric" });
+    if (m[4] && !(m[4] === "00" && m[5] === "00")) out += ` · ${m[4]}:${m[5]}`;
+    return out;
+  };
+  const bodyHtml = (text) => text.split(/\n{2,}/).map(par => {
+    par = par.trim();
+    if (!par) return "";
+    if (/^-{3,}$/.test(par)) return '<hr class="j-sep">';
+    return `<p>${esc(par).replace(/\n/g, "<br>")}</p>`;
+  }).join("");
+
+  list.innerHTML = entries.map((e, i) => {
     const text = (LANG === "tr" ? e.text_tr : e.text_en) || "";
-    const emoji = MOOD_EMOJI[e.mood] || "";
-    return `<div class="journal-card">
-      <div class="journal-meta">${esc(e.date)} · ${emoji} ${esc(e.mood)}</div>
-      <div>${esc(text)}</div>
-    </div>`;
+    const words = text.trim().split(/\s+/).length;
+    const mins = Math.max(1, Math.round(words / 200));
+    const long = text.length > 700;
+    return `<article class="journal-card${long ? " collapsible collapsed" : ""}">
+      <div class="journal-meta"><span>${esc(fmtDate(e.date))}</span><span class="j-dot">·</span><span>${mins} ${esc(t("min_read"))}</span></div>
+      <div class="journal-body">${bodyHtml(text)}</div>
+      ${long ? `<button type="button" class="j-toggle" data-jtoggle>${esc(t("read_more"))}</button>` : ""}
+    </article>`;
   }).join("");
 }
 
@@ -269,11 +300,38 @@ function renderWork() {
     </div>`;
   }).join("");
 
+  document.getElementById("tourism-list").innerHTML = (SITE_DATA.tourism_experience || []).map(x => `
+    <div class="project-card">
+      <b>${esc(L(x.role))} — ${esc(x.company)}</b><span class="status-badge">${esc(L(x.period))}</span>
+      <p style="color:var(--muted); margin:0.3rem 0 0;">${esc(L(x.location))}<br>${esc(L(x.sector))}</p>
+    </div>`).join("");
+
+  const lp = SITE_DATA.logbook_presentation;
+  const lpEl = document.getElementById("logbook-presentation");
+  if (lp) {
+    lpEl.innerHTML = `
+      <div class="project-card log-pres">
+        <button type="button" class="project-cover" data-pdf-preview="${esc(lp.file)}" data-pdf-title="${esc(L(lp.title))}" title="${esc(t("preview_presentation"))}"><img src="${esc(lp.cover)}" alt="${esc(L(lp.title))}"></button>
+        <div class="log-pres-body">
+          <b>${esc(L(lp.title))}</b><span class="status-badge">${esc(L(lp.badge))}</span>
+          <p>${esc(L(lp.text))}</p>
+          <div style="display:flex; gap:0.6rem; flex-wrap:wrap;">
+            <button class="btn" data-pdf-preview="${esc(lp.file)}" data-pdf-title="${esc(L(lp.title))}">${esc(t("preview_presentation"))}</button>
+            <a class="btn dl" href="${esc(lp.file)}" download>${esc(t("download_presentation"))}</a>
+          </div>
+        </div>
+      </div>`;
+    bindProjectCardEvents(lpEl);
+  } else {
+    lpEl.innerHTML = "";
+  }
+
   const logbook = document.getElementById("logbook-list");
   logbook.innerHTML = SITE_DATA.internship_weeks.map(w => `
     <details class="exp">
       <summary>${esc(L(w.title))} · ${esc(w.period)}</summary>
       <div class="exp-body">${esc(L(w.content))}</div>
+      <ul class="log-days">${(w.days || []).map(d => `<li><span class="log-date">${esc(d.date)}</span> <b>${esc(L(d.title))}</b><br>${esc(L(d.text))}</li>`).join("")}</ul>
     </details>
   `).join("");
 }
@@ -339,6 +397,7 @@ function renderCertificates() {
 // Modal
 // ============================================================================
 function openModal(html) {
+  document.getElementById("modal-box").classList.toggle("wide", html.includes("<embed"));
   document.getElementById("modal-content").innerHTML = html;
   document.getElementById("modal-overlay").classList.add("open");
 }
@@ -370,7 +429,6 @@ function renderAll() {
   renderLabels();
   renderHome();
   renderStory();
-  renderJournalControls();
   renderJournal();
   renderHobbies();
   renderWork();
@@ -390,9 +448,17 @@ function init() {
   document.getElementById("btn-tr").addEventListener("click", () => { LANG = "tr"; document.documentElement.lang = "tr"; renderAll(); });
   document.getElementById("btn-en").addEventListener("click", () => { LANG = "en"; document.documentElement.lang = "en"; renderAll(); });
 
-  document.getElementById("mood-filter").addEventListener("change", renderJournal);
-  document.getElementById("journal-search").addEventListener("input", renderJournal);
 
+  document.getElementById("journal-list").addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-jtoggle]");
+    if (!btn) return;
+    const card = btn.closest(".journal-card");
+    const collapsed = card.classList.toggle("collapsed");
+    btn.textContent = t(collapsed ? "read_more" : "journal_less");
+  });
+  document.getElementById("btn-transcript-view").addEventListener("click", (e) => {
+    openModal(`<h3>${esc(t("transcript_view").replace("📄 ", ""))}</h3><embed src="${esc(e.currentTarget.dataset.pdf)}#view=FitH&navpanes=0" type="application/pdf">`);
+  });
   document.getElementById("modal-close").addEventListener("click", closeModal);
   document.getElementById("modal-overlay").addEventListener("click", (e) => {
     if (e.target.id === "modal-overlay") closeModal();
