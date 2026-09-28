@@ -132,8 +132,8 @@ const SITE_DATA = {
       "image": null,
       "link3": {
         "label": {
-          "tr": "Kod Yazarken · DnB & Breakcore",
-          "en": "While Coding · DnB & Breakcore"
+          "tr": "Kod Yazarken",
+          "en": "While Coding"
         },
         "url": "https://www.youtube.com/playlist?list=PLF-OkOCXf6fU"
       }
