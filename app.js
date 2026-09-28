@@ -10,7 +10,7 @@ const UI = {
   tab_projects: { en: "⛓ Projects", tr: "⛓ Projeler" },
   tab_certificates: { en: "🎖 Certificates", tr: "🎖 Sertifikalar" },
   sub_story: { en: "📜 My Story", tr: "📜 Hikayem" },
-  sub_thoughts: { en: "🩸 Thoughts", tr: "🩸 Düşünceler" },
+  sub_thoughts: { en: "📖 Essays", tr: "📖 Yazılar" },
   sub_hobbies: { en: "🎯 Hobbies", tr: "🎯 Hobiler" },
   sub_current: { en: "🚧 Currently working on", tr: "🚧 Şu anda üzerinde çalıştıklarım" },
   sub_past: { en: "🗡 Past projects", tr: "🗡 Geçmiş projeler" },
@@ -20,8 +20,8 @@ const UI = {
   long_story_short: { en: "Long story short", tr: "Uzun lafın kısası" },
   long_story_long: { en: "Long story long", tr: "Uzun lafın uzunu" },
   thoughts_caption: {
-    en: "Unfiltered journal entries — written in the moment, kept as they were.",
-    tr: "Filtrelenmemiş günlük kayıtları — o anda yazıldığı gibi bırakıldı.",
+    en: "Short essays I write from time to time, on things I keep coming back to.",
+    tr: "Zaman zaman, sürekli aklıma dönen konular üzerine yazdığım kısa denemeler.",
   },
   no_entries: { en: "No entries found.", tr: "Kayıt bulunamadı." },
   search_ph: { en: "Search", tr: "Ara" },
@@ -95,6 +95,7 @@ function renderLabels() {
   document.getElementById("lbl-story-long").textContent = t("long_story_long");
 
   document.getElementById("lbl-thoughts").textContent = t("sub_thoughts").split(" ").slice(1).join(" ");
+  document.getElementById("lbl-thoughts-caption").textContent = t("thoughts_caption");
 
   document.getElementById("lbl-hobbies").textContent = t("sub_hobbies").split(" ").slice(1).join(" ");
 
@@ -213,7 +214,9 @@ function renderStory() {
 // Render: Personal — Thoughts (journal)
 // ============================================================================
 function renderJournal() {
-  const entries = SITE_DATA.journal_entries;
+  const entries = SITE_DATA.journal_entries
+    .filter((e) => e.public)
+    .sort((x, y) => (x.order ?? 999) - (y.order ?? 999));
 
   const list = document.getElementById("journal-list");
 
@@ -227,7 +230,6 @@ function renderJournal() {
     if (!m) return str || "";
     const d = new Date(+m[1], +m[2] - 1, +m[3]);
     let out = d.toLocaleDateString(LANG === "tr" ? "tr-TR" : "en-GB", { day: "numeric", month: "long", year: "numeric" });
-    if (m[4] && !(m[4] === "00" && m[5] === "00")) out += ` · ${m[4]}:${m[5]}`;
     return out;
   };
   const bodyHtml = (text) => text.split(/\n{2,}/).map(par => {
@@ -242,7 +244,9 @@ function renderJournal() {
     const words = text.trim().split(/\s+/).length;
     const mins = Math.max(1, Math.round(words / 200));
     const long = text.length > 700;
+    const title = e.title ? L(e.title) : "";
     return `<article class="journal-card${long ? " collapsible collapsed" : ""}">
+      ${title ? `<h3 class="journal-title">${esc(title)}</h3>` : ""}
       <div class="journal-meta"><span>${esc(fmtDate(e.date))}</span><span class="j-dot">·</span><span>${mins} ${esc(t("min_read"))}</span></div>
       <div class="journal-body">${bodyHtml(text)}</div>
       ${long ? `<button type="button" class="j-toggle" data-jtoggle>${esc(t("read_more"))}</button>` : ""}
@@ -261,8 +265,9 @@ function hobbyCardHtml(h) {
     imageHtml = `<div class="hobby-image-wrap"><span class="hobby-banner-icon-inline">${h.icon}</span></div>`;
   }
   let linksHtml = "";
-  if (h.link) linksHtml += `<a class="link-btn" href="${esc(h.link.url)}" target="_blank">🔗 ${esc(h.link.label)}</a>`;
-  if (h.link2) linksHtml += `<a class="link-btn" href="${esc(h.link2.url)}" target="_blank">🔗 ${esc(h.link2.label)}</a>`;
+  for (const k of ["link", "link2", "link3"]) {
+    if (h[k]) linksHtml += `<a class="link-btn" href="${esc(h[k].url)}" target="_blank" rel="noopener">🔗 ${esc(L(h[k].label))}</a>`;
+  }
   if (linksHtml) linksHtml = `<div class="link-btn-row" style="margin-top:0.7rem;">${linksHtml}</div>`;
 
   return `<div class="hobby-card">
