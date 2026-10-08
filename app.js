@@ -438,6 +438,7 @@ function setupTabs(selector, panelPrefix, attr) {
 // Init
 // ============================================================================
 function renderAll() {
+  document.documentElement.lang = LANG;
   renderLabels();
   renderHome();
   renderStory();
