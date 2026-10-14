@@ -1,7 +1,7 @@
 // ============================================================================
 // State
 // ============================================================================
-let LANG = "en";
+let LANG = "tr";
 
 const UI = {
   tab_home: { en: "🏡 Home", tr: "🏡 Ana Sayfa" },
@@ -13,7 +13,7 @@ const UI = {
   sub_thoughts: { en: "📖 Essays", tr: "📖 Yazılar" },
   sub_hobbies: { en: "🎯 Hobbies", tr: "🎯 Hobiler" },
   sub_current: { en: "🚧 Currently working on", tr: "🚧 Şu anda üzerinde çalıştıklarım" },
-  sub_past: { en: "🗡 Past projects", tr: "🗡 Geçmiş projeler" },
+  sub_past: { en: "🗡 Finished projects", tr: "🗡 Biten projeler" },
   currently_working_on: { en: "Currently working on", tr: "Şu anda üzerinde çalıştıklarım" },
   education: { en: "Education", tr: "Eğitim" },
   nothing_yet: { en: "Nothing listed yet.", tr: "Henüz bir şey eklenmedi." },
@@ -128,7 +128,7 @@ function renderLabels() {
 // ============================================================================
 function renderHome() {
   const p = SITE_DATA.profile;
-  document.getElementById("profile-name").textContent = p.name;
+  document.getElementById("profile-name").textContent = LANG === "en" ? p.name.replace(/ç/g,"c").replace(/ğ/g,"g").replace(/ı/g,"i").replace(/ö/g,"o").replace(/ş/g,"s").replace(/ü/g,"u") : p.name;
   document.getElementById("profile-tagline").textContent = L(p.tagline);
   document.getElementById("profile-intro").textContent = L(p.intro);
 
