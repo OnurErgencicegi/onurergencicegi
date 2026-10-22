@@ -14,7 +14,7 @@ const UI = {
   sub_hobbies: { en: "🎯 Hobbies", tr: "🎯 Hobiler" },
   sub_current: { en: "🚧 Currently working on", tr: "🚧 Şu anda üzerinde çalıştıklarım" },
   sub_past: { en: "🗡 Finished projects", tr: "🗡 Biten projeler" },
-  currently_working_on: { en: "Currently working on", tr: "Şu anda üzerinde çalıştıklarım" },
+  currently_working_on: { en: "Latest work", tr: "Son yaptığım işler" },
   education: { en: "Education", tr: "Eğitim" },
   nothing_yet: { en: "Nothing listed yet.", tr: "Henüz bir şey eklenmedi." },
   long_story_short: { en: "Long story short", tr: "Uzun lafın kısası" },
@@ -139,8 +139,14 @@ function renderHome() {
   document.getElementById("profile-links").innerHTML = linksHtml;
 
   const cur = document.getElementById("home-current-projects");
-  cur.innerHTML = SITE_DATA.current_projects.length
-    ? SITE_DATA.current_projects.map(pr => projectCardHtml(pr, "home")).join("")
+  // Latest work: titles listed newest-first in SITE_DATA.latest_work
+  const allProjects = [...SITE_DATA.current_projects, ...SITE_DATA.past_projects];
+  const latest = (SITE_DATA.latest_work || [])
+    .map(title => allProjects.find(pr => pr.title === title))
+    .filter(Boolean)
+    .slice(0, 3);
+  cur.innerHTML = latest.length
+    ? latest.map(pr => projectCardHtml(pr, "home")).join("")
     : `<p style="color:var(--muted)">${t("nothing_yet")}</p>`;
   bindProjectCardEvents(cur);
 }

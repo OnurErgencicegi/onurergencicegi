@@ -840,6 +840,31 @@ const SITE_DATA = {
   ],
   "past_projects": [
     {
+      "title": "Tiger Fitness",
+      "description": {
+        "en": "Digital fitness platform for Tigers Fitness Fight Club: free workout programs with animated GIFs, plus a QR-code competition system where every machine has its own challenge page, leaderboard and duels.",
+        "tr": "Tigers Fitness Fight Club için dijital fitness platformu: animasyonlu GIF'li ücretsiz antrenman programları ve her makinenin kendi mücadele sayfası, liderlik tablosu ve düellosu olan QR kod tabanlı rekabet sistemi."
+      },
+      "status": {
+        "en": "Completed · Live",
+        "tr": "Tamamlandı · Canlıda"
+      },
+      "link": "https://tigersfitness.com",
+      "images": [],
+      "what": {
+        "en": "Tiger Fitness is the digital side of a real gym. The website offers free workout programs where members follow each exercise through animated GIFs, and promotes the gym's Muay Thai, martial arts, kickboxing, boxing and taekwondo classes with videos. On top of that sits a QR-code competition system: a member scans the code on a machine and lands on a challenge page made just for that equipment. The first example is the Chest Press Challenge, where members compete on the weight they lift and the reps they complete. The page shows the gym record and the top three performances on a leaderboard. Members can submit their own record, view the ranking and join duels against other members.",
+        "tr": "Tiger Fitness, gerçek bir spor salonunun dijital yüzü. Web sitesi, üyelerin her hareketi animasyonlu GIF'lerle takip edebildiği ücretsiz antrenman programları sunuyor; salonun Muay Thai, dövüş sanatları, kickboks, boks ve tekvando derslerini de videolarla tanıtıyor. Bunun üstünde QR kod tabanlı bir rekabet sistemi var: üye bir makinenin üzerindeki kodu okutuyor ve o ekipmana özel hazırlanmış mücadele sayfasına ulaşıyor. İlk örnek Chest Press Challenge: üyeler göğüs presinde kaldırdıkları ağırlık ve yaptıkları tekrarla yarışıyor. Sayfada salon rekoru ve en iyi üç performans liderlik tablosunda görünüyor. Üyeler kendi rekorlarını yükleyebiliyor, sıralamayı görebiliyor ve diğer üyelerle düelloya katılabiliyor."
+      },
+      "how": {
+        "en": "Every machine gets its own QR code that points to a dedicated challenge page, so the physical equipment becomes the entry point to the digital platform. Each page has three actions: upload my record, view the leaderboard, and join a duel. The leaderboard keeps the gym record and the top three results for that machine. The workout guides use animated GIFs so a member can check the movement on their phone mid-set. The same structure can be repeated for any other machine in the gym.",
+        "tr": "Her makineye, kendine ait mücadele sayfasına giden bir QR kod veriliyor; böylece fiziksel ekipman dijital platformun giriş kapısı oluyor. Her sayfada üç işlem var: rekorumu yükle, lider tablosunu görüntüle ve düelloya katıl. Liderlik tablosu o makine için salon rekorunu ve ilk üç sonucu tutuyor. Antrenman rehberleri animasyonlu GIF kullanıyor; üye set arasında hareketi telefonundan kontrol edebiliyor. Aynı yapı salondaki diğer makineler için de tekrarlanabiliyor."
+      },
+      "story": {
+        "en": "I built TigerFitness.com to strengthen the gym's digital presence and give members something more than a price list. Free workout programs bring people in, and the class videos introduce the gym to a wider audience. The QR competition system came next, with one goal: turn the physical gym into a digital experience. Leaderboards and duels add game mechanics, so competition, motivation and a sense of community grow together. Members who share their results and challenge friends become natural ambassadors for the gym, and word of mouth does the marketing. The values shown in the example challenge are for demonstration only.",
+        "tr": "TigerFitness.com'u salonun dijital varlığını güçlendirmek ve üyelere bir fiyat listesinden fazlasını sunmak için geliştirdim. Ücretsiz antrenman programları insanları sitemize çekiyor, ders videoları salonu daha geniş bir kitleye tanıtıyor. Ardından QR kodlu rekabet sistemini kurdum; amaç tek: fiziksel salonu dijital bir deneyime dönüştürmek. Liderlik tabloları ve düellolar oyunlaştırma ekliyor; rekabet, motivasyon ve topluluk duygusu birlikte büyüyor. Sonuçlarını paylaşan ve arkadaşlarına meydan okuyan üyeler salonun doğal marka elçilerine dönüşüyor, pazarlamayı kulaktan kulağa yayılma yapıyor. Örnek mücadelede gösterilen değerler yalnızca gösterim amaçlıdır."
+      }
+    },
+    {
       "title": "Konut Yönetim",
       "description": {
         "en": "Apartment and housing-complex management software: dues tracking, cash book, announcements, surveys, meetings and bank-statement import in one place. Managers work from a computer, residents check from their phones.",
@@ -946,6 +971,7 @@ const SITE_DATA = {
       "cover": "assets/covers/derdime_ayet.jpg"
     }
   ],
+  "latest_work": ["Tiger Fitness", "LeadCall", "Konut Yönetim"],
   "certificates": [
     {
       "title": {
